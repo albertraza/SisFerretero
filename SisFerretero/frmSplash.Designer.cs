@@ -29,8 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSplash));
             this.tContador = new System.Windows.Forms.Timer(this.components);
             this.pbProgreso = new System.Windows.Forms.ProgressBar();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tContador
@@ -39,22 +42,36 @@
             // 
             // pbProgreso
             // 
-            this.pbProgreso.Location = new System.Drawing.Point(-1, 252);
+            this.pbProgreso.Location = new System.Drawing.Point(-1, 246);
             this.pbProgreso.Name = "pbProgreso";
             this.pbProgreso.Size = new System.Drawing.Size(666, 10);
             this.pbProgreso.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(665, 247);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // frmSplash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(661, 261);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(667, 253);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbProgreso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Splash";
+            this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.frmSplash_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -63,5 +80,6 @@
 
         private System.Windows.Forms.Timer tContador;
         private System.Windows.Forms.ProgressBar pbProgreso;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
