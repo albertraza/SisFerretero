@@ -1,0 +1,11 @@
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\SisFerretero.exe.config
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\SisFerretero.exe
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\SisFerretero.pdb
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.csprojResolveAssemblyReference.cache
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmSplash.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Properties.Resources.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.csproj.GenerateResource.Cache
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.exe
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.pdb
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmMenuPrincipal.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmOrdenesPendientes.resources
