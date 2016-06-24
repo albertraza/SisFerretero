@@ -25,9 +25,22 @@ namespace SisFerretero
             }
         }
 
-        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        private void panel1_Paint(object sender, PaintEventArgs e)
         {
+            
+        }
 
+        private void lblCerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro que desea salir del Sistema?", "Menu Principal", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void lblMinimizar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }
