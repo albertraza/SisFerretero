@@ -50,5 +50,21 @@ namespace SisFerretero
         /////////////////////////////////////////////
         // final del codigo para mover la ventana///
         ////////////////////////////////////////////
+        
+
+        // codigo para cerrar y minimizar
+        private void lblCerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if(MessageBox.Show("Esta seguro que desea salir?", "Venta de productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        // Final Codigo cerrar y minimizar
     }
 }

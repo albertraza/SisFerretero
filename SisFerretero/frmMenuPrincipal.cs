@@ -55,14 +55,12 @@ namespace SisFerretero
             posicion = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
             mouseAction = true;
         }
-
         private void frmMenuPrincipal_MouseUp(object sender, MouseEventArgs e)
         {
             // este codigo detecta si el mouse se ha dejado de presionar
             // se cambia el valor de la variable mouseAction a false
             mouseAction = false;
         }
-
         private void frmMenuPrincipal_MouseMove(object sender, MouseEventArgs e)
         {
             // este codigo mueve la ventana
@@ -76,5 +74,11 @@ namespace SisFerretero
         //////////////////////////////////////////////////
         // Final del codigo para poder mover la Ventana //
         //////////////////////////////////////////////////
+
+
+        private void ventaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmFacturacion().Show();
+        }
     }
 }
