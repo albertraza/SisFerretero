@@ -16,5 +16,39 @@ namespace SisFerretero
         {
             InitializeComponent();
         }
+        //////////////////////////////////////////
+        // codigo para poder mover la ventana ///
+        ////////////////////////////////////////
+        private Point posicion;
+        private bool mouseAction;
+        private void frmFacturacion_MouseDown(object sender, MouseEventArgs e)
+        {
+            // este evento detecta si el mouse se esta presionando
+            // se obtiene la pocision de la ventana
+            // se cambia el valor de la variable mouseAction a true
+            posicion = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
+            mouseAction = true;
+        }
+
+        private void frmFacturacion_MouseUp(object sender, MouseEventArgs e)
+        {
+            // este evento detecta si el mouse no esta presionado
+            // se cambia el valor de la variable mouseAction a false
+            mouseAction = false;
+        }
+
+        private void frmFacturacion_MouseMove(object sender, MouseEventArgs e)
+        {
+            // este evento mueve la ventana
+            // se evalua si el mouse esta siendo presionado
+            // en caso de, se cambia la posicion de acuerdo al movimiento del mouse
+            if (mouseAction)
+            {
+                this.Location = new Point(Cursor.Position.X - posicion.X, Cursor.Position.Y - posicion.Y);
+            }
+        }
+        /////////////////////////////////////////////
+        // final del codigo para mover la ventana///
+        ////////////////////////////////////////////
     }
 }

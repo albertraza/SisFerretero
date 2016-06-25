@@ -42,5 +42,39 @@ namespace SisFerretero
         {
             WindowState = FormWindowState.Minimized;
         }
+        /// //////////////////////////////////////
+        // Esto es para poder mover la ventana ///
+        /////////////////////////////////////////
+        private bool mouseAction;
+        private Point posicion;
+        private void frmMenuPrincipal_MouseDown(object sender, MouseEventArgs e)
+        {
+            // este codigo detecta si el mouse esta siendo presionado //
+            // se captura el punto donde se encuentra el formulario en la pantalla
+            // se cambia el valor de la variable mouseAction a true
+            posicion = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
+            mouseAction = true;
+        }
+
+        private void frmMenuPrincipal_MouseUp(object sender, MouseEventArgs e)
+        {
+            // este codigo detecta si el mouse se ha dejado de presionar
+            // se cambia el valor de la variable mouseAction a false
+            mouseAction = false;
+        }
+
+        private void frmMenuPrincipal_MouseMove(object sender, MouseEventArgs e)
+        {
+            // este codigo mueve la ventana
+            // se detecta si el mouse esta siendo presionado
+            // se cambia de punto en la pantalla
+            if (mouseAction)
+            {
+                this.Location = new Point(Cursor.Position.X - posicion.X, Cursor.Position.Y - posicion.Y);
+            }
+        }
+        //////////////////////////////////////////////////
+        // Final del codigo para poder mover la Ventana //
+        //////////////////////////////////////////////////
     }
 }
