@@ -33,6 +33,7 @@
             this.tContador = new System.Windows.Forms.Timer(this.components);
             this.pbProgreso = new System.Windows.Forms.ProgressBar();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblProgreso = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,12 +58,22 @@
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
+            // lblProgreso
+            // 
+            this.lblProgreso.AutoSize = true;
+            this.lblProgreso.Location = new System.Drawing.Point(272, 230);
+            this.lblProgreso.Name = "lblProgreso";
+            this.lblProgreso.Size = new System.Drawing.Size(52, 13);
+            this.lblProgreso.TabIndex = 2;
+            this.lblProgreso.Text = "Progreso:";
+            // 
             // frmSplash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(667, 253);
+            this.Controls.Add(this.lblProgreso);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pbProgreso);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -73,6 +84,7 @@
             this.Load += new System.EventHandler(this.frmSplash_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -81,5 +93,6 @@
         private System.Windows.Forms.Timer tContador;
         private System.Windows.Forms.ProgressBar pbProgreso;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblProgreso;
     }
 }

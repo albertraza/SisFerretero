@@ -27,6 +27,8 @@ namespace SisFerretero
         private void tContador_Tick(object sender, EventArgs e)
         {
             Contador++;
+            lblProgreso.Text = "";
+            lblProgreso.Text = "Progreso: " + Contador.ToString() + "%";
             if(Contador == 101 || Contador > 100)
             {
                 tContador.Stop();
