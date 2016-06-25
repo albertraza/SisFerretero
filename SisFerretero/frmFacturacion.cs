@@ -16,6 +16,16 @@ namespace SisFerretero
         {
             InitializeComponent();
         }
+        // metodo para hacer los texbox disable
+        private void DisableTextboxes()
+        {
+            txtCantidadExistente.Enabled = false;
+            txtITEBIS.Enabled = false;
+            txtNombreProducto.Enabled = false;
+            txtPrecioUnitario.Enabled = false;
+            txtTotalaPagar.Enabled = false;
+            txtTotalNoImp.Enabled = false;
+        }
         //////////////////////////////////////////
         // codigo para poder mover la ventana ///
         ////////////////////////////////////////
@@ -29,14 +39,12 @@ namespace SisFerretero
             posicion = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
             mouseAction = true;
         }
-
         private void frmFacturacion_MouseUp(object sender, MouseEventArgs e)
         {
             // este evento detecta si el mouse no esta presionado
             // se cambia el valor de la variable mouseAction a false
             mouseAction = false;
         }
-
         private void frmFacturacion_MouseMove(object sender, MouseEventArgs e)
         {
             // este evento mueve la ventana
@@ -60,11 +68,19 @@ namespace SisFerretero
                 this.Close();
             }
         }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
         }
+        private void gbInformacionProducto_Enter(object sender, EventArgs e)
+        {
+
+        }
         // Final Codigo cerrar y minimizar
+
+        private void frmFacturacion_Load(object sender, EventArgs e)
+        {
+            DisableTextboxes();
+        }
     }
 }

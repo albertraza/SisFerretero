@@ -30,6 +30,7 @@ namespace SisFerretero
             
         }
 
+        // codigo para cerrar y minimizar
         private void lblCerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (MessageBox.Show("Esta seguro que desea salir del Sistema?", "Menu Principal", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -37,11 +38,12 @@ namespace SisFerretero
                 Application.Exit();
             }
         }
-
         private void lblMinimizar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             WindowState = FormWindowState.Minimized;
         }
+        // final codigo cerrar y minimizar
+
         /// //////////////////////////////////////
         // Esto es para poder mover la ventana ///
         /////////////////////////////////////////
@@ -79,6 +81,7 @@ namespace SisFerretero
         private void ventaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmFacturacion().Show();
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

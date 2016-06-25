@@ -63,6 +63,26 @@ namespace SisFerretero.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Añadir_al_carrito {
+            get {
+                object obj = ResourceManager.GetObject("Añadir al carrito", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Añadir_carrito_pequeño {
+            get {
+                object obj = ResourceManager.GetObject("Añadir carrito pequeño", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fondoFacturacion1 {
             get {
                 object obj = ResourceManager.GetObject("fondoFacturacion1", resourceCulture);
