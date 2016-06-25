@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.msMenuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,7 +76,7 @@
             this.reportesToolStripMenuItem,
             this.utilitariosToolStripMenuItem,
             this.ayudaToolStripMenuItem});
-            this.msMenuPrincipal.Location = new System.Drawing.Point(9, 9);
+            this.msMenuPrincipal.Location = new System.Drawing.Point(29, 9);
             this.msMenuPrincipal.Name = "msMenuPrincipal";
             this.msMenuPrincipal.Size = new System.Drawing.Size(456, 24);
             this.msMenuPrincipal.TabIndex = 0;
@@ -317,8 +318,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::SisFerretero.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(954, 565);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(958, 565);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.msMenuPrincipal);
