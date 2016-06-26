@@ -52,8 +52,10 @@ namespace SisFerretero
             using(SqlConnection con = DataBase.connect())
             {
                 SqlCommand comand = new SqlCommand(string.Format("delete Factura where codigo = '{0}'", codigoFactura), con);
+                comand.ExecuteNonQuery();
                 SqlCommand comand1 = new SqlCommand(string.Format("delete ProductosVendidos where codigoFactura = '{0}'", codigoFactura), con);
-                if(comand1.ExecuteNonQuery() > 0 && comand.ExecuteNonQuery() > 0)
+                comand.ExecuteNonQuery();
+                if (comand1.ExecuteNonQuery() > 0 && comand.ExecuteNonQuery() > 0)
                 {
                     r = "Factura Cancelada";
                 }

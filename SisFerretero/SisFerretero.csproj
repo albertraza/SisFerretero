@@ -46,6 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="carrito.cs" />
+    <Compile Include="DataBase.cs" />
+    <Compile Include="facturacion.cs" />
+    <Compile Include="FerreteriaDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FerreteriaDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +78,7 @@
     <Compile Include="frmSplash.Designer.cs">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="productos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmFacturacion.resx">
@@ -89,6 +98,17 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="FerreteriaDBDataSet.xsc">
+      <DependentUpon>FerreteriaDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="FerreteriaDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>FerreteriaDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="FerreteriaDBDataSet.xss">
+      <DependentUpon>FerreteriaDBDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

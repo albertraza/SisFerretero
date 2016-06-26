@@ -16,15 +16,50 @@ namespace SisFerretero
         {
             InitializeComponent();
         }
+        // metodo para limpiar todos los textboxes de los productos
+        private void clearProductos()
+        {
+            txtCodigo.Clear();
+            txtCodigo.Focus();
+            nCantComprar.Value = 0;
+            txtPrecioUnitario.Text = "0.00";
+            txtITEBIS.Text = "0.00";
+            txtTotalaPagar.Text = "0.00";
+            txtTotalNoImp.Text = "0.00";
+            txtCantidadExistente.Text = "0";
+            txtNombreProducto.Clear();
+        }
+        // metodo para limpiar todos los texboxes del cliente
+        private void clearCliente()
+        {
+            txtApellidoCli.Clear();
+            txtCelularCli.Clear();
+            txtDireccionCli.Clear();
+            txtNombreCli.Clear();
+            txtTelefonoCli.Clear();
+            txtCelularCli.Focus();
+        }
         // metodo para hacer los texbox disable
         private void DisableTextboxes()
         {
+            // productos
             txtCantidadExistente.Enabled = false;
             txtITEBIS.Enabled = false;
             txtNombreProducto.Enabled = false;
             txtPrecioUnitario.Enabled = false;
             txtTotalaPagar.Enabled = false;
             txtTotalNoImp.Enabled = false;
+            txtPrecioUnitario.Text = "0.00";
+            txtITEBIS.Text = "0.00";
+            txtTotalaPagar.Text = "0.00";
+            txtTotalNoImp.Text = "0.00";
+            txtCantidadExistente.Text = "0";
+            // clientes
+            txtCelularCli.Enabled = false;
+            txtApellidoCli.Enabled = false;
+            txtDireccionCli.Enabled = false;
+            txtNombreCli.Enabled = false;
+            txtTelefonoCli.Enabled = false;
         }
         //////////////////////////////////////////
         // codigo para poder mover la ventana ///
@@ -65,6 +100,9 @@ namespace SisFerretero
         {
             if(MessageBox.Show("Esta seguro que desea salir?", "Venta de productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                // delete current factura from database
+                int codigo = facturacion.getNewFacturaID();
+                facturacion.deleteFactura(codigo);
                 this.Close();
             }
         }
@@ -81,6 +119,123 @@ namespace SisFerretero
         private void frmFacturacion_Load(object sender, EventArgs e)
         {
             DisableTextboxes();
+            try
+            {
+                // cada vez que se abre la ventana se creara una factura nueva
+                facturacion.registerFactura(0, DateTime.Now, DateTime.Now, 0, 0, 0, 0);
+                dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnLimpiarProductos_Click(object sender, EventArgs e)
+        {
+            clearProductos();
+        }
+
+        private void btnLimpiarClientes_Click(object sender, EventArgs e)
+        {
+            clearCliente();
+        }
+
+        // evento buscar para poder cargar un producto en la pantalla
+        private void lblBuscarProducto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            int sample;
+            if (txtCodigo.Text == string.Empty)
+            {
+                MessageBox.Show("El codigo del producto esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Focus();
+            }
+            else if (!int.TryParse(txtCodigo.Text, out sample))
+            {
+                MessageBox.Show("El codigo del producto errone, digitelo nuevamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Focus();
+            }
+            else
+            {
+                try
+                {
+                    // se toma el evento get Producto y se valida para saber si es null.
+                    productos pProductos = productos.getProducto(int.Parse(txtCodigo.Text));
+                    if (pProductos != null)
+                    {
+                        txtCantidadExistente.Text = pProductos.cantExistente.ToString();
+                        txtNombreProducto.Text = pProductos.nombre;
+                        txtPrecioUnitario.Text = pProductos.precioUnd.ToString();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El producto no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        txtCodigo.Focus();
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                }
+            }
+        }
+
+        private void nCantComprar_ValueChanged(object sender, EventArgs e)
+        {
+            int sample;
+            if(txtNombreProducto.Text == string.Empty)
+            {
+                txtCodigo.Focus();
+            }
+            else if(txtCodigo.Text == string.Empty)
+            {
+                txtCodigo.Focus();
+            }
+            else if(!int.TryParse(txtCodigo.Text, out sample))
+            {
+                clearProductos();
+            }
+            else
+            {
+                try {
+                    productos pProductos = productos.getProducto(int.Parse(txtCodigo.Text));
+                    if (pProductos != null)
+                    {
+                        if (pProductos.cantExistente >= nCantComprar.Value)
+                        {
+                            // para saber si el iten esta excento de impuesto.
+                            if (pProductos.Imp > 0)
+                            {
+                                txtTotalNoImp.Text = (pProductos.precioUnd * nCantComprar.Value).ToString("f2");
+                                txtITEBIS.Text = ((double.Parse(txtTotalNoImp.Text)) * 0.18).ToString("f2");
+                                txtTotalaPagar.Text = (double.Parse(txtTotalNoImp.Text) + double.Parse(txtITEBIS.Text)).ToString("f2");
+                            }
+                            else
+                            {
+                                txtTotalNoImp.Text = (pProductos.precioUnd * nCantComprar.Value).ToString("f2");
+                                txtITEBIS.Text = "0.00";
+                                txtTotalaPagar.Text = (pProductos.precioUnd * nCantComprar.Value).ToString("f2");
+                            }
+                        }
+                        else if (pProductos.cantExistente == 0)
+                        {
+                            MessageBox.Show("No hay productos disponibles", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No hay productos suficientes para esta orden", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
+                    }
+                    else
+                    {
+                        txtCodigo.Focus();
+                    }
+                }
+                catch (Exception)
+                {
+
+                }
+            }
         }
     }
 }

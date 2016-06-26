@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmFacturacion));
             this.gbInformacionProducto = new System.Windows.Forms.GroupBox();
+            this.btnBusquedaAvanzada = new System.Windows.Forms.Button();
+            this.btnLimpiarProductos = new System.Windows.Forms.Button();
             this.btnAnadirCarrito = new System.Windows.Forms.Button();
             this.lblBuscarProducto = new System.Windows.Forms.LinkLabel();
             this.txtTotalaPagar = new System.Windows.Forms.TextBox();
@@ -37,7 +40,7 @@
             this.lblTotalNoImp = new System.Windows.Forms.Label();
             this.txtITEBIS = new System.Windows.Forms.TextBox();
             this.lblITEBIS = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nCantComprar = new System.Windows.Forms.NumericUpDown();
             this.lblCantidadComprar = new System.Windows.Forms.Label();
             this.txtCantidadExistente = new System.Windows.Forms.TextBox();
             this.lblCantidadExistente = new System.Windows.Forms.Label();
@@ -48,36 +51,34 @@
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.gbInformacionCliente = new System.Windows.Forms.GroupBox();
+            this.btnModificarCliente = new System.Windows.Forms.Button();
+            this.btnLimpiarClientes = new System.Windows.Forms.Button();
+            this.txtCelularCli = new System.Windows.Forms.MaskedTextBox();
+            this.lblCelularCli = new System.Windows.Forms.Label();
+            this.txtTelefonoCli = new System.Windows.Forms.MaskedTextBox();
+            this.lblTelefonoCli = new System.Windows.Forms.Label();
+            this.txtDireccionCli = new System.Windows.Forms.TextBox();
+            this.lblDireccionCliente = new System.Windows.Forms.Label();
+            this.txtApellidoCli = new System.Windows.Forms.TextBox();
+            this.lblApeliidoCliente = new System.Windows.Forms.Label();
+            this.txtNombreCli = new System.Windows.Forms.TextBox();
+            this.lblNombreCli = new System.Windows.Forms.Label();
+            this.txtCedulaCliente = new System.Windows.Forms.MaskedTextBox();
+            this.lblBuscarCliente = new System.Windows.Forms.LinkLabel();
+            this.lblCedula = new System.Windows.Forms.Label();
             this.gbCarrito = new System.Windows.Forms.GroupBox();
             this.dgvCarrito = new System.Windows.Forms.DataGridView();
             this.gbFacturaTotal = new System.Windows.Forms.GroupBox();
+            this.lblCantidadArticulos = new System.Windows.Forms.Label();
+            this.lblTotalaPagar = new System.Windows.Forms.Label();
+            this.lblTotalITEBIS = new System.Windows.Forms.Label();
+            this.lblTotalComprado = new System.Windows.Forms.Label();
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblOcultar = new System.Windows.Forms.LinkLabel();
-            this.btnLimpiarProductos = new System.Windows.Forms.Button();
-            this.btnBusquedaAvanzada = new System.Windows.Forms.Button();
-            this.lblBuscarCliente = new System.Windows.Forms.LinkLabel();
-            this.lblCedula = new System.Windows.Forms.Label();
-            this.txtCedulaCliente = new System.Windows.Forms.MaskedTextBox();
-            this.txtNombreCli = new System.Windows.Forms.TextBox();
-            this.lblNombreCli = new System.Windows.Forms.Label();
-            this.txtApellidoCli = new System.Windows.Forms.TextBox();
-            this.lblApeliidoCliente = new System.Windows.Forms.Label();
-            this.txtDireccionCli = new System.Windows.Forms.TextBox();
-            this.lblDireccionCliente = new System.Windows.Forms.Label();
-            this.lblTelefonoCli = new System.Windows.Forms.Label();
-            this.txtTelefonoCli = new System.Windows.Forms.MaskedTextBox();
-            this.txtCelularCli = new System.Windows.Forms.MaskedTextBox();
-            this.lblCelularCli = new System.Windows.Forms.Label();
-            this.btnLimpiarClientes = new System.Windows.Forms.Button();
-            this.btnModificarCliente = new System.Windows.Forms.Button();
-            this.lblTotalComprado = new System.Windows.Forms.Label();
-            this.lblTotalITEBIS = new System.Windows.Forms.Label();
-            this.lblTotalaPagar = new System.Windows.Forms.Label();
-            this.lblCantidadArticulos = new System.Windows.Forms.Label();
             this.gbInformacionProducto.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCantComprar)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
             this.gbCarrito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
@@ -88,7 +89,7 @@
             // 
             // gbInformacionProducto
             // 
-            this.gbInformacionProducto.BackColor = System.Drawing.Color.Khaki;
+            this.gbInformacionProducto.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.gbInformacionProducto.Controls.Add(this.btnBusquedaAvanzada);
             this.gbInformacionProducto.Controls.Add(this.btnLimpiarProductos);
             this.gbInformacionProducto.Controls.Add(this.btnAnadirCarrito);
@@ -99,7 +100,7 @@
             this.gbInformacionProducto.Controls.Add(this.lblTotalNoImp);
             this.gbInformacionProducto.Controls.Add(this.txtITEBIS);
             this.gbInformacionProducto.Controls.Add(this.lblITEBIS);
-            this.gbInformacionProducto.Controls.Add(this.numericUpDown1);
+            this.gbInformacionProducto.Controls.Add(this.nCantComprar);
             this.gbInformacionProducto.Controls.Add(this.lblCantidadComprar);
             this.gbInformacionProducto.Controls.Add(this.txtCantidadExistente);
             this.gbInformacionProducto.Controls.Add(this.lblCantidadExistente);
@@ -111,13 +112,32 @@
             this.gbInformacionProducto.Controls.Add(this.lblCodigoProducto);
             this.gbInformacionProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbInformacionProducto.ForeColor = System.Drawing.Color.DimGray;
-            this.gbInformacionProducto.Location = new System.Drawing.Point(41, 57);
+            this.gbInformacionProducto.Location = new System.Drawing.Point(25, 57);
             this.gbInformacionProducto.Name = "gbInformacionProducto";
             this.gbInformacionProducto.Size = new System.Drawing.Size(494, 253);
             this.gbInformacionProducto.TabIndex = 0;
             this.gbInformacionProducto.TabStop = false;
             this.gbInformacionProducto.Text = "Informacion Producto";
             this.gbInformacionProducto.Enter += new System.EventHandler(this.gbInformacionProducto_Enter);
+            // 
+            // btnBusquedaAvanzada
+            // 
+            this.btnBusquedaAvanzada.Location = new System.Drawing.Point(162, 204);
+            this.btnBusquedaAvanzada.Name = "btnBusquedaAvanzada";
+            this.btnBusquedaAvanzada.Size = new System.Drawing.Size(154, 30);
+            this.btnBusquedaAvanzada.TabIndex = 19;
+            this.btnBusquedaAvanzada.Text = "Busqueda Avanzada";
+            this.btnBusquedaAvanzada.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiarProductos
+            // 
+            this.btnLimpiarProductos.Location = new System.Drawing.Point(22, 204);
+            this.btnLimpiarProductos.Name = "btnLimpiarProductos";
+            this.btnLimpiarProductos.Size = new System.Drawing.Size(134, 30);
+            this.btnLimpiarProductos.TabIndex = 18;
+            this.btnLimpiarProductos.Text = "Nueva Busqueda";
+            this.btnLimpiarProductos.UseVisualStyleBackColor = true;
+            this.btnLimpiarProductos.Click += new System.EventHandler(this.btnLimpiarProductos_Click);
             // 
             // btnAnadirCarrito
             // 
@@ -140,6 +160,7 @@
             this.lblBuscarProducto.TabStop = true;
             this.lblBuscarProducto.Text = "Buscar";
             this.lblBuscarProducto.VisitedLinkColor = System.Drawing.Color.Red;
+            this.lblBuscarProducto.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBuscarProducto_LinkClicked);
             // 
             // txtTotalaPagar
             // 
@@ -201,14 +222,15 @@
             this.lblITEBIS.TabIndex = 10;
             this.lblITEBIS.Text = "ITEBIS:";
             // 
-            // numericUpDown1
+            // nCantComprar
             // 
-            this.numericUpDown1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDown1.Location = new System.Drawing.Point(364, 32);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(87, 21);
-            this.numericUpDown1.TabIndex = 9;
+            this.nCantComprar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.nCantComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nCantComprar.Location = new System.Drawing.Point(364, 32);
+            this.nCantComprar.Name = "nCantComprar";
+            this.nCantComprar.Size = new System.Drawing.Size(87, 21);
+            this.nCantComprar.TabIndex = 9;
+            this.nCantComprar.ValueChanged += new System.EventHandler(this.nCantComprar_ValueChanged);
             // 
             // lblCantidadComprar
             // 
@@ -303,7 +325,7 @@
             // 
             // gbInformacionCliente
             // 
-            this.gbInformacionCliente.BackColor = System.Drawing.Color.Khaki;
+            this.gbInformacionCliente.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.gbInformacionCliente.Controls.Add(this.btnModificarCliente);
             this.gbInformacionCliente.Controls.Add(this.btnLimpiarClientes);
             this.gbInformacionCliente.Controls.Add(this.txtCelularCli);
@@ -321,20 +343,175 @@
             this.gbInformacionCliente.Controls.Add(this.lblCedula);
             this.gbInformacionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbInformacionCliente.ForeColor = System.Drawing.Color.DimGray;
-            this.gbInformacionCliente.Location = new System.Drawing.Point(553, 57);
+            this.gbInformacionCliente.Location = new System.Drawing.Point(537, 57);
             this.gbInformacionCliente.Name = "gbInformacionCliente";
             this.gbInformacionCliente.Size = new System.Drawing.Size(448, 253);
             this.gbInformacionCliente.TabIndex = 1;
             this.gbInformacionCliente.TabStop = false;
             this.gbInformacionCliente.Text = "Informacion Cliente";
             // 
+            // btnModificarCliente
+            // 
+            this.btnModificarCliente.Location = new System.Drawing.Point(215, 204);
+            this.btnModificarCliente.Name = "btnModificarCliente";
+            this.btnModificarCliente.Size = new System.Drawing.Size(163, 30);
+            this.btnModificarCliente.TabIndex = 32;
+            this.btnModificarCliente.Text = "Actualizar Informacion";
+            this.btnModificarCliente.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiarClientes
+            // 
+            this.btnLimpiarClientes.Location = new System.Drawing.Point(68, 204);
+            this.btnLimpiarClientes.Name = "btnLimpiarClientes";
+            this.btnLimpiarClientes.Size = new System.Drawing.Size(134, 30);
+            this.btnLimpiarClientes.TabIndex = 31;
+            this.btnLimpiarClientes.Text = "Nueva Busqueda";
+            this.btnLimpiarClientes.UseVisualStyleBackColor = true;
+            this.btnLimpiarClientes.Click += new System.EventHandler(this.btnLimpiarClientes_Click);
+            // 
+            // txtCelularCli
+            // 
+            this.txtCelularCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCelularCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCelularCli.Location = new System.Drawing.Point(319, 111);
+            this.txtCelularCli.Mask = "(999) 000-0000";
+            this.txtCelularCli.Name = "txtCelularCli";
+            this.txtCelularCli.Size = new System.Drawing.Size(100, 21);
+            this.txtCelularCli.TabIndex = 30;
+            // 
+            // lblCelularCli
+            // 
+            this.lblCelularCli.AutoSize = true;
+            this.lblCelularCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCelularCli.ForeColor = System.Drawing.Color.Black;
+            this.lblCelularCli.Location = new System.Drawing.Point(264, 114);
+            this.lblCelularCli.Name = "lblCelularCli";
+            this.lblCelularCli.Size = new System.Drawing.Size(49, 15);
+            this.lblCelularCli.TabIndex = 29;
+            this.lblCelularCli.Text = "Celular:";
+            // 
+            // txtTelefonoCli
+            // 
+            this.txtTelefonoCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTelefonoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefonoCli.Location = new System.Drawing.Point(319, 73);
+            this.txtTelefonoCli.Mask = "(999) 000-0000";
+            this.txtTelefonoCli.Name = "txtTelefonoCli";
+            this.txtTelefonoCli.Size = new System.Drawing.Size(100, 21);
+            this.txtTelefonoCli.TabIndex = 28;
+            // 
+            // lblTelefonoCli
+            // 
+            this.lblTelefonoCli.AutoSize = true;
+            this.lblTelefonoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelefonoCli.ForeColor = System.Drawing.Color.Black;
+            this.lblTelefonoCli.Location = new System.Drawing.Point(255, 76);
+            this.lblTelefonoCli.Name = "lblTelefonoCli";
+            this.lblTelefonoCli.Size = new System.Drawing.Size(58, 15);
+            this.lblTelefonoCli.TabIndex = 27;
+            this.lblTelefonoCli.Text = "Telefono:";
+            // 
+            // txtDireccionCli
+            // 
+            this.txtDireccionCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDireccionCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionCli.Location = new System.Drawing.Point(137, 151);
+            this.txtDireccionCli.Name = "txtDireccionCli";
+            this.txtDireccionCli.Size = new System.Drawing.Size(278, 21);
+            this.txtDireccionCli.TabIndex = 26;
+            // 
+            // lblDireccionCliente
+            // 
+            this.lblDireccionCliente.AutoSize = true;
+            this.lblDireccionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccionCliente.ForeColor = System.Drawing.Color.Black;
+            this.lblDireccionCliente.Location = new System.Drawing.Point(28, 154);
+            this.lblDireccionCliente.Name = "lblDireccionCliente";
+            this.lblDireccionCliente.Size = new System.Drawing.Size(103, 15);
+            this.lblDireccionCliente.TabIndex = 25;
+            this.lblDireccionCliente.Text = "Direccion Cliente:";
+            // 
+            // txtApellidoCli
+            // 
+            this.txtApellidoCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtApellidoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtApellidoCli.Location = new System.Drawing.Point(84, 111);
+            this.txtApellidoCli.Name = "txtApellidoCli";
+            this.txtApellidoCli.Size = new System.Drawing.Size(100, 21);
+            this.txtApellidoCli.TabIndex = 24;
+            // 
+            // lblApeliidoCliente
+            // 
+            this.lblApeliidoCliente.AutoSize = true;
+            this.lblApeliidoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApeliidoCliente.ForeColor = System.Drawing.Color.Black;
+            this.lblApeliidoCliente.Location = new System.Drawing.Point(29, 114);
+            this.lblApeliidoCliente.Name = "lblApeliidoCliente";
+            this.lblApeliidoCliente.Size = new System.Drawing.Size(54, 15);
+            this.lblApeliidoCliente.TabIndex = 23;
+            this.lblApeliidoCliente.Text = "Apellido:";
+            // 
+            // txtNombreCli
+            // 
+            this.txtNombreCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNombreCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombreCli.Location = new System.Drawing.Point(84, 76);
+            this.txtNombreCli.Name = "txtNombreCli";
+            this.txtNombreCli.Size = new System.Drawing.Size(100, 21);
+            this.txtNombreCli.TabIndex = 22;
+            // 
+            // lblNombreCli
+            // 
+            this.lblNombreCli.AutoSize = true;
+            this.lblNombreCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombreCli.ForeColor = System.Drawing.Color.Black;
+            this.lblNombreCli.Location = new System.Drawing.Point(28, 79);
+            this.lblNombreCli.Name = "lblNombreCli";
+            this.lblNombreCli.Size = new System.Drawing.Size(55, 15);
+            this.lblNombreCli.TabIndex = 21;
+            this.lblNombreCli.Text = "Nombre:";
+            // 
+            // txtCedulaCliente
+            // 
+            this.txtCedulaCliente.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCedulaCliente.Location = new System.Drawing.Point(84, 35);
+            this.txtCedulaCliente.Mask = "000-0000000-0";
+            this.txtCedulaCliente.Name = "txtCedulaCliente";
+            this.txtCedulaCliente.Size = new System.Drawing.Size(118, 21);
+            this.txtCedulaCliente.TabIndex = 20;
+            // 
+            // lblBuscarCliente
+            // 
+            this.lblBuscarCliente.AutoSize = true;
+            this.lblBuscarCliente.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lblBuscarCliente.LinkColor = System.Drawing.Color.Red;
+            this.lblBuscarCliente.Location = new System.Drawing.Point(208, 38);
+            this.lblBuscarCliente.Name = "lblBuscarCliente";
+            this.lblBuscarCliente.Size = new System.Drawing.Size(51, 15);
+            this.lblBuscarCliente.TabIndex = 19;
+            this.lblBuscarCliente.TabStop = true;
+            this.lblBuscarCliente.Text = "Buscar";
+            this.lblBuscarCliente.VisitedLinkColor = System.Drawing.Color.Red;
+            // 
+            // lblCedula
+            // 
+            this.lblCedula.AutoSize = true;
+            this.lblCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCedula.ForeColor = System.Drawing.Color.Black;
+            this.lblCedula.Location = new System.Drawing.Point(29, 38);
+            this.lblCedula.Name = "lblCedula";
+            this.lblCedula.Size = new System.Drawing.Size(49, 15);
+            this.lblCedula.TabIndex = 17;
+            this.lblCedula.Text = "Cedula:";
+            // 
             // gbCarrito
             // 
-            this.gbCarrito.BackColor = System.Drawing.Color.Khaki;
+            this.gbCarrito.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.gbCarrito.Controls.Add(this.dgvCarrito);
             this.gbCarrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCarrito.ForeColor = System.Drawing.Color.DimGray;
-            this.gbCarrito.Location = new System.Drawing.Point(41, 316);
+            this.gbCarrito.Location = new System.Drawing.Point(25, 316);
             this.gbCarrito.Name = "gbCarrito";
             this.gbCarrito.Size = new System.Drawing.Size(672, 242);
             this.gbCarrito.TabIndex = 2;
@@ -343,7 +520,7 @@
             // 
             // dgvCarrito
             // 
-            this.dgvCarrito.BackgroundColor = System.Drawing.Color.Khaki;
+            this.dgvCarrito.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCarrito.GridColor = System.Drawing.Color.WhiteSmoke;
             this.dgvCarrito.Location = new System.Drawing.Point(6, 20);
@@ -353,19 +530,59 @@
             // 
             // gbFacturaTotal
             // 
-            this.gbFacturaTotal.BackColor = System.Drawing.Color.Khaki;
+            this.gbFacturaTotal.BackColor = System.Drawing.Color.DarkSeaGreen;
             this.gbFacturaTotal.Controls.Add(this.lblCantidadArticulos);
             this.gbFacturaTotal.Controls.Add(this.lblTotalaPagar);
             this.gbFacturaTotal.Controls.Add(this.lblTotalITEBIS);
             this.gbFacturaTotal.Controls.Add(this.lblTotalComprado);
             this.gbFacturaTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFacturaTotal.ForeColor = System.Drawing.Color.DimGray;
-            this.gbFacturaTotal.Location = new System.Drawing.Point(737, 316);
+            this.gbFacturaTotal.Location = new System.Drawing.Point(721, 316);
             this.gbFacturaTotal.Name = "gbFacturaTotal";
             this.gbFacturaTotal.Size = new System.Drawing.Size(264, 166);
             this.gbFacturaTotal.TabIndex = 3;
             this.gbFacturaTotal.TabStop = false;
             this.gbFacturaTotal.Text = "Total Factura";
+            // 
+            // lblCantidadArticulos
+            // 
+            this.lblCantidadArticulos.AutoSize = true;
+            this.lblCantidadArticulos.ForeColor = System.Drawing.Color.Black;
+            this.lblCantidadArticulos.Location = new System.Drawing.Point(6, 38);
+            this.lblCantidadArticulos.Name = "lblCantidadArticulos";
+            this.lblCantidadArticulos.Size = new System.Drawing.Size(147, 15);
+            this.lblCantidadArticulos.TabIndex = 3;
+            this.lblCantidadArticulos.Text = "Cantidad de Articulos:";
+            // 
+            // lblTotalaPagar
+            // 
+            this.lblTotalaPagar.AutoSize = true;
+            this.lblTotalaPagar.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalaPagar.Location = new System.Drawing.Point(56, 114);
+            this.lblTotalaPagar.Name = "lblTotalaPagar";
+            this.lblTotalaPagar.Size = new System.Drawing.Size(97, 15);
+            this.lblTotalaPagar.TabIndex = 2;
+            this.lblTotalaPagar.Text = "Total a Pagar:";
+            // 
+            // lblTotalITEBIS
+            // 
+            this.lblTotalITEBIS.AutoSize = true;
+            this.lblTotalITEBIS.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalITEBIS.Location = new System.Drawing.Point(99, 90);
+            this.lblTotalITEBIS.Name = "lblTotalITEBIS";
+            this.lblTotalITEBIS.Size = new System.Drawing.Size(54, 15);
+            this.lblTotalITEBIS.TabIndex = 1;
+            this.lblTotalITEBIS.Text = "ITEBIS:";
+            // 
+            // lblTotalComprado
+            // 
+            this.lblTotalComprado.AutoSize = true;
+            this.lblTotalComprado.ForeColor = System.Drawing.Color.Black;
+            this.lblTotalComprado.Location = new System.Drawing.Point(40, 63);
+            this.lblTotalComprado.Name = "lblTotalComprado";
+            this.lblTotalComprado.Size = new System.Drawing.Size(113, 15);
+            this.lblTotalComprado.TabIndex = 0;
+            this.lblTotalComprado.Text = "Total Comprado:";
             // 
             // pCerrar
             // 
@@ -415,223 +632,11 @@
             this.lblOcultar.VisitedLinkColor = System.Drawing.Color.White;
             this.lblOcultar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
-            // btnLimpiarProductos
-            // 
-            this.btnLimpiarProductos.Location = new System.Drawing.Point(22, 204);
-            this.btnLimpiarProductos.Name = "btnLimpiarProductos";
-            this.btnLimpiarProductos.Size = new System.Drawing.Size(134, 30);
-            this.btnLimpiarProductos.TabIndex = 18;
-            this.btnLimpiarProductos.Text = "Nueva Busqueda";
-            this.btnLimpiarProductos.UseVisualStyleBackColor = true;
-            // 
-            // btnBusquedaAvanzada
-            // 
-            this.btnBusquedaAvanzada.Location = new System.Drawing.Point(162, 204);
-            this.btnBusquedaAvanzada.Name = "btnBusquedaAvanzada";
-            this.btnBusquedaAvanzada.Size = new System.Drawing.Size(154, 30);
-            this.btnBusquedaAvanzada.TabIndex = 19;
-            this.btnBusquedaAvanzada.Text = "Busqueda Avanzada";
-            this.btnBusquedaAvanzada.UseVisualStyleBackColor = true;
-            // 
-            // lblBuscarCliente
-            // 
-            this.lblBuscarCliente.AutoSize = true;
-            this.lblBuscarCliente.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-            this.lblBuscarCliente.LinkColor = System.Drawing.Color.Red;
-            this.lblBuscarCliente.Location = new System.Drawing.Point(208, 38);
-            this.lblBuscarCliente.Name = "lblBuscarCliente";
-            this.lblBuscarCliente.Size = new System.Drawing.Size(51, 15);
-            this.lblBuscarCliente.TabIndex = 19;
-            this.lblBuscarCliente.TabStop = true;
-            this.lblBuscarCliente.Text = "Buscar";
-            this.lblBuscarCliente.VisitedLinkColor = System.Drawing.Color.Red;
-            // 
-            // lblCedula
-            // 
-            this.lblCedula.AutoSize = true;
-            this.lblCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCedula.ForeColor = System.Drawing.Color.Black;
-            this.lblCedula.Location = new System.Drawing.Point(29, 38);
-            this.lblCedula.Name = "lblCedula";
-            this.lblCedula.Size = new System.Drawing.Size(49, 15);
-            this.lblCedula.TabIndex = 17;
-            this.lblCedula.Text = "Cedula:";
-            // 
-            // txtCedulaCliente
-            // 
-            this.txtCedulaCliente.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCedulaCliente.Location = new System.Drawing.Point(84, 35);
-            this.txtCedulaCliente.Mask = "000-0000000-0";
-            this.txtCedulaCliente.Name = "txtCedulaCliente";
-            this.txtCedulaCliente.Size = new System.Drawing.Size(118, 21);
-            this.txtCedulaCliente.TabIndex = 20;
-            // 
-            // txtNombreCli
-            // 
-            this.txtNombreCli.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtNombreCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombreCli.Location = new System.Drawing.Point(84, 76);
-            this.txtNombreCli.Name = "txtNombreCli";
-            this.txtNombreCli.Size = new System.Drawing.Size(100, 21);
-            this.txtNombreCli.TabIndex = 22;
-            // 
-            // lblNombreCli
-            // 
-            this.lblNombreCli.AutoSize = true;
-            this.lblNombreCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombreCli.ForeColor = System.Drawing.Color.Black;
-            this.lblNombreCli.Location = new System.Drawing.Point(28, 79);
-            this.lblNombreCli.Name = "lblNombreCli";
-            this.lblNombreCli.Size = new System.Drawing.Size(55, 15);
-            this.lblNombreCli.TabIndex = 21;
-            this.lblNombreCli.Text = "Nombre:";
-            // 
-            // txtApellidoCli
-            // 
-            this.txtApellidoCli.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtApellidoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtApellidoCli.Location = new System.Drawing.Point(84, 111);
-            this.txtApellidoCli.Name = "txtApellidoCli";
-            this.txtApellidoCli.Size = new System.Drawing.Size(100, 21);
-            this.txtApellidoCli.TabIndex = 24;
-            // 
-            // lblApeliidoCliente
-            // 
-            this.lblApeliidoCliente.AutoSize = true;
-            this.lblApeliidoCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApeliidoCliente.ForeColor = System.Drawing.Color.Black;
-            this.lblApeliidoCliente.Location = new System.Drawing.Point(29, 114);
-            this.lblApeliidoCliente.Name = "lblApeliidoCliente";
-            this.lblApeliidoCliente.Size = new System.Drawing.Size(54, 15);
-            this.lblApeliidoCliente.TabIndex = 23;
-            this.lblApeliidoCliente.Text = "Apellido:";
-            // 
-            // txtDireccionCli
-            // 
-            this.txtDireccionCli.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDireccionCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionCli.Location = new System.Drawing.Point(137, 151);
-            this.txtDireccionCli.Name = "txtDireccionCli";
-            this.txtDireccionCli.Size = new System.Drawing.Size(278, 21);
-            this.txtDireccionCli.TabIndex = 26;
-            // 
-            // lblDireccionCliente
-            // 
-            this.lblDireccionCliente.AutoSize = true;
-            this.lblDireccionCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccionCliente.ForeColor = System.Drawing.Color.Black;
-            this.lblDireccionCliente.Location = new System.Drawing.Point(28, 154);
-            this.lblDireccionCliente.Name = "lblDireccionCliente";
-            this.lblDireccionCliente.Size = new System.Drawing.Size(103, 15);
-            this.lblDireccionCliente.TabIndex = 25;
-            this.lblDireccionCliente.Text = "Direccion Cliente:";
-            // 
-            // lblTelefonoCli
-            // 
-            this.lblTelefonoCli.AutoSize = true;
-            this.lblTelefonoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelefonoCli.ForeColor = System.Drawing.Color.Black;
-            this.lblTelefonoCli.Location = new System.Drawing.Point(255, 76);
-            this.lblTelefonoCli.Name = "lblTelefonoCli";
-            this.lblTelefonoCli.Size = new System.Drawing.Size(58, 15);
-            this.lblTelefonoCli.TabIndex = 27;
-            this.lblTelefonoCli.Text = "Telefono:";
-            // 
-            // txtTelefonoCli
-            // 
-            this.txtTelefonoCli.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTelefonoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoCli.Location = new System.Drawing.Point(319, 73);
-            this.txtTelefonoCli.Mask = "(999) 000-0000";
-            this.txtTelefonoCli.Name = "txtTelefonoCli";
-            this.txtTelefonoCli.Size = new System.Drawing.Size(100, 21);
-            this.txtTelefonoCli.TabIndex = 28;
-            // 
-            // txtCelularCli
-            // 
-            this.txtCelularCli.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCelularCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCelularCli.Location = new System.Drawing.Point(319, 111);
-            this.txtCelularCli.Mask = "(999) 000-0000";
-            this.txtCelularCli.Name = "txtCelularCli";
-            this.txtCelularCli.Size = new System.Drawing.Size(100, 21);
-            this.txtCelularCli.TabIndex = 30;
-            // 
-            // lblCelularCli
-            // 
-            this.lblCelularCli.AutoSize = true;
-            this.lblCelularCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelularCli.ForeColor = System.Drawing.Color.Black;
-            this.lblCelularCli.Location = new System.Drawing.Point(264, 114);
-            this.lblCelularCli.Name = "lblCelularCli";
-            this.lblCelularCli.Size = new System.Drawing.Size(49, 15);
-            this.lblCelularCli.TabIndex = 29;
-            this.lblCelularCli.Text = "Celular:";
-            // 
-            // btnLimpiarClientes
-            // 
-            this.btnLimpiarClientes.Location = new System.Drawing.Point(68, 204);
-            this.btnLimpiarClientes.Name = "btnLimpiarClientes";
-            this.btnLimpiarClientes.Size = new System.Drawing.Size(134, 30);
-            this.btnLimpiarClientes.TabIndex = 31;
-            this.btnLimpiarClientes.Text = "Nueva Busqueda";
-            this.btnLimpiarClientes.UseVisualStyleBackColor = true;
-            // 
-            // btnModificarCliente
-            // 
-            this.btnModificarCliente.Location = new System.Drawing.Point(215, 204);
-            this.btnModificarCliente.Name = "btnModificarCliente";
-            this.btnModificarCliente.Size = new System.Drawing.Size(163, 30);
-            this.btnModificarCliente.TabIndex = 32;
-            this.btnModificarCliente.Text = "Actualizar Informacion";
-            this.btnModificarCliente.UseVisualStyleBackColor = true;
-            // 
-            // lblTotalComprado
-            // 
-            this.lblTotalComprado.AutoSize = true;
-            this.lblTotalComprado.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalComprado.Location = new System.Drawing.Point(40, 63);
-            this.lblTotalComprado.Name = "lblTotalComprado";
-            this.lblTotalComprado.Size = new System.Drawing.Size(113, 15);
-            this.lblTotalComprado.TabIndex = 0;
-            this.lblTotalComprado.Text = "Total Comprado:";
-            // 
-            // lblTotalITEBIS
-            // 
-            this.lblTotalITEBIS.AutoSize = true;
-            this.lblTotalITEBIS.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalITEBIS.Location = new System.Drawing.Point(99, 90);
-            this.lblTotalITEBIS.Name = "lblTotalITEBIS";
-            this.lblTotalITEBIS.Size = new System.Drawing.Size(54, 15);
-            this.lblTotalITEBIS.TabIndex = 1;
-            this.lblTotalITEBIS.Text = "ITEBIS:";
-            // 
-            // lblTotalaPagar
-            // 
-            this.lblTotalaPagar.AutoSize = true;
-            this.lblTotalaPagar.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalaPagar.Location = new System.Drawing.Point(56, 114);
-            this.lblTotalaPagar.Name = "lblTotalaPagar";
-            this.lblTotalaPagar.Size = new System.Drawing.Size(97, 15);
-            this.lblTotalaPagar.TabIndex = 2;
-            this.lblTotalaPagar.Text = "Total a Pagar:";
-            // 
-            // lblCantidadArticulos
-            // 
-            this.lblCantidadArticulos.AutoSize = true;
-            this.lblCantidadArticulos.ForeColor = System.Drawing.Color.Black;
-            this.lblCantidadArticulos.Location = new System.Drawing.Point(6, 38);
-            this.lblCantidadArticulos.Name = "lblCantidadArticulos";
-            this.lblCantidadArticulos.Size = new System.Drawing.Size(147, 15);
-            this.lblCantidadArticulos.TabIndex = 3;
-            this.lblCantidadArticulos.Text = "Cantidad de Articulos:";
-            // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SisFerretero.Properties.Resources.fondoFacturacion1;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1013, 570);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pCerrar);
@@ -650,7 +655,7 @@
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmFacturacion_MouseUp);
             this.gbInformacionProducto.ResumeLayout(false);
             this.gbInformacionProducto.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nCantComprar)).EndInit();
             this.gbInformacionCliente.ResumeLayout(false);
             this.gbInformacionCliente.PerformLayout();
             this.gbCarrito.ResumeLayout(false);
@@ -682,7 +687,7 @@
         private System.Windows.Forms.Label lblTotalNoImp;
         private System.Windows.Forms.TextBox txtITEBIS;
         private System.Windows.Forms.Label lblITEBIS;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nCantComprar;
         private System.Windows.Forms.Label lblCantidadComprar;
         private System.Windows.Forms.TextBox txtCantidadExistente;
         private System.Windows.Forms.Label lblCantidadExistente;
