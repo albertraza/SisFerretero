@@ -186,7 +186,7 @@ namespace SisFerretero
             int sample;
             if(txtNombreProducto.Text == string.Empty)
             {
-                // no presenta nada ya que cuando se limpian los campos el numeric updown se iguala a 0 y el codigo se elimina
+                // no presenta nada ya que cuando se limpia el campo numeric updown se iguala a 0 y el codigo se elimina
                 // causando que aparesca un mensaje cuando se limpian los campos, es lo mismo para las siguientes dos validaciones.
                 txtCodigo.Focus();
             }
@@ -256,8 +256,34 @@ namespace SisFerretero
             {
                 try
                 {
+                    double itebis = 0, totalpagar = 0, totalSinImp = 0, totalSinImP = 0;
+                    int cantarticulos = 0;
                     MessageBox.Show(carrito.añadirCarrito(int.Parse(txtCodigo.Text), facturacion.getNewFacturaID(), Convert.ToInt32(nCantComprar.Value), Convert.ToDecimal(txtITEBIS.Text), Convert.ToDecimal(txtTotalaPagar.Text)), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    // se presenta el carrito en la tabla
+                    // el Objeto List se convierte a Array para poder calcular el total de cada elemento.
                     dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
+                    carrito[] pcarrito = carrito.getCarrito(facturacion.getNewFacturaID()).ToArray();
+
+                    // se hace un foreach que calcula el total de cada uno de los elementos.
+                    foreach(carrito Pcarrito in pcarrito)
+                    {
+                        cantarticulos += Pcarrito.Cantidad;
+                        totalSinImP = (Pcarrito.Cantidad * Pcarrito.Precio_Und);
+                        totalSinImp += totalSinImP;
+                        itebis += Pcarrito.ITEBIS;
+                        totalpagar += Pcarrito.Total;
+                    }
+
+                    // se prensenta el total en los labels.
+                    lblTotalITEBIS.Text = "";
+                    lblTotalITEBIS.Text = "ITEBIS: " + itebis.ToString("f2");
+                    lblTotalaPagar.Text = "";
+                    lblTotalaPagar.Text = "Total a Pagar: " + totalpagar.ToString("f2");
+                    lblTotalNoImp.Text = "";
+                    lblTotalNoImp.Text = "Total Comprado: " + totalSinImp.ToString("f2");
+                    lblCantidadArticulos.Text = "";
+                    lblCantidadArticulos.Text = "Cantidad de Articulos: " + cantarticulos;
                 }
                 catch (Exception ex)
                 {

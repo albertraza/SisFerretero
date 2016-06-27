@@ -12,12 +12,12 @@ namespace SisFerretero
         public int Codigo { get; set; }
         public string Nombre { get; set; }
         public int Cantidad { get; set; }
-        public decimal Precio_Und { get; set; }
-        public decimal ITEBIS { get; set; }
-        public decimal Total { get; set; }
+        public double Precio_Und { get; set; }
+        public double ITEBIS { get; set; }
+        public double Total { get; set; }
 
         public carrito() { }
-        public carrito(int c, string nombre, int cantidad, decimal precio, decimal itebis, decimal total)
+        public carrito(int c, string nombre, int cantidad, double precio, double itebis, double total)
         {
             Codigo = c;
             Nombre = nombre;
@@ -59,9 +59,9 @@ namespace SisFerretero
                     pCarrito.Codigo = Convert.ToInt32(reader["codigoProducto"]);
                     pCarrito.Nombre = reader["nombre"].ToString();
                     pCarrito.Cantidad = Convert.ToInt32(reader["cantidadVendida"]);
-                    pCarrito.Precio_Und = Convert.ToDecimal(double.Parse(reader["precioUnd"].ToString()).ToString("f2"));
-                    pCarrito.ITEBIS = Convert.ToDecimal(double.Parse(reader["ITEBIS"].ToString()).ToString("f2"));
-                    pCarrito.Total = Convert.ToDecimal(double.Parse(reader["Total"].ToString()).ToString("f2"));
+                    pCarrito.Precio_Und = Convert.ToDouble(double.Parse(reader["precioUnd"].ToString()).ToString("f2"));
+                    pCarrito.ITEBIS = Convert.ToDouble(double.Parse(reader["ITEBIS"].ToString()).ToString("f2"));
+                    pCarrito.Total = Convert.ToDouble(double.Parse(reader["Total"].ToString()).ToString("f2"));
 
                     list.Add(pCarrito);
                 }
