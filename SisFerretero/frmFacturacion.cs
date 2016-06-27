@@ -123,6 +123,7 @@ namespace SisFerretero
             {
                 // cada vez que se abre la ventana se creara una factura nueva
                 facturacion.registerFactura(0, DateTime.Now, DateTime.Now, 0, 0, 0, 0);
+                dgvCarrito.DefaultCellStyle.BackColor = Color.WhiteSmoke;
                 dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
             }
             catch(Exception ex)
@@ -179,20 +180,24 @@ namespace SisFerretero
                 }
             }
         }
-
+        // evento que calcula el total a pagar e impuestos
         private void nCantComprar_ValueChanged(object sender, EventArgs e)
         {
             int sample;
             if(txtNombreProducto.Text == string.Empty)
             {
+                // no presenta nada ya que cuando se limpian los campos el numeric updown se iguala a 0 y el codigo se elimina
+                // causando que aparesca un mensaje cuando se limpian los campos, es lo mismo para las siguientes dos validaciones.
                 txtCodigo.Focus();
             }
             else if(txtCodigo.Text == string.Empty)
             {
+                // "
                 txtCodigo.Focus();
             }
             else if(!int.TryParse(txtCodigo.Text, out sample))
             {
+                // "
                 clearProductos();
             }
             else
@@ -224,16 +229,39 @@ namespace SisFerretero
                         else
                         {
                             MessageBox.Show("No hay productos suficientes para esta orden", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            nCantComprar.Value = pProductos.cantExistente;
                         }
-                    }
-                    else
-                    {
-                        txtCodigo.Focus();
                     }
                 }
                 catch (Exception)
                 {
-
+                    // se deja vacio ya que el evento se activara al momento que se limpien los campos
+                }
+            }
+        }
+        // este evento añade el producto al carrito
+        private void btnAnadirCarrito_Click(object sender, EventArgs e)
+        {
+            if (txtNombreProducto.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha cargado un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCodigo.Focus();
+            }
+            else if (nCantComprar.Value == 0)
+            {
+                MessageBox.Show("Seleccione la cantidad de productos que se van a añadir al carrito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                nCantComprar.Focus();
+            }
+            else
+            {
+                try
+                {
+                    MessageBox.Show(carrito.añadirCarrito(int.Parse(txtCodigo.Text), facturacion.getNewFacturaID(), Convert.ToInt32(nCantComprar.Value), Convert.ToDecimal(txtITEBIS.Text), Convert.ToDecimal(txtTotalaPagar.Text)), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

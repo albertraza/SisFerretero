@@ -147,6 +147,7 @@
             this.btnAnadirCarrito.TabIndex = 17;
             this.btnAnadirCarrito.Text = "Añadir al Carrito";
             this.btnAnadirCarrito.UseVisualStyleBackColor = true;
+            this.btnAnadirCarrito.Click += new System.EventHandler(this.btnAnadirCarrito_Click);
             // 
             // lblBuscarProducto
             // 
@@ -522,7 +523,7 @@
             // 
             this.dgvCarrito.BackgroundColor = System.Drawing.Color.DarkSeaGreen;
             this.dgvCarrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCarrito.GridColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvCarrito.GridColor = System.Drawing.Color.Gainsboro;
             this.dgvCarrito.Location = new System.Drawing.Point(6, 20);
             this.dgvCarrito.Name = "dgvCarrito";
             this.dgvCarrito.Size = new System.Drawing.Size(660, 216);
