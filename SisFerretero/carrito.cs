@@ -27,6 +27,7 @@ namespace SisFerretero
             Total = total;
         }
 
+        //metodo para agregar un producto al carrito
         public static string añadirCarrito(int codigoProducto, int codigoFactura, int cantidadVendida, decimal itebis, decimal total)
         {
             string r = null;
@@ -45,6 +46,8 @@ namespace SisFerretero
             }
             return r;
         }
+
+        // metodo para mostrar el carrito en una tabla cualquiera
         public static List<carrito> getCarrito(int codigoFactura)
         {
             List<carrito> list = new List<carrito>();

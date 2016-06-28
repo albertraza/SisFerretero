@@ -122,7 +122,7 @@ namespace SisFerretero
             try
             {
                 // cada vez que se abre la ventana se creara una factura nueva
-                facturacion.registerFactura(0, DateTime.Now, DateTime.Now, 0, 0, 0, 0);
+                facturacion.registerFactura(0, DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0);
                 dgvCarrito.DefaultCellStyle.BackColor = Color.WhiteSmoke;
                 dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
             }

@@ -15,12 +15,12 @@ namespace SisFerretero
         public int Total_Articulos { get; set; }
 
         // metodo para registrar una nueva factura
-        public static string registerFactura(int codigoCliente, DateTime fechaRegistro, DateTime fechaEntrega, int totalArticulos, decimal totalComprado, decimal ITEBIS, decimal totalPagar)
+        public static string registerFactura(int codigoCliente, DateTime fechaRegistro, DateTime fechaEntrega, int totalArticulos, double totalComprado, double ITEBIS, double totalPagar, int despachado)
         {
             string mensaje = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("execute registerFactura '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'", codigoCliente, fechaRegistro, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar), con);
+                SqlCommand comand = new SqlCommand(string.Format("execute registerFactura '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}'", codigoCliente, fechaRegistro, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, despachado), con);
                 if(comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Factura registrada!";
