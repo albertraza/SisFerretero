@@ -132,15 +132,16 @@ namespace SisFerretero
             }
         }
 
+        // eventos click de los botones "Nueva Busqueda"
         private void btnLimpiarProductos_Click(object sender, EventArgs e)
         {
             clearProductos();
         }
-
         private void btnLimpiarClientes_Click(object sender, EventArgs e)
         {
             clearCliente();
         }
+        // final eventos Click de los botones "Nueva Busqueda"
 
         // evento buscar para poder cargar un producto en la pantalla
         private void lblBuscarProducto_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
