@@ -257,9 +257,9 @@ namespace SisFerretero
             {
                 try
                 {
-                    double itebis = 0, totalpagar = 0, totalSinImp = 0, totalSinImP = 0;
+                    double itebis = 0, totalpagar = 0, totalSinImp = 0, VtotalSinImP = 0;
                     int cantarticulos = 0;
-                    MessageBox.Show(carrito.añadirCarrito(int.Parse(txtCodigo.Text), facturacion.getNewFacturaID(), Convert.ToInt32(nCantComprar.Value), Convert.ToDecimal(txtITEBIS.Text), Convert.ToDecimal(txtTotalaPagar.Text)), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show(carrito.añadirCarrito(int.Parse(txtCodigo.Text), facturacion.getNewFacturaID(), Convert.ToInt32(nCantComprar.Value), Convert.ToDouble(txtITEBIS.Text), Convert.ToDouble(txtTotalaPagar.Text)), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // se presenta el carrito en la tabla
                     // el Objeto List se convierte a Array para poder calcular el total de cada elemento.
@@ -270,8 +270,8 @@ namespace SisFerretero
                     foreach(carrito Pcarrito in pcarrito)
                     {
                         cantarticulos += Pcarrito.Cantidad;
-                        totalSinImP = (Pcarrito.Cantidad * Pcarrito.Precio_Und);
-                        totalSinImp += totalSinImP;
+                        VtotalSinImP = (Pcarrito.Cantidad * Pcarrito.Precio_Und);
+                        totalSinImp += VtotalSinImP;
                         itebis += Pcarrito.ITEBIS;
                         totalpagar += Pcarrito.Total;
                     }
@@ -281,8 +281,8 @@ namespace SisFerretero
                     lblTotalITEBIS.Text = "ITEBIS: " + itebis.ToString("f2");
                     lblTotalaPagar.Text = "";
                     lblTotalaPagar.Text = "Total a Pagar: " + totalpagar.ToString("f2");
-                    lblTotalNoImp.Text = "";
-                    lblTotalNoImp.Text = "Total Comprado: " + totalSinImp.ToString("f2");
+                    lblTotalComprado.Text = "";
+                    lblTotalComprado.Text = "Total Comprado: " + totalSinImp.ToString("f2");
                     lblCantidadArticulos.Text = "";
                     lblCantidadArticulos.Text = "Cantidad de Articulos: " + cantarticulos;
                 }

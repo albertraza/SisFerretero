@@ -28,7 +28,7 @@ namespace SisFerretero
         }
 
         //metodo para agregar un producto al carrito
-        public static string añadirCarrito(int codigoProducto, int codigoFactura, int cantidadVendida, decimal itebis, decimal total)
+        public static string añadirCarrito(int codigoProducto, int codigoFactura, int cantidadVendida, double itebis, double total)
         {
             string r = null;
             using(SqlConnection con = DataBase.connect())
