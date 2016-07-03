@@ -62,9 +62,9 @@ namespace SisFerretero
                     pCarrito.Codigo = Convert.ToInt32(reader["codigoProducto"]);
                     pCarrito.Nombre = reader["nombre"].ToString();
                     pCarrito.Cantidad = Convert.ToInt32(reader["cantidadVendida"]);
-                    pCarrito.Precio_Und = Convert.ToDouble(double.Parse(reader["precioUnd"].ToString()).ToString("f2"));
-                    pCarrito.ITEBIS = Convert.ToDouble(double.Parse(reader["ITEBIS"].ToString()).ToString("f2"));
-                    pCarrito.Total = Convert.ToDouble(double.Parse(reader["Total"].ToString()).ToString("f2"));
+                    pCarrito.Precio_Und = double.Parse(reader["precioUnd"].ToString());
+                    pCarrito.ITEBIS = double.Parse(reader["ITEBIS"].ToString());
+                    pCarrito.Total = double.Parse(reader["Total"].ToString());
 
                     list.Add(pCarrito);
                 }
