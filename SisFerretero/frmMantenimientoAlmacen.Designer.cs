@@ -34,33 +34,33 @@
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.gnInformacionProducto = new System.Windows.Forms.GroupBox();
-            this.gbSuplidores = new System.Windows.Forms.GroupBox();
-            this.lblDescripcion = new System.Windows.Forms.Label();
-            this.txtDescripcion = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.txtPrecioUnd = new System.Windows.Forms.TextBox();
-            this.lblPrecioUnd = new System.Windows.Forms.Label();
-            this.lblDepartamento = new System.Windows.Forms.Label();
-            this.cbDepartamento = new System.Windows.Forms.ComboBox();
-            this.lblCantExistente = new System.Windows.Forms.Label();
-            this.nCantExistente = new System.Windows.Forms.NumericUpDown();
+            this.gbImpuesto = new System.Windows.Forms.GroupBox();
+            this.rbNoExonerado = new System.Windows.Forms.RadioButton();
+            this.rbExonerado = new System.Windows.Forms.RadioButton();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.lblCodigoProducto = new System.Windows.Forms.Label();
-            this.gbImpuesto = new System.Windows.Forms.GroupBox();
-            this.rbExonerado = new System.Windows.Forms.RadioButton();
-            this.rbNoExonerado = new System.Windows.Forms.RadioButton();
+            this.nCantExistente = new System.Windows.Forms.NumericUpDown();
+            this.lblCantExistente = new System.Windows.Forms.Label();
+            this.cbDepartamento = new System.Windows.Forms.ComboBox();
+            this.lblDepartamento = new System.Windows.Forms.Label();
+            this.txtPrecioUnd = new System.Windows.Forms.TextBox();
+            this.lblPrecioUnd = new System.Windows.Forms.Label();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.lblNombre = new System.Windows.Forms.Label();
+            this.txtDescripcion = new System.Windows.Forms.TextBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
+            this.gbSuplidores = new System.Windows.Forms.GroupBox();
+            this.btnSeleccionarSuplidor = new System.Windows.Forms.Button();
             this.dgvSuplidores = new System.Windows.Forms.DataGridView();
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.btnSeleccionarSuplidor = new System.Windows.Forms.Button();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gnInformacionProducto.SuspendLayout();
-            this.gbSuplidores.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nCantExistente)).BeginInit();
             this.gbImpuesto.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nCantExistente)).BeginInit();
+            this.gbSuplidores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuplidores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -145,123 +145,41 @@
             this.gnInformacionProducto.TabStop = false;
             this.gnInformacionProducto.Text = "Informacion del Producto";
             // 
-            // gbSuplidores
+            // gbImpuesto
             // 
-            this.gbSuplidores.BackColor = System.Drawing.Color.SandyBrown;
-            this.gbSuplidores.Controls.Add(this.btnSeleccionarSuplidor);
-            this.gbSuplidores.Controls.Add(this.dgvSuplidores);
-            this.gbSuplidores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbSuplidores.ForeColor = System.Drawing.Color.FloralWhite;
-            this.gbSuplidores.Location = new System.Drawing.Point(581, 66);
-            this.gbSuplidores.Name = "gbSuplidores";
-            this.gbSuplidores.Size = new System.Drawing.Size(336, 371);
-            this.gbSuplidores.TabIndex = 3;
-            this.gbSuplidores.TabStop = false;
-            this.gbSuplidores.Text = "Suplidores";
+            this.gbImpuesto.Controls.Add(this.rbNoExonerado);
+            this.gbImpuesto.Controls.Add(this.rbExonerado);
+            this.gbImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbImpuesto.Location = new System.Drawing.Point(256, 66);
+            this.gbImpuesto.Name = "gbImpuesto";
+            this.gbImpuesto.Size = new System.Drawing.Size(195, 113);
+            this.gbImpuesto.TabIndex = 12;
+            this.gbImpuesto.TabStop = false;
+            this.gbImpuesto.Text = "ITEBIS";
             // 
-            // lblDescripcion
+            // rbNoExonerado
             // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescripcion.Location = new System.Drawing.Point(20, 188);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(87, 15);
-            this.lblDescripcion.TabIndex = 0;
-            this.lblDescripcion.Text = "Descripcion:";
+            this.rbNoExonerado.AutoSize = true;
+            this.rbNoExonerado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbNoExonerado.Location = new System.Drawing.Point(16, 65);
+            this.rbNoExonerado.Name = "rbNoExonerado";
+            this.rbNoExonerado.Size = new System.Drawing.Size(146, 19);
+            this.rbNoExonerado.TabIndex = 1;
+            this.rbNoExonerado.TabStop = true;
+            this.rbNoExonerado.Text = "No exonerado de Imp.";
+            this.rbNoExonerado.UseVisualStyleBackColor = true;
             // 
-            // txtDescripcion
+            // rbExonerado
             // 
-            this.txtDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.txtDescripcion.Location = new System.Drawing.Point(23, 209);
-            this.txtDescripcion.MaxLength = 200;
-            this.txtDescripcion.Multiline = true;
-            this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(454, 145);
-            this.txtDescripcion.TabIndex = 1;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(20, 45);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(62, 15);
-            this.lblNombre.TabIndex = 2;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.ForeColor = System.Drawing.Color.Black;
-            this.txtNombre.Location = new System.Drawing.Point(88, 42);
-            this.txtNombre.MaxLength = 50;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(142, 21);
-            this.txtNombre.TabIndex = 3;
-            // 
-            // txtPrecioUnd
-            // 
-            this.txtPrecioUnd.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtPrecioUnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecioUnd.ForeColor = System.Drawing.Color.Black;
-            this.txtPrecioUnd.Location = new System.Drawing.Point(88, 78);
-            this.txtPrecioUnd.Name = "txtPrecioUnd";
-            this.txtPrecioUnd.Size = new System.Drawing.Size(98, 21);
-            this.txtPrecioUnd.TabIndex = 5;
-            // 
-            // lblPrecioUnd
-            // 
-            this.lblPrecioUnd.AutoSize = true;
-            this.lblPrecioUnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecioUnd.Location = new System.Drawing.Point(30, 81);
-            this.lblPrecioUnd.Name = "lblPrecioUnd";
-            this.lblPrecioUnd.Size = new System.Drawing.Size(52, 15);
-            this.lblPrecioUnd.TabIndex = 4;
-            this.lblPrecioUnd.Text = "Precio:";
-            // 
-            // lblDepartamento
-            // 
-            this.lblDepartamento.AutoSize = true;
-            this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(20, 155);
-            this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(102, 15);
-            this.lblDepartamento.TabIndex = 6;
-            this.lblDepartamento.Text = "Departamento:";
-            // 
-            // cbDepartamento
-            // 
-            this.cbDepartamento.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartamento.ForeColor = System.Drawing.Color.Black;
-            this.cbDepartamento.FormattingEnabled = true;
-            this.cbDepartamento.Location = new System.Drawing.Point(124, 152);
-            this.cbDepartamento.Name = "cbDepartamento";
-            this.cbDepartamento.Size = new System.Drawing.Size(106, 23);
-            this.cbDepartamento.TabIndex = 7;
-            // 
-            // lblCantExistente
-            // 
-            this.lblCantExistente.AutoSize = true;
-            this.lblCantExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCantExistente.Location = new System.Drawing.Point(20, 116);
-            this.lblCantExistente.Name = "lblCantExistente";
-            this.lblCantExistente.Size = new System.Drawing.Size(107, 15);
-            this.lblCantExistente.TabIndex = 8;
-            this.lblCantExistente.Text = "Cant. Existente:";
-            // 
-            // nCantExistente
-            // 
-            this.nCantExistente.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.nCantExistente.ForeColor = System.Drawing.Color.Black;
-            this.nCantExistente.Location = new System.Drawing.Point(133, 114);
-            this.nCantExistente.Name = "nCantExistente";
-            this.nCantExistente.Size = new System.Drawing.Size(97, 22);
-            this.nCantExistente.TabIndex = 9;
+            this.rbExonerado.AutoSize = true;
+            this.rbExonerado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.rbExonerado.Location = new System.Drawing.Point(16, 31);
+            this.rbExonerado.Name = "rbExonerado";
+            this.rbExonerado.Size = new System.Drawing.Size(128, 19);
+            this.rbExonerado.TabIndex = 0;
+            this.rbExonerado.TabStop = true;
+            this.rbExonerado.Text = "Exonerado de Imp.";
+            this.rbExonerado.UseVisualStyleBackColor = true;
             // 
             // txtCodigo
             // 
@@ -284,41 +202,134 @@
             this.lblCodigoProducto.TabIndex = 10;
             this.lblCodigoProducto.Text = "Codigo:";
             // 
-            // gbImpuesto
+            // nCantExistente
             // 
-            this.gbImpuesto.Controls.Add(this.rbNoExonerado);
-            this.gbImpuesto.Controls.Add(this.rbExonerado);
-            this.gbImpuesto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbImpuesto.Location = new System.Drawing.Point(256, 66);
-            this.gbImpuesto.Name = "gbImpuesto";
-            this.gbImpuesto.Size = new System.Drawing.Size(195, 113);
-            this.gbImpuesto.TabIndex = 12;
-            this.gbImpuesto.TabStop = false;
-            this.gbImpuesto.Text = "ITEBIS";
+            this.nCantExistente.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.nCantExistente.ForeColor = System.Drawing.Color.Black;
+            this.nCantExistente.Location = new System.Drawing.Point(133, 114);
+            this.nCantExistente.Name = "nCantExistente";
+            this.nCantExistente.Size = new System.Drawing.Size(97, 22);
+            this.nCantExistente.TabIndex = 9;
             // 
-            // rbExonerado
+            // lblCantExistente
             // 
-            this.rbExonerado.AutoSize = true;
-            this.rbExonerado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbExonerado.Location = new System.Drawing.Point(16, 31);
-            this.rbExonerado.Name = "rbExonerado";
-            this.rbExonerado.Size = new System.Drawing.Size(128, 19);
-            this.rbExonerado.TabIndex = 0;
-            this.rbExonerado.TabStop = true;
-            this.rbExonerado.Text = "Exonerado de Imp.";
-            this.rbExonerado.UseVisualStyleBackColor = true;
+            this.lblCantExistente.AutoSize = true;
+            this.lblCantExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantExistente.Location = new System.Drawing.Point(20, 116);
+            this.lblCantExistente.Name = "lblCantExistente";
+            this.lblCantExistente.Size = new System.Drawing.Size(107, 15);
+            this.lblCantExistente.TabIndex = 8;
+            this.lblCantExistente.Text = "Cant. Existente:";
             // 
-            // rbNoExonerado
+            // cbDepartamento
             // 
-            this.rbNoExonerado.AutoSize = true;
-            this.rbNoExonerado.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.rbNoExonerado.Location = new System.Drawing.Point(16, 65);
-            this.rbNoExonerado.Name = "rbNoExonerado";
-            this.rbNoExonerado.Size = new System.Drawing.Size(146, 19);
-            this.rbNoExonerado.TabIndex = 1;
-            this.rbNoExonerado.TabStop = true;
-            this.rbNoExonerado.Text = "No exonerado de Imp.";
-            this.rbNoExonerado.UseVisualStyleBackColor = true;
+            this.cbDepartamento.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbDepartamento.ForeColor = System.Drawing.Color.Black;
+            this.cbDepartamento.FormattingEnabled = true;
+            this.cbDepartamento.Location = new System.Drawing.Point(124, 152);
+            this.cbDepartamento.Name = "cbDepartamento";
+            this.cbDepartamento.Size = new System.Drawing.Size(106, 23);
+            this.cbDepartamento.TabIndex = 7;
+            // 
+            // lblDepartamento
+            // 
+            this.lblDepartamento.AutoSize = true;
+            this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDepartamento.Location = new System.Drawing.Point(20, 155);
+            this.lblDepartamento.Name = "lblDepartamento";
+            this.lblDepartamento.Size = new System.Drawing.Size(102, 15);
+            this.lblDepartamento.TabIndex = 6;
+            this.lblDepartamento.Text = "Departamento:";
+            // 
+            // txtPrecioUnd
+            // 
+            this.txtPrecioUnd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecioUnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPrecioUnd.ForeColor = System.Drawing.Color.Black;
+            this.txtPrecioUnd.Location = new System.Drawing.Point(88, 78);
+            this.txtPrecioUnd.Name = "txtPrecioUnd";
+            this.txtPrecioUnd.Size = new System.Drawing.Size(98, 21);
+            this.txtPrecioUnd.TabIndex = 5;
+            // 
+            // lblPrecioUnd
+            // 
+            this.lblPrecioUnd.AutoSize = true;
+            this.lblPrecioUnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrecioUnd.Location = new System.Drawing.Point(30, 81);
+            this.lblPrecioUnd.Name = "lblPrecioUnd";
+            this.lblPrecioUnd.Size = new System.Drawing.Size(52, 15);
+            this.lblPrecioUnd.TabIndex = 4;
+            this.lblPrecioUnd.Text = "Precio:";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNombre.ForeColor = System.Drawing.Color.Black;
+            this.txtNombre.Location = new System.Drawing.Point(88, 42);
+            this.txtNombre.MaxLength = 50;
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(142, 21);
+            this.txtNombre.TabIndex = 3;
+            // 
+            // lblNombre
+            // 
+            this.lblNombre.AutoSize = true;
+            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNombre.Location = new System.Drawing.Point(20, 45);
+            this.lblNombre.Name = "lblNombre";
+            this.lblNombre.Size = new System.Drawing.Size(62, 15);
+            this.lblNombre.TabIndex = 2;
+            this.lblNombre.Text = "Nombre:";
+            // 
+            // txtDescripcion
+            // 
+            this.txtDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
+            this.txtDescripcion.Location = new System.Drawing.Point(23, 209);
+            this.txtDescripcion.MaxLength = 200;
+            this.txtDescripcion.Multiline = true;
+            this.txtDescripcion.Name = "txtDescripcion";
+            this.txtDescripcion.Size = new System.Drawing.Size(454, 145);
+            this.txtDescripcion.TabIndex = 1;
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDescripcion.Location = new System.Drawing.Point(20, 188);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(87, 15);
+            this.lblDescripcion.TabIndex = 0;
+            this.lblDescripcion.Text = "Descripcion:";
+            // 
+            // gbSuplidores
+            // 
+            this.gbSuplidores.BackColor = System.Drawing.Color.SandyBrown;
+            this.gbSuplidores.Controls.Add(this.btnSeleccionarSuplidor);
+            this.gbSuplidores.Controls.Add(this.dgvSuplidores);
+            this.gbSuplidores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbSuplidores.ForeColor = System.Drawing.Color.FloralWhite;
+            this.gbSuplidores.Location = new System.Drawing.Point(581, 66);
+            this.gbSuplidores.Name = "gbSuplidores";
+            this.gbSuplidores.Size = new System.Drawing.Size(336, 371);
+            this.gbSuplidores.TabIndex = 3;
+            this.gbSuplidores.TabStop = false;
+            this.gbSuplidores.Text = "Suplidores";
+            // 
+            // btnSeleccionarSuplidor
+            // 
+            this.btnSeleccionarSuplidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionarSuplidor.ForeColor = System.Drawing.Color.Black;
+            this.btnSeleccionarSuplidor.Location = new System.Drawing.Point(89, 342);
+            this.btnSeleccionarSuplidor.Name = "btnSeleccionarSuplidor";
+            this.btnSeleccionarSuplidor.Size = new System.Drawing.Size(166, 23);
+            this.btnSeleccionarSuplidor.TabIndex = 1;
+            this.btnSeleccionarSuplidor.Text = "Seleccionar Suplidor";
+            this.btnSeleccionarSuplidor.UseVisualStyleBackColor = true;
             // 
             // dgvSuplidores
             // 
@@ -362,17 +373,6 @@
             this.btnBuscar.Text = "Buscar Producto";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // btnSeleccionarSuplidor
-            // 
-            this.btnSeleccionarSuplidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionarSuplidor.ForeColor = System.Drawing.Color.Black;
-            this.btnSeleccionarSuplidor.Location = new System.Drawing.Point(89, 342);
-            this.btnSeleccionarSuplidor.Name = "btnSeleccionarSuplidor";
-            this.btnSeleccionarSuplidor.Size = new System.Drawing.Size(166, 23);
-            this.btnSeleccionarSuplidor.TabIndex = 1;
-            this.btnSeleccionarSuplidor.Text = "Seleccionar Suplidor";
-            this.btnSeleccionarSuplidor.UseVisualStyleBackColor = true;
-            // 
             // frmMantenimientoAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -402,10 +402,10 @@
             this.pCerrar.PerformLayout();
             this.gnInformacionProducto.ResumeLayout(false);
             this.gnInformacionProducto.PerformLayout();
-            this.gbSuplidores.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nCantExistente)).EndInit();
             this.gbImpuesto.ResumeLayout(false);
             this.gbImpuesto.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nCantExistente)).EndInit();
+            this.gbSuplidores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSuplidores)).EndInit();
             this.ResumeLayout(false);
 

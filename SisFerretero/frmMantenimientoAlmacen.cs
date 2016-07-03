@@ -103,6 +103,11 @@ namespace SisFerretero
             {
                 // se cargan los departamentos en el combobox
                 getDepartamentos();
+                // se le cambia el Style a la tabla de los suplidores
+                dgvSuplidores.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Regular);
+                dgvSuplidores.DefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Regular);
+                // se llena la tabla con los suplidores
+                dgvSuplidores.DataSource = suplidores.ListSuplidoresCodigoNombre();
             }
             catch(Exception ex)
             {

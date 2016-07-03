@@ -87,6 +87,7 @@
     <Compile Include="productos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="suplidores.cs" />
     <EmbeddedResource Include="frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
