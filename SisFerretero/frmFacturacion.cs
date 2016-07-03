@@ -162,7 +162,7 @@ namespace SisFerretero
                 try
                 {
                     // se toma el evento get Producto y se valida para saber si es null.
-                    productos pProductos = productos.getProducto(int.Parse(txtCodigo.Text));
+                    baseProductos pProductos = productos.getProducto(int.Parse(txtCodigo.Text));
                     if (pProductos != null)
                     {
                         txtCantidadExistente.Text = pProductos.cantExistente.ToString();
@@ -204,7 +204,7 @@ namespace SisFerretero
             else
             {
                 try {
-                    productos pProductos = productos.getProducto(int.Parse(txtCodigo.Text));
+                    baseProductos pProductos = productos.getProducto(int.Parse(txtCodigo.Text));
                     if (pProductos != null)
                     {
                         if (pProductos.cantExistente >= nCantComprar.Value)
@@ -212,15 +212,15 @@ namespace SisFerretero
                             // para saber si el iten esta excento de impuesto.
                             if (pProductos.Imp > 0)
                             {
-                                txtTotalNoImp.Text = (pProductos.precioUnd * nCantComprar.Value).ToString("f2");
+                                txtTotalNoImp.Text = (pProductos.precioUnd * Convert.ToInt32(nCantComprar.Value)).ToString("f2");
                                 txtITEBIS.Text = ((double.Parse(txtTotalNoImp.Text)) * 0.18).ToString("f2");
                                 txtTotalaPagar.Text = (double.Parse(txtTotalNoImp.Text) + double.Parse(txtITEBIS.Text)).ToString("f2");
                             }
                             else
                             {
-                                txtTotalNoImp.Text = (pProductos.precioUnd * nCantComprar.Value).ToString("f2");
+                                txtTotalNoImp.Text = (pProductos.precioUnd * Convert.ToInt32(nCantComprar.Value)).ToString("f2");
                                 txtITEBIS.Text = "0.00";
-                                txtTotalaPagar.Text = (pProductos.precioUnd * nCantComprar.Value).ToString("f2");
+                                txtTotalaPagar.Text = (pProductos.precioUnd * Convert.ToInt32(nCantComprar.Value)).ToString("f2");
                             }
                         }
                         else if (pProductos.cantExistente == 0)
