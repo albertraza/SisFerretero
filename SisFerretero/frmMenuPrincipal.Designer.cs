@@ -96,31 +96,32 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             // 
             // suplidoresToolStripMenuItem
             // 
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
             // 
             // almacenToolStripMenuItem
             // 
             this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
-            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.almacenToolStripMenuItem.Text = "Almacen";
+            this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             // 
             // consultaToolStripMenuItem
