@@ -313,9 +313,9 @@
             this.gbSuplidores.Controls.Add(this.dgvSuplidores);
             this.gbSuplidores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbSuplidores.ForeColor = System.Drawing.Color.FloralWhite;
-            this.gbSuplidores.Location = new System.Drawing.Point(581, 66);
+            this.gbSuplidores.Location = new System.Drawing.Point(529, 66);
             this.gbSuplidores.Name = "gbSuplidores";
-            this.gbSuplidores.Size = new System.Drawing.Size(336, 371);
+            this.gbSuplidores.Size = new System.Drawing.Size(388, 371);
             this.gbSuplidores.TabIndex = 3;
             this.gbSuplidores.TabStop = false;
             this.gbSuplidores.Text = "Suplidores";
@@ -324,7 +324,7 @@
             // 
             this.btnSeleccionarSuplidor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSeleccionarSuplidor.ForeColor = System.Drawing.Color.Black;
-            this.btnSeleccionarSuplidor.Location = new System.Drawing.Point(89, 342);
+            this.btnSeleccionarSuplidor.Location = new System.Drawing.Point(107, 342);
             this.btnSeleccionarSuplidor.Name = "btnSeleccionarSuplidor";
             this.btnSeleccionarSuplidor.Size = new System.Drawing.Size(166, 23);
             this.btnSeleccionarSuplidor.TabIndex = 1;
@@ -337,7 +337,7 @@
             this.dgvSuplidores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSuplidores.Location = new System.Drawing.Point(6, 21);
             this.dgvSuplidores.Name = "dgvSuplidores";
-            this.dgvSuplidores.Size = new System.Drawing.Size(324, 304);
+            this.dgvSuplidores.Size = new System.Drawing.Size(376, 304);
             this.dgvSuplidores.TabIndex = 0;
             // 
             // btnRegistrar
