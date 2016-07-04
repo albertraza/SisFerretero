@@ -89,5 +89,11 @@ namespace SisFerretero
             new frmMantenimientoAlmacen().Show();
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void almacenToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new frmConsultaAlmacen().Show();
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
