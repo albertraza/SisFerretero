@@ -122,10 +122,25 @@ namespace SisFerretero
                 // se cargan todos los suplidores en el cbSuplidor
                 listAllSuplidores();
 
+                // actualizamos el Style de la tabla para que no choque con la transparencia
+                dgvProductos.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+                // se llena la tabla con la lista de todos los productos
+                dgvProductos.DataSource = productos.listAllProducto();
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // evento para validar la entrada en el TextBox codigo
+        private void txtCodigo_TextChanged(object sender, EventArgs e)
+        {
+            int comparacion;
+            if(!int.TryParse(txtCodigo.Text, out comparacion))
+            {
+                txtCodigo.Clear();
             }
         }
     }
