@@ -54,6 +54,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>FerreteriaDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaAlmacen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaAlmacen.Designer.cs">
+      <DependentUpon>frmConsultaAlmacen.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmFacturacion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="suplidores.cs" />
+    <EmbeddedResource Include="frmConsultaAlmacen.resx">
+      <DependentUpon>frmConsultaAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmFacturacion.resx">
       <DependentUpon>frmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
