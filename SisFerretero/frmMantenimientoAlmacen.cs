@@ -19,7 +19,7 @@ namespace SisFerretero
             using(SqlConnection con = DataBase.connect())
             {
                 cbDepartamento.Items.Clear();
-                SqlCommand comand = new SqlCommand("select departamento from Departamentos", con);
+                SqlCommand comand = new SqlCommand("select departamento from Departamentos where departamento != 'Todos'", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
