@@ -15,9 +15,10 @@ namespace SisFerretero
         public double precioUnd { get; set; }
         public int cantExistente { get; set; }
         public string Nombre_Suplidor { get; set; }
+        public string Departamento { get; set; }
 
         public productos() { }
-        public productos(int c, string n, string d, double pu, int ce, string ns)
+        public productos(int c, string n, string d, double pu, int ce, string ns, string de)
         {
             codigo = c;
             nombre = n;
@@ -25,8 +26,10 @@ namespace SisFerretero
             precioUnd = pu;
             cantExistente = ce;
             Nombre_Suplidor = ns;
+            Departamento = de;
         }
 
+        // para tomar la informacion del producto desde la base de datos
         public static baseProductos getProducto(int codigoProducto)
         {
             baseProductos pProducto = new baseProductos();
@@ -47,6 +50,32 @@ namespace SisFerretero
                 con.Close();
             }
             return pProducto;
+        }
+        
+        // para hacer una lista de todos los productos
+        public static List<productos> listAllProducto()
+        {
+            List<productos> list = new List<productos>();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand("select Productos.codigo, Productos.nombre, Productos.descripcion, Productos.precioUnd, Productos.cantExistente, Suplidores.nombre as NombreSuplidor, Departamentos.departamento from Productos inner join Departamentos on Departamentos.codigo = Productos.codDepartamento inner join Suplidores on Suplidores.codigo = Productos.codigoSuplidor", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    productos pProducto = new productos();
+                    pProducto.codigo = Convert.ToInt32(re["codigo"]);
+                    pProducto.nombre = re["nombre"].ToString();
+                    pProducto.detalles = re["descripcion"].ToString();
+                    pProducto.precioUnd = Convert.ToDouble(re["precioUnd"]);
+                    pProducto.cantExistente = Convert.ToInt32(re["cantExistente"]);
+                    pProducto.Nombre_Suplidor = re["NombreSuplidor"].ToString();
+                    pProducto.Departamento = re["departamento"].ToString();
+
+                    list.Add(pProducto);
+                }
+                con.Close();
+            }
+            return list;
         }
     }
     public class baseProductos
