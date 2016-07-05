@@ -32,10 +32,7 @@ namespace SisFerretero
             if(Contador == 101 || Contador > 100)
             {
                 tContador.Stop();
-                frmMenuPrincipal pMenu = new frmMenuPrincipal();
-                pMenu.Show();
-                frmOrdenesPendientes pOrdenes = new frmOrdenesPendientes();
-                pOrdenes.Show();
+                new frmLogin().Show();
                 this.Hide();
             }
             else
