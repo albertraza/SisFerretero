@@ -95,5 +95,11 @@ namespace SisFerretero
             new frmConsultaAlmacen().Show();
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Clientes().Show();
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
