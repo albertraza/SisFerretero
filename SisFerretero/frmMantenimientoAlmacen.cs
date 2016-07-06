@@ -13,13 +13,13 @@ namespace SisFerretero
 {
     public partial class frmMantenimientoAlmacen : Form
     {
-        // metodo para rellenar el combobox del departamento
-        private void getDepartamentos()
+        // metodo para rellenar el combobox del categoria
+        private void getCategoria()
         {
             using(SqlConnection con = DataBase.connect())
             {
                 cbDepartamento.Items.Clear();
-                SqlCommand comand = new SqlCommand("select departamento from Departamentos where departamento != 'Todos'", con);
+                SqlCommand comand = new SqlCommand("select categorias from Departamentos where categoria != 'Todos'", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
@@ -102,7 +102,7 @@ namespace SisFerretero
             try
             {
                 // se cargan los departamentos en el combobox
-                getDepartamentos();
+                getCategoria();
                 // se le cambia el Style a la tabla de los suplidores
                 dgvSuplidores.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Bold);
                 dgvSuplidores.DefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Regular);
