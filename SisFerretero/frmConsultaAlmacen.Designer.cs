@@ -35,16 +35,12 @@
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.gbParametros = new System.Windows.Forms.GroupBox();
-            this.lblCodigo = new System.Windows.Forms.Label();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.cbDepartamentos = new System.Windows.Forms.ComboBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
-            this.lblNombre = new System.Windows.Forms.Label();
-            this.lblDepartamento = new System.Windows.Forms.Label();
-            this.lblSuplidores = new System.Windows.Forms.Label();
-            this.cbSuplidores = new System.Windows.Forms.ComboBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
@@ -102,139 +98,96 @@
             this.lblCerrar.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.lblCerrar.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.lblCerrar.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.lblCerrar.Location = new System.Drawing.Point(13, 13);
+            this.lblCerrar.Location = new System.Drawing.Point(15, 12);
             this.lblCerrar.Name = "lblCerrar";
-            this.lblCerrar.Size = new System.Drawing.Size(53, 15);
+            this.lblCerrar.Size = new System.Drawing.Size(47, 15);
             this.lblCerrar.TabIndex = 0;
             this.lblCerrar.TabStop = true;
-            this.lblCerrar.Text = "Ocultar";
+            this.lblCerrar.Text = "Cerrar";
             this.lblCerrar.VisitedLinkColor = System.Drawing.Color.WhiteSmoke;
             this.lblCerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCerrar_LinkClicked);
             // 
             // gbParametros
             // 
             this.gbParametros.BackColor = System.Drawing.Color.LightGray;
+            this.gbParametros.Controls.Add(this.label2);
+            this.gbParametros.Controls.Add(this.label1);
+            this.gbParametros.Controls.Add(this.cbFiltro);
             this.gbParametros.Controls.Add(this.btnLimpiar);
             this.gbParametros.Controls.Add(this.btnBuscar);
-            this.gbParametros.Controls.Add(this.lblSuplidores);
-            this.gbParametros.Controls.Add(this.cbSuplidores);
-            this.gbParametros.Controls.Add(this.lblDepartamento);
-            this.gbParametros.Controls.Add(this.txtNombre);
-            this.gbParametros.Controls.Add(this.lblNombre);
-            this.gbParametros.Controls.Add(this.cbDepartamentos);
-            this.gbParametros.Controls.Add(this.txtCodigo);
-            this.gbParametros.Controls.Add(this.lblCodigo);
+            this.gbParametros.Controls.Add(this.txtBusqueda);
             this.gbParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gbParametros.Location = new System.Drawing.Point(26, 71);
+            this.gbParametros.Location = new System.Drawing.Point(26, 84);
             this.gbParametros.Name = "gbParametros";
-            this.gbParametros.Size = new System.Drawing.Size(708, 112);
+            this.gbParametros.Size = new System.Drawing.Size(708, 90);
             this.gbParametros.TabIndex = 1;
             this.gbParametros.TabStop = false;
             this.gbParametros.Text = "Filtro de Busqueda";
             // 
-            // lblCodigo
+            // btnLimpiar
             // 
-            this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodigo.Location = new System.Drawing.Point(27, 31);
-            this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(49, 15);
-            this.lblCodigo.TabIndex = 0;
-            this.lblCodigo.Text = "Codigo:";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigo.ForeColor = System.Drawing.Color.Black;
-            this.txtCodigo.Location = new System.Drawing.Point(82, 28);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(100, 21);
-            this.txtCodigo.TabIndex = 1;
-            this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
-            // 
-            // cbDepartamentos
-            // 
-            this.cbDepartamentos.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbDepartamentos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDepartamentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartamentos.FormattingEnabled = true;
-            this.cbDepartamentos.Location = new System.Drawing.Point(333, 28);
-            this.cbDepartamentos.Name = "cbDepartamentos";
-            this.cbDepartamentos.Size = new System.Drawing.Size(121, 23);
-            this.cbDepartamentos.TabIndex = 2;
-            // 
-            // txtNombre
-            // 
-            this.txtNombre.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombre.ForeColor = System.Drawing.Color.Black;
-            this.txtNombre.Location = new System.Drawing.Point(82, 69);
-            this.txtNombre.MaxLength = 120;
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 21);
-            this.txtNombre.TabIndex = 4;
-            // 
-            // lblNombre
-            // 
-            this.lblNombre.AutoSize = true;
-            this.lblNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNombre.Location = new System.Drawing.Point(21, 72);
-            this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(55, 15);
-            this.lblNombre.TabIndex = 3;
-            this.lblNombre.Text = "Nombre:";
-            // 
-            // lblDepartamento
-            // 
-            this.lblDepartamento.AutoSize = true;
-            this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(238, 31);
-            this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(89, 15);
-            this.lblDepartamento.TabIndex = 5;
-            this.lblDepartamento.Text = "Departamento:";
-            // 
-            // lblSuplidores
-            // 
-            this.lblSuplidores.AutoSize = true;
-            this.lblSuplidores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSuplidores.Location = new System.Drawing.Point(258, 72);
-            this.lblSuplidores.Name = "lblSuplidores";
-            this.lblSuplidores.Size = new System.Drawing.Size(69, 15);
-            this.lblSuplidores.TabIndex = 7;
-            this.lblSuplidores.Text = "Suplidores:";
-            // 
-            // cbSuplidores
-            // 
-            this.cbSuplidores.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbSuplidores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbSuplidores.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbSuplidores.FormattingEnabled = true;
-            this.cbSuplidores.Location = new System.Drawing.Point(333, 69);
-            this.cbSuplidores.Name = "cbSuplidores";
-            this.cbSuplidores.Size = new System.Drawing.Size(121, 23);
-            this.cbSuplidores.TabIndex = 6;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(540, 53);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(122, 26);
+            this.btnLimpiar.TabIndex = 9;
+            this.btnLimpiar.Text = "Nueva Busqueda";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(514, 26);
+            this.btnBuscar.Location = new System.Drawing.Point(540, 21);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(122, 26);
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // btnLimpiar
+            // txtBusqueda
             // 
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(514, 64);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(122, 26);
-            this.btnLimpiar.TabIndex = 9;
-            this.btnLimpiar.Text = "Nueva Busqueda";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.ForeColor = System.Drawing.Color.Black;
+            this.txtBusqueda.Location = new System.Drawing.Point(261, 39);
+            this.txtBusqueda.MaxLength = 120;
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(273, 21);
+            this.txtBusqueda.TabIndex = 4;
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Items.AddRange(new object[] {
+            "Codigo",
+            "Nombre",
+            "Proveedor",
+            "Categoria"});
+            this.cbFiltro.Location = new System.Drawing.Point(24, 39);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(207, 24);
+            this.cbFiltro.TabIndex = 10;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(21, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(63, 15);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Filtrar Por:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(258, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(114, 15);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "Digite su Busqueda";
             // 
             // frmConsultaAlmacen
             // 
@@ -276,15 +229,11 @@
         private System.Windows.Forms.Panel pCerrar;
         private System.Windows.Forms.LinkLabel lblCerrar;
         private System.Windows.Forms.GroupBox gbParametros;
-        private System.Windows.Forms.Label lblDepartamento;
-        private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label lblNombre;
-        private System.Windows.Forms.ComboBox cbDepartamentos;
-        private System.Windows.Forms.TextBox txtCodigo;
-        private System.Windows.Forms.Label lblCodigo;
-        private System.Windows.Forms.Label lblSuplidores;
-        private System.Windows.Forms.ComboBox cbSuplidores;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbFiltro;
     }
 }
