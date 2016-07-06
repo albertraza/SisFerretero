@@ -101,9 +101,16 @@ namespace SisFerretero
             if(MessageBox.Show("Esta seguro que desea salir?", "Venta de productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 // delete current factura from database
-                int codigo = facturacion.getNewFacturaID();
-                facturacion.deleteFactura(codigo);
-                this.Close();
+                try
+                {
+                    int codigo = facturacion.getNewFacturaID();
+                    facturacion.deleteFactura(codigo);
+                    this.Close();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -113,6 +120,35 @@ namespace SisFerretero
         private void gbInformacionProducto_Enter(object sender, EventArgs e)
         {
 
+        }
+        private void pOcultar_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+        private void pCerrar_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+        private void pOcultar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+        private void pCerrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro que desea salir?", "Venta de productos", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                // delete current factura from database
+                try
+                {
+                    int codigo = facturacion.getNewFacturaID();
+                    facturacion.deleteFactura(codigo);
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
         // Final Codigo cerrar y minimizar
 

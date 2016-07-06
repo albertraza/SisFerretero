@@ -55,13 +55,13 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.pOcultar = new System.Windows.Forms.Panel();
             this.lblMinimizar = new System.Windows.Forms.LinkLabel();
             this.msMenuPrincipal.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.pCerrar.SuspendLayout();
+            this.pOcultar.SuspendLayout();
             this.SuspendLayout();
             // 
             // msMenuPrincipal
@@ -77,7 +77,7 @@
             this.ayudaToolStripMenuItem});
             this.msMenuPrincipal.Location = new System.Drawing.Point(29, 9);
             this.msMenuPrincipal.Name = "msMenuPrincipal";
-            this.msMenuPrincipal.Size = new System.Drawing.Size(548, 24);
+            this.msMenuPrincipal.Size = new System.Drawing.Size(456, 24);
             this.msMenuPrincipal.TabIndex = 0;
             this.msMenuPrincipal.Text = "menuStrip1";
             // 
@@ -96,32 +96,32 @@
             // usuariosToolStripMenuItem
             // 
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             // 
             // empleadosToolStripMenuItem
             // 
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             // 
             // suplidoresToolStripMenuItem
             // 
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
             // 
             // almacenToolStripMenuItem
             // 
             this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
-            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.almacenToolStripMenuItem.Text = "Almacen";
             this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem
             // 
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -267,15 +267,17 @@
             this.manualDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.manualDeUsuarioToolStripMenuItem.Text = "Manual de Usuario";
             // 
-            // panel1
+            // pCerrar
             // 
-            this.panel1.BackColor = System.Drawing.Color.Red;
-            this.panel1.Controls.Add(this.lblCerrar);
-            this.panel1.Location = new System.Drawing.Point(849, 9);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(77, 37);
-            this.panel1.TabIndex = 1;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pCerrar.BackColor = System.Drawing.Color.Red;
+            this.pCerrar.Controls.Add(this.lblCerrar);
+            this.pCerrar.Location = new System.Drawing.Point(849, 9);
+            this.pCerrar.Name = "pCerrar";
+            this.pCerrar.Size = new System.Drawing.Size(77, 37);
+            this.pCerrar.TabIndex = 1;
+            this.pCerrar.Click += new System.EventHandler(this.pCerrar_Click);
+            this.pCerrar.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.pCerrar.MouseHover += new System.EventHandler(this.pCerrar_MouseHover);
             // 
             // lblCerrar
             // 
@@ -292,14 +294,16 @@
             this.lblCerrar.VisitedLinkColor = System.Drawing.Color.White;
             this.lblCerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCerrar_LinkClicked);
             // 
-            // panel2
+            // pOcultar
             // 
-            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel2.Controls.Add(this.lblMinimizar);
-            this.panel2.Location = new System.Drawing.Point(763, 9);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(90, 37);
-            this.panel2.TabIndex = 2;
+            this.pOcultar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pOcultar.Controls.Add(this.lblMinimizar);
+            this.pOcultar.Location = new System.Drawing.Point(763, 9);
+            this.pOcultar.Name = "pOcultar";
+            this.pOcultar.Size = new System.Drawing.Size(90, 37);
+            this.pOcultar.TabIndex = 2;
+            this.pOcultar.Click += new System.EventHandler(this.pOcultar_Click);
+            this.pOcultar.MouseHover += new System.EventHandler(this.pOcultar_MouseHover);
             // 
             // lblMinimizar
             // 
@@ -323,8 +327,8 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::SisFerretero.Properties.Resources.fondoMenu;
             this.ClientSize = new System.Drawing.Size(958, 565);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pOcultar);
+            this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.msMenuPrincipal);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.msMenuPrincipal;
@@ -333,14 +337,15 @@
             this.Text = "Menu Principal";
             this.TransparencyKey = System.Drawing.Color.White;
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmMenuPrincipal_MouseDown);
+            this.MouseHover += new System.EventHandler(this.frmMenuPrincipal_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMenuPrincipal_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmMenuPrincipal_MouseUp);
             this.msMenuPrincipal.ResumeLayout(false);
             this.msMenuPrincipal.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
+            this.pCerrar.ResumeLayout(false);
+            this.pCerrar.PerformLayout();
+            this.pOcultar.ResumeLayout(false);
+            this.pOcultar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,9 +380,9 @@
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualDeUsuarioToolStripMenuItem;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pCerrar;
         private System.Windows.Forms.LinkLabel lblCerrar;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel pOcultar;
         private System.Windows.Forms.LinkLabel lblMinimizar;
     }
 }

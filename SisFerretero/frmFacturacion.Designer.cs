@@ -75,7 +75,7 @@
             this.lblTotalComprado = new System.Windows.Forms.Label();
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pOcultar = new System.Windows.Forms.Panel();
             this.lblOcultar = new System.Windows.Forms.LinkLabel();
             this.gbInformacionProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nCantComprar)).BeginInit();
@@ -84,7 +84,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvCarrito)).BeginInit();
             this.gbFacturaTotal.SuspendLayout();
             this.pCerrar.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pOcultar.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbInformacionProducto
@@ -593,6 +593,8 @@
             this.pCerrar.Name = "pCerrar";
             this.pCerrar.Size = new System.Drawing.Size(66, 35);
             this.pCerrar.TabIndex = 0;
+            this.pCerrar.Click += new System.EventHandler(this.pCerrar_Click);
+            this.pCerrar.MouseHover += new System.EventHandler(this.pCerrar_MouseHover);
             // 
             // lblCerrar
             // 
@@ -600,7 +602,7 @@
             this.lblCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCerrar.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.lblCerrar.LinkColor = System.Drawing.Color.WhiteSmoke;
-            this.lblCerrar.Location = new System.Drawing.Point(14, 11);
+            this.lblCerrar.Location = new System.Drawing.Point(13, 11);
             this.lblCerrar.Name = "lblCerrar";
             this.lblCerrar.Size = new System.Drawing.Size(41, 13);
             this.lblCerrar.TabIndex = 0;
@@ -609,14 +611,16 @@
             this.lblCerrar.VisitedLinkColor = System.Drawing.Color.WhiteSmoke;
             this.lblCerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCerrar_LinkClicked);
             // 
-            // panel1
+            // pOcultar
             // 
-            this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.panel1.Controls.Add(this.lblOcultar);
-            this.panel1.Location = new System.Drawing.Point(833, 12);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(74, 35);
-            this.panel1.TabIndex = 4;
+            this.pOcultar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.pOcultar.Controls.Add(this.lblOcultar);
+            this.pOcultar.Location = new System.Drawing.Point(833, 12);
+            this.pOcultar.Name = "pOcultar";
+            this.pOcultar.Size = new System.Drawing.Size(74, 35);
+            this.pOcultar.TabIndex = 4;
+            this.pOcultar.Click += new System.EventHandler(this.pOcultar_Click);
+            this.pOcultar.MouseHover += new System.EventHandler(this.pOcultar_MouseHover);
             // 
             // lblOcultar
             // 
@@ -624,7 +628,7 @@
             this.lblOcultar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOcultar.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.lblOcultar.LinkColor = System.Drawing.Color.Black;
-            this.lblOcultar.Location = new System.Drawing.Point(14, 11);
+            this.lblOcultar.Location = new System.Drawing.Point(13, 11);
             this.lblOcultar.Name = "lblOcultar";
             this.lblOcultar.Size = new System.Drawing.Size(48, 13);
             this.lblOcultar.TabIndex = 1;
@@ -640,7 +644,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1013, 570);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pOcultar);
             this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.gbFacturaTotal);
             this.Controls.Add(this.gbCarrito);
@@ -666,8 +670,8 @@
             this.gbFacturaTotal.PerformLayout();
             this.pCerrar.ResumeLayout(false);
             this.pCerrar.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pOcultar.ResumeLayout(false);
+            this.pOcultar.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -681,7 +685,7 @@
         private System.Windows.Forms.GroupBox gbFacturaTotal;
         private System.Windows.Forms.Panel pCerrar;
         private System.Windows.Forms.LinkLabel lblCerrar;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pOcultar;
         private System.Windows.Forms.LinkLabel lblOcultar;
         private System.Windows.Forms.TextBox txtTotalaPagar;
         private System.Windows.Forms.Label lblTotalPagarProducto;

@@ -42,6 +42,29 @@ namespace SisFerretero
         {
             WindowState = FormWindowState.Minimized;
         }
+        private void pOcultar_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+        private void frmMenuPrincipal_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+        }
+        private void pCerrar_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+        private void pCerrar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro que desea salir del Sistema?", "Menu Principal", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+        private void pOcultar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
         // final codigo cerrar y minimizar
 
         /// //////////////////////////////////////
