@@ -18,8 +18,9 @@ namespace SisFerretero
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            new frmMenuPrincipal().Show();
             new frmOrdenesPendientes().Show();
+            new frmMenuPrincipal().Show();
+            this.Hide();
         }
     }
 }
