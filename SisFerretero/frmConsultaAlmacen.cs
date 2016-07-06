@@ -13,37 +13,6 @@ namespace SisFerretero
 {
     public partial class frmConsultaAlmacen : Form
     {
-        // metodo para cargar todos los departamentos
-        private void listAllDepartamentos()
-        {
-            cbDepartamentos.Items.Clear();
-            using(SqlConnection con = DataBase.connect())
-            {
-                SqlCommand com = new SqlCommand("select departamento from departamentos", con);
-                SqlDataReader re = com.ExecuteReader();
-                while (re.Read())
-                {
-                    cbDepartamentos.Items.Add(re["departamento"]);
-                }
-                con.Close();
-            }
-        }
-
-        // metodo para cargar todos los suplidores
-        private void listAllSuplidores()
-        {
-            cbSuplidores.Items.Clear();
-            using(SqlConnection con = DataBase.connect())
-            {
-                SqlCommand comand = new SqlCommand("select nombre from Suplidores", con);
-                SqlDataReader re = comand.ExecuteReader();
-                while (re.Read())
-                {
-                    cbSuplidores.Items.Add(re["nombre"]);
-                }
-                con.Close();
-            }
-        }
 
         public frmConsultaAlmacen()
         {
@@ -116,12 +85,6 @@ namespace SisFerretero
         {
             try
             {
-                // se cargan todos los departamentos en le cbDepartamento
-                listAllDepartamentos();
-
-                // se cargan todos los suplidores en el cbSuplidor
-                listAllSuplidores();
-
                 // actualizamos el Style de la tabla para que no choque con la transparencia
                 dgvProductos.DefaultCellStyle.BackColor = Color.WhiteSmoke;
 
@@ -137,11 +100,6 @@ namespace SisFerretero
         // evento para validar la entrada en el TextBox codigo
         private void txtCodigo_TextChanged(object sender, EventArgs e)
         {
-            int comparacion;
-            if(!int.TryParse(txtCodigo.Text, out comparacion))
-            {
-                txtCodigo.Clear();
-            }
         }
     }
 }
