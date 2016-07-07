@@ -58,7 +58,7 @@ namespace SisFerretero
             List<productos> list = new List<productos>();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("select Productos.codigo, Productos.nombre, Productos.descripcion, Productos.precioUnd, Productos.cantExistente, Suplidores.nombre as NombreSuplidor, Departamentos.departamento from Productos inner join Departamentos on Departamentos.codigo = Productos.codDepartamento inner join Suplidores on Suplidores.codigo = Productos.codigoSuplidor", con);
+                SqlCommand comand = new SqlCommand("select Productos.codigo, Productos.nombre, Productos.descripcion, Productos.precioUnd, Productos.cantExistente, Suplidores.nombre as NombreSuplidor, categorias.categoria from Productos inner join categorias on categorias.codigo = Productos.codDepartamento inner join Suplidores on Suplidores.codigo = Productos.codigoSuplidor", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
@@ -69,7 +69,7 @@ namespace SisFerretero
                     pProducto.precioUnd = Convert.ToDouble(re["precioUnd"]);
                     pProducto.cantExistente = Convert.ToInt32(re["cantExistente"]);
                     pProducto.Nombre_Suplidor = re["NombreSuplidor"].ToString();
-                    pProducto.Departamento = re["departamento"].ToString();
+                    pProducto.Departamento = re["categoria"].ToString();
 
                     list.Add(pProducto);
                 }
