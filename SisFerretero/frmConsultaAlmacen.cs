@@ -96,10 +96,5 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        // evento para validar la entrada en el TextBox codigo
-        private void txtCodigo_TextChanged(object sender, EventArgs e)
-        {
-        }
     }
 }

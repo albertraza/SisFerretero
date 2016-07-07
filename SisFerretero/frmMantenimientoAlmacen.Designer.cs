@@ -388,6 +388,7 @@
             this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.pOcultar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMantenimientoAlmacen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMantenimientoAlmacen";
