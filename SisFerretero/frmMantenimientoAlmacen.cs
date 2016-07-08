@@ -126,5 +126,11 @@ namespace SisFerretero
                 txtCodigo.Clear();
             }
         }
+
+        // evento para registrar un nuevo producto al almacen
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
