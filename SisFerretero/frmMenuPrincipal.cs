@@ -115,7 +115,9 @@ namespace SisFerretero
 
         private void almacenToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new frmConsultaAlmacen().Show();
+            frmConsultaAlmacen pAlmacen = new frmConsultaAlmacen();
+            pAlmacen.menu = true;
+            pAlmacen.Show();
             this.WindowState = FormWindowState.Minimized;
         }
 
