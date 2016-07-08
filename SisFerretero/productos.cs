@@ -87,9 +87,10 @@ namespace SisFerretero
         public int cantExistente { get; set; }
         public int codigoSuplidor { get; set; }
         public int Imp { get; set; }
+        public int codigoCategoria { get; set; }
 
         public baseProductos() { }
-        public baseProductos(int c, string n, string d, double pu, int ce, int cs, int im)
+        public baseProductos(int c, string n, string d, double pu, int ce, int cs, int im, int codigoCat)
         {
             codigo = c;
             nombre = n;
@@ -98,6 +99,28 @@ namespace SisFerretero
             cantExistente = ce;
             codigoSuplidor = cs;
             Imp = im;
+            codigoCategoria = codigoCat;
+        }
+
+        // metodo para registrar un nuevo producto
+        public static string Registrar(baseProductos pProducto)
+        {
+            string mensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("execute registerProducto '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'",
+                    pProducto.nombre, pProducto.detalles, pProducto.precioUnd, pProducto.cantExistente, pProducto.codigoSuplidor, pProducto.Imp, pProducto.codigoCategoria), con);
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Producto Registrado Existosamente!";
+                }
+                else
+                {
+                    mensaje = "No se pudo Registrar el Producto";
+                }
+                con.Close();
+            }
+            return mensaje;
         }
     }
 }
