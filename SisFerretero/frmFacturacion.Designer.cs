@@ -166,6 +166,7 @@
             // txtTotalaPagar
             // 
             this.txtTotalaPagar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotalaPagar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotalaPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalaPagar.Location = new System.Drawing.Point(364, 154);
             this.txtTotalaPagar.Name = "txtTotalaPagar";
@@ -186,6 +187,7 @@
             // txtTotalNoImp
             // 
             this.txtTotalNoImp.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTotalNoImp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotalNoImp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotalNoImp.Location = new System.Drawing.Point(364, 114);
             this.txtTotalNoImp.Name = "txtTotalNoImp";
@@ -206,6 +208,7 @@
             // txtITEBIS
             // 
             this.txtITEBIS.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtITEBIS.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtITEBIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtITEBIS.Location = new System.Drawing.Point(364, 73);
             this.txtITEBIS.Name = "txtITEBIS";
@@ -226,6 +229,7 @@
             // nCantComprar
             // 
             this.nCantComprar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.nCantComprar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.nCantComprar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nCantComprar.Location = new System.Drawing.Point(364, 32);
             this.nCantComprar.Name = "nCantComprar";
@@ -247,6 +251,7 @@
             // txtCantidadExistente
             // 
             this.txtCantidadExistente.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCantidadExistente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCantidadExistente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidadExistente.Location = new System.Drawing.Point(119, 157);
             this.txtCantidadExistente.Name = "txtCantidadExistente";
@@ -267,6 +272,7 @@
             // txtPrecioUnitario
             // 
             this.txtPrecioUnitario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecioUnitario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecioUnitario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioUnitario.Location = new System.Drawing.Point(119, 114);
             this.txtPrecioUnitario.Name = "txtPrecioUnitario";
@@ -287,6 +293,7 @@
             // txtNombreProducto
             // 
             this.txtNombreProducto.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNombreProducto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombreProducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreProducto.Location = new System.Drawing.Point(77, 70);
             this.txtNombreProducto.Name = "txtNombreProducto";
@@ -307,6 +314,7 @@
             // txtCodigo
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.Location = new System.Drawing.Point(77, 31);
             this.txtCodigo.Name = "txtCodigo";
@@ -373,6 +381,7 @@
             // txtCelularCli
             // 
             this.txtCelularCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCelularCli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCelularCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCelularCli.Location = new System.Drawing.Point(319, 111);
             this.txtCelularCli.Mask = "(999) 000-0000";
@@ -394,6 +403,7 @@
             // txtTelefonoCli
             // 
             this.txtTelefonoCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTelefonoCli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTelefonoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefonoCli.Location = new System.Drawing.Point(319, 73);
             this.txtTelefonoCli.Mask = "(999) 000-0000";
@@ -415,6 +425,7 @@
             // txtDireccionCli
             // 
             this.txtDireccionCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDireccionCli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDireccionCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccionCli.Location = new System.Drawing.Point(137, 151);
             this.txtDireccionCli.Name = "txtDireccionCli";
@@ -435,6 +446,7 @@
             // txtApellidoCli
             // 
             this.txtApellidoCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtApellidoCli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtApellidoCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidoCli.Location = new System.Drawing.Point(84, 111);
             this.txtApellidoCli.Name = "txtApellidoCli";
@@ -455,6 +467,7 @@
             // txtNombreCli
             // 
             this.txtNombreCli.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNombreCli.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombreCli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombreCli.Location = new System.Drawing.Point(84, 76);
             this.txtNombreCli.Name = "txtNombreCli";
@@ -475,6 +488,7 @@
             // txtCedulaCliente
             // 
             this.txtCedulaCliente.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCedulaCliente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCedulaCliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedulaCliente.Location = new System.Drawing.Point(84, 35);
             this.txtCedulaCliente.Mask = "000-0000000-0";

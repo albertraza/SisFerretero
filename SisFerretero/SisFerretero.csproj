@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="carrito.cs" />
+    <Compile Include="categoria.cs" />
     <Compile Include="Clientes.cs">
       <SubType>Form</SubType>
     </Compile>

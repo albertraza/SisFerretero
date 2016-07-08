@@ -49,6 +49,8 @@ namespace SisFerretero
             getCategoria();
             dgvSuplidores.DataSource = suplidores.ListSuplidoresCodigoNombre();
             txtNombre.Focus();
+            rbExonerado.Checked = false;
+            rbNoExonerado.Checked = false;
         }
 
         public frmMantenimientoAlmacen()
@@ -306,6 +308,52 @@ namespace SisFerretero
             if(!double.TryParse(txtPrecioUnd.Text, out comparacion))
             {
                 txtPrecioUnd.Clear();
+            }
+        }
+
+        // evento para hacer una busqueda avanzada de los productos
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try { 
+            // se crea una instancia del form consulta almacen
+            frmConsultaAlmacen pConsulta = new frmConsultaAlmacen();
+
+            // la propiedad menu se coloca en false ya que se esta llamando desde el mantenimiento de productos
+            pConsulta.menu = false;
+            pConsulta.ShowDialog();
+
+                // se valida la propiedad pProducto del form consulta almacen
+                if (pConsulta.pProducto != null)
+                {
+                    // se limpian todos los campos
+                    LimpiarCampos();
+
+                    // si no esta vacia se rellenan los campos con las propiedades del form consulta
+                    txtCodigo.Text = pConsulta.pProducto.codigo.ToString();
+                    txtDescripcion.Text = pConsulta.pProducto.detalles;
+                    txtNombre.Text = pConsulta.pProducto.nombre;
+                    txtPrecioUnd.Text = pConsulta.pProducto.precioUnd.ToString("f2");
+                    nCantExistente.Value = pConsulta.pProducto.cantExistente;
+                    cbCategoria.Text = categoria.getCategoriaCodigo(pConsulta.pProducto.codigoCategoria).Categoria;
+
+                    // se valida la exoneracion de impuestos
+                    if (Convert.ToInt32(Impuesto.Exonerado) == pConsulta.pProducto.Imp)
+                    {
+                        rbExonerado.Checked = true;
+                    }
+                    else if (Convert.ToInt32(Impuesto.NoExonerado) == pConsulta.pProducto.Imp)
+                    {
+                        rbNoExonerado.Checked = true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al validar la exoneracion de impuestos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
