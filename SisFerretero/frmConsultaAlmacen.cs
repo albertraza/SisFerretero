@@ -118,17 +118,24 @@ namespace SisFerretero
                 // si se ha seleccionado un producto
                 int codigoProducto = Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value);
 
-                // se valida la existencia del producto
-                if(productos.getProducto(codigoProducto) != null)
+                try
                 {
-                    // si el producto existe
-                    pProducto = productos.getProducto(codigoProducto);
-                    this.Close();
+                    // se valida la existencia del producto
+                    if (productos.getProducto(codigoProducto) != null)
+                    {
+                        // si el producto existe
+                        pProducto = productos.getProducto(codigoProducto);
+                        this.Close();
+                    }
+                    else
+                    {
+                        // si no existe el producto
+                        MessageBox.Show("El Producto no existe, seleccione otro producto de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
                 }
-                else
+                catch(Exception ex)
                 {
-                    // si no existe el producto
-                    MessageBox.Show("El Producto no existe, seleccione otro producto de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else
