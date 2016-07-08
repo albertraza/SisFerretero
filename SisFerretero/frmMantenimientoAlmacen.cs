@@ -18,12 +18,12 @@ namespace SisFerretero
         {
             using(SqlConnection con = DataBase.connect())
             {
-                cbDepartamento.Items.Clear();
-                SqlCommand comand = new SqlCommand("select categorias from Departamentos where categoria != 'Todos'", con);
+                cbCategoria.Items.Clear();
+                SqlCommand comand = new SqlCommand("select categorias from categorias where categoria != 'Todos'", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
-                    cbDepartamento.Items.Add(re["departamento"]);
+                    cbCategoria.Items.Add(re["departamento"]);
                 }
                 con.Close();
             }

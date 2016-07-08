@@ -41,7 +41,7 @@
             this.lblCodigoProducto = new System.Windows.Forms.Label();
             this.nCantExistente = new System.Windows.Forms.NumericUpDown();
             this.lblCantExistente = new System.Windows.Forms.Label();
-            this.cbDepartamento = new System.Windows.Forms.ComboBox();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.txtPrecioUnd = new System.Windows.Forms.TextBox();
             this.lblPrecioUnd = new System.Windows.Forms.Label();
@@ -128,7 +128,7 @@
             this.gnInformacionProducto.Controls.Add(this.lblCodigoProducto);
             this.gnInformacionProducto.Controls.Add(this.nCantExistente);
             this.gnInformacionProducto.Controls.Add(this.lblCantExistente);
-            this.gnInformacionProducto.Controls.Add(this.cbDepartamento);
+            this.gnInformacionProducto.Controls.Add(this.cbCategoria);
             this.gnInformacionProducto.Controls.Add(this.lblDepartamento);
             this.gnInformacionProducto.Controls.Add(this.txtPrecioUnd);
             this.gnInformacionProducto.Controls.Add(this.lblPrecioUnd);
@@ -184,6 +184,7 @@
             // txtCodigo
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.ForeColor = System.Drawing.Color.Black;
             this.txtCodigo.Location = new System.Drawing.Point(327, 39);
@@ -221,31 +222,32 @@
             this.lblCantExistente.TabIndex = 8;
             this.lblCantExistente.Text = "Cant. Existente:";
             // 
-            // cbDepartamento
+            // cbCategoria
             // 
-            this.cbDepartamento.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartamento.ForeColor = System.Drawing.Color.Black;
-            this.cbDepartamento.FormattingEnabled = true;
-            this.cbDepartamento.Location = new System.Drawing.Point(124, 152);
-            this.cbDepartamento.Name = "cbDepartamento";
-            this.cbDepartamento.Size = new System.Drawing.Size(106, 23);
-            this.cbDepartamento.TabIndex = 7;
+            this.cbCategoria.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoria.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbCategoria.ForeColor = System.Drawing.Color.Black;
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(124, 152);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(106, 23);
+            this.cbCategoria.TabIndex = 7;
             // 
             // lblDepartamento
             // 
             this.lblDepartamento.AutoSize = true;
             this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(20, 155);
+            this.lblDepartamento.Location = new System.Drawing.Point(45, 155);
             this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(102, 15);
+            this.lblDepartamento.Size = new System.Drawing.Size(73, 15);
             this.lblDepartamento.TabIndex = 6;
-            this.lblDepartamento.Text = "Departamento:";
+            this.lblDepartamento.Text = "Categoria:";
             // 
             // txtPrecioUnd
             // 
             this.txtPrecioUnd.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtPrecioUnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPrecioUnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecioUnd.ForeColor = System.Drawing.Color.Black;
             this.txtPrecioUnd.Location = new System.Drawing.Point(88, 78);
@@ -266,6 +268,7 @@
             // txtNombre
             // 
             this.txtNombre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.ForeColor = System.Drawing.Color.Black;
             this.txtNombre.Location = new System.Drawing.Point(88, 42);
@@ -287,6 +290,7 @@
             // txtDescripcion
             // 
             this.txtDescripcion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.ForeColor = System.Drawing.Color.Black;
             this.txtDescripcion.Location = new System.Drawing.Point(23, 209);
@@ -427,7 +431,7 @@
         private System.Windows.Forms.Label lblCodigoProducto;
         private System.Windows.Forms.NumericUpDown nCantExistente;
         private System.Windows.Forms.Label lblCantExistente;
-        private System.Windows.Forms.ComboBox cbDepartamento;
+        private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.TextBox txtPrecioUnd;
         private System.Windows.Forms.Label lblPrecioUnd;
