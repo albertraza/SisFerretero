@@ -46,6 +46,7 @@ namespace SisFerretero
                     pProducto.cantExistente = Convert.ToInt32(reader["cantExistente"]);
                     pProducto.codigoSuplidor = Convert.ToInt32(reader["codigoSuplidor"]);
                     pProducto.Imp = Convert.ToInt32(reader["impuesto"]);
+                    pProducto.codigoCategoria = Convert.ToInt32(reader["codDepartamento"]);
                 }
                 con.Close();
             }
