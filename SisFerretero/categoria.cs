@@ -43,5 +43,28 @@ namespace SisFerretero
             }
             return pCateforia;
         }
+        public static categoria getCategoriaCodigo(int codigo)
+        {
+            categoria pCateforia = new categoria();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("select * from categorias where codigo = '{0}'", codigo), con);
+                SqlDataReader reader = comand.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        pCateforia.codigo = Convert.ToInt32(reader["codigo"]);
+                        pCateforia.Categoria = reader["categoria"].ToString();
+                    }
+                }
+                else
+                {
+                    pCateforia = null;
+                }
+                con.Close();
+            }
+            return pCateforia;
+        }
     }
 }
