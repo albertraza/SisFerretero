@@ -13,6 +13,8 @@ namespace SisFerretero
 {
     public partial class frmConsultaAlmacen : Form
     {
+        // propiedad para detectar si la ventana se esta abriendo desde el registro de productos o desde el menu
+        public bool menu { get; set; }
 
         public frmConsultaAlmacen()
         {
@@ -90,10 +92,50 @@ namespace SisFerretero
 
                 // se llena la tabla con la lista de todos los productos
                 dgvProductos.DataSource = productos.listAllProducto();
+
+                // validar el origen de la apertura de la ventana
+                if (menu)
+                {
+                    // si la ventana se abre desde el menu este boton no se mostrara
+                    btnSeleccionar.Visible = false;
+                }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // esta variable se utilizara para guardar el producto que se tomara de la tabla
+        public baseProductos pProducto;
+
+        // evento para seleccionar un producto de la tabla
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            // se valida si se ha seleccionado un producto de la tabla
+            if(dgvProductos.SelectedRows.Count == 1)
+            {
+                // si se ha seleccionado un producto
+                int codigoProducto = Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value);
+
+                // se valida la existencia del producto
+                if(productos.getProducto(codigoProducto) != null)
+                {
+                    // si el producto existe
+                    pProducto = productos.getProducto(codigoProducto);
+                    this.Close();
+                }
+                else
+                {
+                    // si no existe el producto
+                    MessageBox.Show("El Producto no existe, seleccione otro producto de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else
+            {
+                // sino se ha seleccionado un producto
+                MessageBox.Show("No se ha seleccionado un producto de la tabla", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dgvProductos.Focus();
             }
         }
     }

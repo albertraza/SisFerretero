@@ -41,6 +41,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
@@ -110,6 +111,7 @@
             // gbParametros
             // 
             this.gbParametros.BackColor = System.Drawing.Color.LightGray;
+            this.gbParametros.Controls.Add(this.btnSeleccionar);
             this.gbParametros.Controls.Add(this.label2);
             this.gbParametros.Controls.Add(this.label1);
             this.gbParametros.Controls.Add(this.cbFiltro);
@@ -162,7 +164,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(540, 53);
+            this.btnLimpiar.Location = new System.Drawing.Point(540, 10);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(122, 26);
             this.btnLimpiar.TabIndex = 9;
@@ -172,7 +174,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(540, 21);
+            this.btnBuscar.Location = new System.Drawing.Point(540, 36);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(122, 26);
             this.btnBuscar.TabIndex = 8;
@@ -182,6 +184,7 @@
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBusqueda.ForeColor = System.Drawing.Color.Black;
             this.txtBusqueda.Location = new System.Drawing.Point(261, 39);
@@ -189,6 +192,17 @@
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(273, 21);
             this.txtBusqueda.TabIndex = 4;
+            // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionar.Location = new System.Drawing.Point(540, 62);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(122, 26);
+            this.btnSeleccionar.TabIndex = 13;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
             // 
             // frmConsultaAlmacen
             // 
@@ -237,5 +251,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbFiltro;
+        private System.Windows.Forms.Button btnSeleccionar;
     }
 }
