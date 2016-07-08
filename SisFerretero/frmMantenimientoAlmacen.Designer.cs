@@ -53,7 +53,7 @@
             this.btnSeleccionarSuplidor = new System.Windows.Forms.Button();
             this.dgvSuplidores = new System.Windows.Forms.DataGridView();
             this.btnRegistrar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
@@ -185,6 +185,7 @@
             // 
             this.txtCodigo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCodigo.ForeColor = System.Drawing.Color.Black;
             this.txtCodigo.Location = new System.Drawing.Point(327, 39);
@@ -233,6 +234,7 @@
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(106, 23);
             this.cbCategoria.TabIndex = 7;
+            this.cbCategoria.SelectedIndexChanged += new System.EventHandler(this.cbCategoria_SelectedIndexChanged);
             // 
             // lblDepartamento
             // 
@@ -254,6 +256,7 @@
             this.txtPrecioUnd.Name = "txtPrecioUnd";
             this.txtPrecioUnd.Size = new System.Drawing.Size(98, 21);
             this.txtPrecioUnd.TabIndex = 5;
+            this.txtPrecioUnd.TextChanged += new System.EventHandler(this.txtPrecioUnd_TextChanged);
             // 
             // lblPrecioUnd
             // 
@@ -334,6 +337,7 @@
             this.btnSeleccionarSuplidor.TabIndex = 1;
             this.btnSeleccionarSuplidor.Text = "Seleccionar Suplidor";
             this.btnSeleccionarSuplidor.UseVisualStyleBackColor = true;
+            this.btnSeleccionarSuplidor.Click += new System.EventHandler(this.btnSeleccionarSuplidor_Click);
             // 
             // dgvSuplidores
             // 
@@ -356,16 +360,17 @@
             this.btnRegistrar.UseVisualStyleBackColor = true;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
-            // btnActualizar
+            // btnLimpiar
             // 
-            this.btnActualizar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnActualizar.ForeColor = System.Drawing.Color.Black;
-            this.btnActualizar.Location = new System.Drawing.Point(152, 443);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(175, 35);
-            this.btnActualizar.TabIndex = 14;
-            this.btnActualizar.Text = "Actualizar Producto";
-            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(152, 443);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(175, 35);
+            this.btnLimpiar.TabIndex = 14;
+            this.btnLimpiar.Text = "Nuevo Producto";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBuscar
             // 
@@ -386,7 +391,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(946, 501);
             this.Controls.Add(this.btnBuscar);
-            this.Controls.Add(this.btnActualizar);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.gbSuplidores);
             this.Controls.Add(this.gnInformacionProducto);
@@ -444,7 +449,7 @@
         private System.Windows.Forms.DataGridView dgvSuplidores;
         private System.Windows.Forms.Button btnSeleccionarSuplidor;
         private System.Windows.Forms.Button btnRegistrar;
-        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
     }
 }
