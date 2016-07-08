@@ -27,7 +27,7 @@ namespace SisFerretero
             List<suplidores> list = new List<suplidores>();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("select * from Suplidores", con);
+                SqlCommand comand = new SqlCommand("select * from Suplidores where nombre != 'Todos'", con);
                 SqlDataReader rea = comand.ExecuteReader();
                 while(rea.Read())
                 {
@@ -40,6 +40,52 @@ namespace SisFerretero
                 con.Close();
             }
             return list;
+        }
+    }
+    public class baseSuplidores
+    {
+        public int codigo { get; set; }
+        public string nombre { get; set; }
+        public string descripcion { get; set; }
+        public string Telefono { get; set; }
+        public string direccion { get; set; }
+
+        public baseSuplidores() { }
+        public baseSuplidores(int c, string n, string des, string tel, string dir)
+        {
+            codigo = c;
+            nombre = n;
+            descripcion = des;
+            Telefono = tel;
+            direccion = dir;
+        }
+
+        // metodo para obtener la info del suplidor
+        public static baseSuplidores getSuplidores(int codigo)
+        {
+            baseSuplidores pSuplidor = new baseSuplidores();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("select * from Suplidores where codigo = '{0}'", codigo), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    while (re.Read())
+                    {
+                        pSuplidor.codigo = Convert.ToInt32(re["codigo"]);
+                        pSuplidor.nombre = re["nombre"].ToString();
+                        pSuplidor.descripcion = re["descripcion"].ToString();
+                        pSuplidor.Telefono = re["telefono"].ToString();
+                        pSuplidor.direccion = re["direccion"].ToString();
+                    }
+                }
+                else
+                {
+                    pSuplidor = null;
+                }
+                con.Close();
+            }
+            return pSuplidor;
         }
     }
 }
