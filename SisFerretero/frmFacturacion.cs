@@ -29,6 +29,7 @@ namespace SisFerretero
             txtCantidadExistente.Text = "0";
             txtNombreProducto.Clear();
         }
+
         // metodo para limpiar todos los texboxes del cliente
         private void clearCliente()
         {
@@ -39,6 +40,7 @@ namespace SisFerretero
             txtTelefonoCli.Clear();
             txtCelularCli.Focus();
         }
+
         // metodo para hacer los texbox disable
         private void DisableTextboxes()
         {
@@ -61,6 +63,7 @@ namespace SisFerretero
             txtNombreCli.Enabled = false;
             txtTelefonoCli.Enabled = false;
         }
+
         //////////////////////////////////////////
         // codigo para poder mover la ventana ///
         ////////////////////////////////////////
@@ -217,6 +220,7 @@ namespace SisFerretero
                 }
             }
         }
+
         // evento que calcula el total a pagar e impuestos
         private void nCantComprar_ValueChanged(object sender, EventArgs e)
         {
