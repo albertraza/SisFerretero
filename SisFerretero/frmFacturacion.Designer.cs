@@ -128,6 +128,7 @@
             this.btnBusquedaAvanzada.TabIndex = 19;
             this.btnBusquedaAvanzada.Text = "Busqueda Avanzada";
             this.btnBusquedaAvanzada.UseVisualStyleBackColor = true;
+            this.btnBusquedaAvanzada.Click += new System.EventHandler(this.btnBusquedaAvanzada_Click);
             // 
             // btnLimpiarProductos
             // 

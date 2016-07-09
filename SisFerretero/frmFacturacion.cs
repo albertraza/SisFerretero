@@ -276,6 +276,7 @@ namespace SisFerretero
                 }
             }
         }
+
         // este evento añade el producto al carrito
         private void btnAnadirCarrito_Click(object sender, EventArgs e)
         {
@@ -326,6 +327,26 @@ namespace SisFerretero
                 {
                     MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        // evento para hacer una busqueda mas avannzada de los productos
+        private void btnBusquedaAvanzada_Click(object sender, EventArgs e)
+        {
+            // crear una instancia del form consulta almacen
+            frmConsultaAlmacen pConsulta = new frmConsultaAlmacen();
+
+            // cambio el layout del form
+            pConsulta.menu = false;
+            pConsulta.ShowDialog();
+
+            // valido si se selecciono o no un producto
+            if(pConsulta.pProducto != null)
+            {
+                txtCodigo.Text = pConsulta.pProducto.codigo.ToString();
+                txtNombreProducto.Text = pConsulta.pProducto.nombre;
+                txtPrecioUnitario.Text = pConsulta.pProducto.precioUnd.ToString("f2");
+                txtCantidadExistente.Text = pConsulta.pProducto.cantExistente.ToString();
             }
         }
     }
