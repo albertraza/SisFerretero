@@ -104,13 +104,11 @@ namespace SisFerretero
         private void ventaDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmFacturacion().Show();
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new frmMantenimientoAlmacen().Show();
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void almacenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -118,13 +116,16 @@ namespace SisFerretero
             frmConsultaAlmacen pAlmacen = new frmConsultaAlmacen();
             pAlmacen.menu = true;
             pAlmacen.Show();
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new Clientes().Show();
-            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void usuariosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new frmConsultaUsuarios().Show();
         }
     }
 }
