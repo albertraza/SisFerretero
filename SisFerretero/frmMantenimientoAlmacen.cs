@@ -282,8 +282,15 @@ namespace SisFerretero
             if(cbCategoria.Text != string.Empty)
             {
                 // sino esta vacia
-                categoria pCategoria = categoria.getCategoria(cbCategoria.Text);
-                codigoCategoria = pCategoria.codigo;
+                try
+                {
+                    categoria pCategoria = categoria.getCategoria(cbCategoria.Text);
+                    codigoCategoria = pCategoria.codigo;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -318,7 +325,7 @@ namespace SisFerretero
             // se crea una instancia del form consulta almacen
             frmConsultaAlmacen pConsulta = new frmConsultaAlmacen();
 
-            // la propiedad menu se coloca en false ya que se esta llamando desde el mantenimiento de productos
+            // la propiedad menu se coloca en false ya que se esta llamando desde el mantenimiento de almacen
             pConsulta.menu = false;
             pConsulta.ShowDialog();
 
