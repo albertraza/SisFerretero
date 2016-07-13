@@ -78,6 +78,32 @@ namespace SisFerretero
             }
             return list;
         }
+
+        // metodo para buscar un producto
+        public static List<productos> searchProductos(string codigo, string nombre, string proveedor, string categoria)
+        {
+            List<productos> list = new List<productos>();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("select Productos.codigo, Productos.nombre, Productos.descripcion, Productos.precioUnd, Productos.cantExistente, Suplidores.nombre as NombreSuplidor, categorias.categoria from Productos inner join categorias on categorias.codigo = Productos.codDepartamento inner join Suplidores on Suplidores.codigo = Productos.codigoSuplidor where Productos.codigo like '{0}%' and Productos.nombre like '{1}%' and Suplidores.nombre like '{2}%' and Categorias.categoria like '{3}%'", codigo, nombre, proveedor, categoria), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    productos pProducto = new productos();
+                    pProducto.codigo = Convert.ToInt32(re["codigo"]);
+                    pProducto.nombre = re["nombre"].ToString();
+                    pProducto.detalles = re["descripcion"].ToString();
+                    pProducto.precioUnd = Convert.ToDouble(re["precioUnd"]);
+                    pProducto.cantExistente = Convert.ToInt32(re["cantExistente"]);
+                    pProducto.Nombre_Suplidor = re["NombreSuplidor"].ToString();
+                    pProducto.Departamento = re["categoria"].ToString();
+
+                    list.Add(pProducto);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
     public class baseProductos
     {
