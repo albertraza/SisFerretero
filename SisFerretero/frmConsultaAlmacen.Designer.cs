@@ -35,17 +35,19 @@
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.gbParametros = new System.Windows.Forms.GroupBox();
+            this.btnSeleccionar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.btnSeleccionar = new System.Windows.Forms.Button();
+            this.txtBusqueda = new System.Windows.Forms.ComboBox();
+            this.pComboBox = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gbParametros.SuspendLayout();
+            this.pComboBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvProductos
@@ -111,13 +113,13 @@
             // gbParametros
             // 
             this.gbParametros.BackColor = System.Drawing.Color.LightGray;
+            this.gbParametros.Controls.Add(this.pComboBox);
             this.gbParametros.Controls.Add(this.btnSeleccionar);
             this.gbParametros.Controls.Add(this.label2);
             this.gbParametros.Controls.Add(this.label1);
             this.gbParametros.Controls.Add(this.cbFiltro);
             this.gbParametros.Controls.Add(this.btnLimpiar);
             this.gbParametros.Controls.Add(this.btnBuscar);
-            this.gbParametros.Controls.Add(this.txtBusqueda);
             this.gbParametros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbParametros.Location = new System.Drawing.Point(26, 84);
             this.gbParametros.Name = "gbParametros";
@@ -126,11 +128,22 @@
             this.gbParametros.TabStop = false;
             this.gbParametros.Text = "Filtro de Busqueda";
             // 
+            // btnSeleccionar
+            // 
+            this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSeleccionar.Location = new System.Drawing.Point(540, 62);
+            this.btnSeleccionar.Name = "btnSeleccionar";
+            this.btnSeleccionar.Size = new System.Drawing.Size(122, 26);
+            this.btnSeleccionar.TabIndex = 13;
+            this.btnSeleccionar.Text = "Seleccionar";
+            this.btnSeleccionar.UseVisualStyleBackColor = true;
+            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(258, 18);
+            this.label2.Location = new System.Drawing.Point(245, 18);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 15);
             this.label2.TabIndex = 12;
@@ -160,6 +173,7 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(207, 23);
             this.cbFiltro.TabIndex = 10;
+            this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
             // 
             // btnLimpiar
             // 
@@ -170,6 +184,7 @@
             this.btnLimpiar.TabIndex = 9;
             this.btnLimpiar.Text = "Nueva Busqueda";
             this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // btnBuscar
             // 
@@ -180,29 +195,28 @@
             this.btnBuscar.TabIndex = 8;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.ForeColor = System.Drawing.Color.Black;
-            this.txtBusqueda.Location = new System.Drawing.Point(261, 39);
-            this.txtBusqueda.MaxLength = 120;
+            this.txtBusqueda.FormattingEnabled = true;
+            this.txtBusqueda.Location = new System.Drawing.Point(-1, -1);
             this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(273, 21);
-            this.txtBusqueda.TabIndex = 4;
+            this.txtBusqueda.Size = new System.Drawing.Size(285, 21);
+            this.txtBusqueda.TabIndex = 14;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
-            // btnSeleccionar
+            // pComboBox
             // 
-            this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSeleccionar.Location = new System.Drawing.Point(540, 62);
-            this.btnSeleccionar.Name = "btnSeleccionar";
-            this.btnSeleccionar.Size = new System.Drawing.Size(122, 26);
-            this.btnSeleccionar.TabIndex = 13;
-            this.btnSeleccionar.Text = "Seleccionar";
-            this.btnSeleccionar.UseVisualStyleBackColor = true;
-            this.btnSeleccionar.Click += new System.EventHandler(this.btnSeleccionar_Click);
+            this.pComboBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pComboBox.Controls.Add(this.txtBusqueda);
+            this.pComboBox.Location = new System.Drawing.Point(248, 39);
+            this.pComboBox.Name = "pComboBox";
+            this.pComboBox.Size = new System.Drawing.Size(286, 23);
+            this.pComboBox.TabIndex = 3;
             // 
             // frmConsultaAlmacen
             // 
@@ -233,6 +247,7 @@
             this.pCerrar.PerformLayout();
             this.gbParametros.ResumeLayout(false);
             this.gbParametros.PerformLayout();
+            this.pComboBox.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -245,12 +260,13 @@
         private System.Windows.Forms.Panel pCerrar;
         private System.Windows.Forms.LinkLabel lblCerrar;
         private System.Windows.Forms.GroupBox gbParametros;
-        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.Button btnSeleccionar;
+        private System.Windows.Forms.ComboBox txtBusqueda;
+        private System.Windows.Forms.Panel pComboBox;
     }
 }
