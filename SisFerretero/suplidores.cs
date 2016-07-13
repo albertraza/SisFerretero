@@ -87,5 +87,33 @@ namespace SisFerretero
             }
             return pSuplidor;
         }
+
+        // metodo para obtener el la info del suplidor solo con el nombre
+        public static baseSuplidores getSuplidorNombreSupl(string nombre)
+        {
+            baseSuplidores pSuplidor = new baseSuplidores();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("select * from Suplidores where nombre = '{0}'", nombre), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    while (re.Read())
+                    {
+                        pSuplidor.codigo = Convert.ToInt32(re["codigo"]);
+                        pSuplidor.nombre = re["nombre"].ToString();
+                        pSuplidor.descripcion = re["descripcion"].ToString();
+                        pSuplidor.Telefono = re["telefono"].ToString();
+                        pSuplidor.direccion = re["direccion"].ToString();
+                    }
+                }
+                else
+                {
+                    pSuplidor = null;
+                }
+                con.Close();
+            }
+            return pSuplidor;
+        }
     }
 }
