@@ -34,13 +34,13 @@
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.gbFiltro = new System.Windows.Forms.GroupBox();
-            this.dgvFacturas = new System.Windows.Forms.DataGridView();
-            this.lblFiltro = new System.Windows.Forms.Label();
-            this.cbFiltro = new System.Windows.Forms.ComboBox();
-            this.lblBusqueda = new System.Windows.Forms.Label();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.MaskedTextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.lblBusqueda = new System.Windows.Forms.Label();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
+            this.lblFiltro = new System.Windows.Forms.Label();
+            this.dgvFacturas = new System.Windows.Forms.DataGridView();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gbFiltro.SuspendLayout();
@@ -55,6 +55,8 @@
             this.pOcultar.Name = "pOcultar";
             this.pOcultar.Size = new System.Drawing.Size(71, 37);
             this.pOcultar.TabIndex = 0;
+            this.pOcultar.Click += new System.EventHandler(this.pOcultar_Click);
+            this.pOcultar.MouseHover += new System.EventHandler(this.pOcultar_MouseHover);
             // 
             // lblOcultar
             // 
@@ -71,6 +73,7 @@
             this.lblOcultar.TabStop = true;
             this.lblOcultar.Text = "Ocultar";
             this.lblOcultar.VisitedLinkColor = System.Drawing.Color.Black;
+            this.lblOcultar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblOcultar_LinkClicked);
             // 
             // pCerrar
             // 
@@ -80,6 +83,7 @@
             this.pCerrar.Name = "pCerrar";
             this.pCerrar.Size = new System.Drawing.Size(71, 37);
             this.pCerrar.TabIndex = 1;
+            this.pCerrar.Click += new System.EventHandler(this.pCerrar_Click);
             // 
             // lblCerrar
             // 
@@ -96,6 +100,8 @@
             this.lblCerrar.TabStop = true;
             this.lblCerrar.Text = "Cerrar";
             this.lblCerrar.VisitedLinkColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCerrar_LinkClicked);
+            this.lblCerrar.MouseHover += new System.EventHandler(this.lblCerrar_MouseHover);
             // 
             // gbFiltro
             // 
@@ -114,24 +120,46 @@
             this.gbFiltro.TabStop = false;
             this.gbFiltro.Text = "Filtro de Busqueda";
             // 
-            // dgvFacturas
+            // txtBusqueda
             // 
-            this.dgvFacturas.BackgroundColor = System.Drawing.Color.LightGray;
-            this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFacturas.Location = new System.Drawing.Point(36, 181);
-            this.dgvFacturas.Name = "dgvFacturas";
-            this.dgvFacturas.Size = new System.Drawing.Size(875, 321);
-            this.dgvFacturas.TabIndex = 0;
+            this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.Location = new System.Drawing.Point(209, 49);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(319, 21);
+            this.txtBusqueda.TabIndex = 6;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
             // 
-            // lblFiltro
+            // btnBuscar
             // 
-            this.lblFiltro.AutoSize = true;
-            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltro.Location = new System.Drawing.Point(31, 31);
-            this.lblFiltro.Name = "lblFiltro";
-            this.lblFiltro.Size = new System.Drawing.Size(62, 15);
-            this.lblFiltro.TabIndex = 0;
-            this.lblFiltro.Text = "Filtrar por:";
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(534, 59);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(129, 25);
+            this.btnBuscar.TabIndex = 5;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(534, 31);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(129, 25);
+            this.btnLimpiar.TabIndex = 4;
+            this.btnLimpiar.Text = "Nueva Busqueda";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            // 
+            // lblBusqueda
+            // 
+            this.lblBusqueda.AutoSize = true;
+            this.lblBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBusqueda.Location = new System.Drawing.Point(206, 31);
+            this.lblBusqueda.Name = "lblBusqueda";
+            this.lblBusqueda.Size = new System.Drawing.Size(117, 15);
+            this.lblBusqueda.TabIndex = 3;
+            this.lblBusqueda.Text = "Digite su Busqueda:";
             // 
             // cbFiltro
             // 
@@ -147,45 +175,26 @@
             this.cbFiltro.Name = "cbFiltro";
             this.cbFiltro.Size = new System.Drawing.Size(154, 23);
             this.cbFiltro.TabIndex = 1;
+            this.cbFiltro.SelectedIndexChanged += new System.EventHandler(this.cbFiltro_SelectedIndexChanged);
             // 
-            // lblBusqueda
+            // lblFiltro
             // 
-            this.lblBusqueda.AutoSize = true;
-            this.lblBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBusqueda.Location = new System.Drawing.Point(206, 31);
-            this.lblBusqueda.Name = "lblBusqueda";
-            this.lblBusqueda.Size = new System.Drawing.Size(117, 15);
-            this.lblBusqueda.TabIndex = 3;
-            this.lblBusqueda.Text = "Digite su Busqueda:";
+            this.lblFiltro.AutoSize = true;
+            this.lblFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltro.Location = new System.Drawing.Point(31, 31);
+            this.lblFiltro.Name = "lblFiltro";
+            this.lblFiltro.Size = new System.Drawing.Size(62, 15);
+            this.lblFiltro.TabIndex = 0;
+            this.lblFiltro.Text = "Filtrar por:";
             // 
-            // btnLimpiar
+            // dgvFacturas
             // 
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(534, 31);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(129, 25);
-            this.btnLimpiar.TabIndex = 4;
-            this.btnLimpiar.Text = "Nueva Busqueda";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(534, 59);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(129, 25);
-            this.btnBuscar.TabIndex = 5;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(209, 49);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(319, 21);
-            this.txtBusqueda.TabIndex = 6;
+            this.dgvFacturas.BackgroundColor = System.Drawing.Color.LightGray;
+            this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFacturas.Location = new System.Drawing.Point(36, 181);
+            this.dgvFacturas.Name = "dgvFacturas";
+            this.dgvFacturas.Size = new System.Drawing.Size(875, 321);
+            this.dgvFacturas.TabIndex = 0;
             // 
             // frmConsultaFacturas
             // 
@@ -202,6 +211,10 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta Facturas";
             this.TransparencyKey = System.Drawing.Color.White;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmConsultaFacturas_MouseDown);
+            this.MouseHover += new System.EventHandler(this.frmConsultaFacturas_MouseHover);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmConsultaFacturas_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmConsultaFacturas_MouseUp);
             this.pOcultar.ResumeLayout(false);
             this.pOcultar.PerformLayout();
             this.pCerrar.ResumeLayout(false);
