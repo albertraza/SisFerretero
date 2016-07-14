@@ -78,5 +78,18 @@ namespace SisFerretero
             }
         }
         // fin eventos para mover la ventana
+
+        // evento para validar la entrada en el texbox busqueda cuando el filtro sea "Codigo"
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            int comparacion;
+            if(cbFiltro.Text == "Codigo")
+            {
+                if(!int.TryParse(txtBusqueda.Text, out comparacion))
+                {
+                    txtBusqueda.Clear();
+                }
+            }
+        }
     }
 }

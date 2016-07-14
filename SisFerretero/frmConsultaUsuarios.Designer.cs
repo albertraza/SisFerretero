@@ -34,13 +34,13 @@
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.gbFiltros = new System.Windows.Forms.GroupBox();
-            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
-            this.lblFiltrarpor = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.lblDigiteSuBusqueda = new System.Windows.Forms.Label();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
-            this.btnNuevaBusqueda = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnNuevaBusqueda = new System.Windows.Forms.Button();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.lblDigiteSuBusqueda = new System.Windows.Forms.Label();
+            this.cbFiltro = new System.Windows.Forms.ComboBox();
+            this.lblFiltrarpor = new System.Windows.Forms.Label();
+            this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gbFiltros.SuspendLayout();
@@ -109,7 +109,7 @@
             this.gbFiltros.Controls.Add(this.btnNuevaBusqueda);
             this.gbFiltros.Controls.Add(this.txtBusqueda);
             this.gbFiltros.Controls.Add(this.lblDigiteSuBusqueda);
-            this.gbFiltros.Controls.Add(this.comboBox1);
+            this.gbFiltros.Controls.Add(this.cbFiltro);
             this.gbFiltros.Controls.Add(this.lblFiltrarpor);
             this.gbFiltros.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbFiltros.ForeColor = System.Drawing.Color.Black;
@@ -120,57 +120,15 @@
             this.gbFiltros.TabStop = false;
             this.gbFiltros.Text = "Filtro de Busqueda";
             // 
-            // dgvUsuarios
+            // btnBuscar
             // 
-            this.dgvUsuarios.BackgroundColor = System.Drawing.Color.DarkKhaki;
-            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvUsuarios.Location = new System.Drawing.Point(32, 183);
-            this.dgvUsuarios.Name = "dgvUsuarios";
-            this.dgvUsuarios.Size = new System.Drawing.Size(653, 311);
-            this.dgvUsuarios.TabIndex = 3;
-            // 
-            // lblFiltrarpor
-            // 
-            this.lblFiltrarpor.AutoSize = true;
-            this.lblFiltrarpor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltrarpor.Location = new System.Drawing.Point(25, 32);
-            this.lblFiltrarpor.Name = "lblFiltrarpor";
-            this.lblFiltrarpor.Size = new System.Drawing.Size(62, 15);
-            this.lblFiltrarpor.TabIndex = 4;
-            this.lblFiltrarpor.Text = "Filtrar por:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Codigo",
-            "Nombre Usuario"});
-            this.comboBox1.Location = new System.Drawing.Point(28, 50);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(186, 23);
-            this.comboBox1.TabIndex = 5;
-            // 
-            // lblDigiteSuBusqueda
-            // 
-            this.lblDigiteSuBusqueda.AutoSize = true;
-            this.lblDigiteSuBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDigiteSuBusqueda.Location = new System.Drawing.Point(232, 32);
-            this.lblDigiteSuBusqueda.Name = "lblDigiteSuBusqueda";
-            this.lblDigiteSuBusqueda.Size = new System.Drawing.Size(117, 15);
-            this.lblDigiteSuBusqueda.TabIndex = 6;
-            this.lblDigiteSuBusqueda.Text = "Digite su Busqueda:";
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.Location = new System.Drawing.Point(235, 50);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(261, 21);
-            this.txtBusqueda.TabIndex = 7;
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(507, 58);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(134, 24);
+            this.btnBuscar.TabIndex = 9;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
             // btnNuevaBusqueda
             // 
@@ -182,15 +140,58 @@
             this.btnNuevaBusqueda.Text = "Nueva Busqueda";
             this.btnNuevaBusqueda.UseVisualStyleBackColor = true;
             // 
-            // btnBuscar
+            // txtBusqueda
             // 
-            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(507, 58);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(134, 24);
-            this.btnBuscar.TabIndex = 9;
-            this.btnBuscar.Text = "Buscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.Location = new System.Drawing.Point(235, 50);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(261, 21);
+            this.txtBusqueda.TabIndex = 7;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            // 
+            // lblDigiteSuBusqueda
+            // 
+            this.lblDigiteSuBusqueda.AutoSize = true;
+            this.lblDigiteSuBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigiteSuBusqueda.Location = new System.Drawing.Point(232, 32);
+            this.lblDigiteSuBusqueda.Name = "lblDigiteSuBusqueda";
+            this.lblDigiteSuBusqueda.Size = new System.Drawing.Size(117, 15);
+            this.lblDigiteSuBusqueda.TabIndex = 6;
+            this.lblDigiteSuBusqueda.Text = "Digite su Busqueda:";
+            // 
+            // cbFiltro
+            // 
+            this.cbFiltro.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFiltro.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbFiltro.FormattingEnabled = true;
+            this.cbFiltro.Items.AddRange(new object[] {
+            "Codigo",
+            "Nombre Usuario"});
+            this.cbFiltro.Location = new System.Drawing.Point(28, 50);
+            this.cbFiltro.Name = "cbFiltro";
+            this.cbFiltro.Size = new System.Drawing.Size(186, 23);
+            this.cbFiltro.TabIndex = 5;
+            // 
+            // lblFiltrarpor
+            // 
+            this.lblFiltrarpor.AutoSize = true;
+            this.lblFiltrarpor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrarpor.Location = new System.Drawing.Point(25, 32);
+            this.lblFiltrarpor.Name = "lblFiltrarpor";
+            this.lblFiltrarpor.Size = new System.Drawing.Size(62, 15);
+            this.lblFiltrarpor.TabIndex = 4;
+            this.lblFiltrarpor.Text = "Filtrar por:";
+            // 
+            // dgvUsuarios
+            // 
+            this.dgvUsuarios.BackgroundColor = System.Drawing.Color.DarkKhaki;
+            this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvUsuarios.Location = new System.Drawing.Point(32, 183);
+            this.dgvUsuarios.Name = "dgvUsuarios";
+            this.dgvUsuarios.Size = new System.Drawing.Size(653, 311);
+            this.dgvUsuarios.TabIndex = 3;
             // 
             // frmConsultaUsuarios
             // 
@@ -231,7 +232,7 @@
         private System.Windows.Forms.LinkLabel lblCerrar;
         private System.Windows.Forms.GroupBox gbFiltros;
         private System.Windows.Forms.DataGridView dgvUsuarios;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbFiltro;
         private System.Windows.Forms.Label lblFiltrarpor;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.Label lblDigiteSuBusqueda;
