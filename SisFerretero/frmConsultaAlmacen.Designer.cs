@@ -35,14 +35,14 @@
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.gbParametros = new System.Windows.Forms.GroupBox();
+            this.pComboBox = new System.Windows.Forms.Panel();
+            this.txtBusqueda = new System.Windows.Forms.ComboBox();
             this.btnSeleccionar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBusqueda = new System.Windows.Forms.ComboBox();
-            this.pComboBox = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
@@ -128,6 +128,27 @@
             this.gbParametros.TabStop = false;
             this.gbParametros.Text = "Filtro de Busqueda";
             // 
+            // pComboBox
+            // 
+            this.pComboBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pComboBox.Controls.Add(this.txtBusqueda);
+            this.pComboBox.Location = new System.Drawing.Point(248, 39);
+            this.pComboBox.Name = "pComboBox";
+            this.pComboBox.Size = new System.Drawing.Size(286, 23);
+            this.pComboBox.TabIndex = 3;
+            // 
+            // txtBusqueda
+            // 
+            this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBusqueda.FormattingEnabled = true;
+            this.txtBusqueda.Location = new System.Drawing.Point(-1, -1);
+            this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.Size = new System.Drawing.Size(286, 21);
+            this.txtBusqueda.TabIndex = 14;
+            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
+            // 
             // btnSeleccionar
             // 
             this.btnSeleccionar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -196,27 +217,6 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // txtBusqueda
-            // 
-            this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
-            this.txtBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBusqueda.FormattingEnabled = true;
-            this.txtBusqueda.Location = new System.Drawing.Point(-1, -1);
-            this.txtBusqueda.Name = "txtBusqueda";
-            this.txtBusqueda.Size = new System.Drawing.Size(285, 21);
-            this.txtBusqueda.TabIndex = 14;
-            this.txtBusqueda.TextChanged += new System.EventHandler(this.txtBusqueda_TextChanged);
-            // 
-            // pComboBox
-            // 
-            this.pComboBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pComboBox.Controls.Add(this.txtBusqueda);
-            this.pComboBox.Location = new System.Drawing.Point(248, 39);
-            this.pComboBox.Name = "pComboBox";
-            this.pComboBox.Size = new System.Drawing.Size(286, 23);
-            this.pComboBox.TabIndex = 3;
             // 
             // frmConsultaAlmacen
             // 

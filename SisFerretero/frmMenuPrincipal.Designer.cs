@@ -60,6 +60,7 @@
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.pOcultar = new System.Windows.Forms.Panel();
             this.lblMinimizar = new System.Windows.Forms.LinkLabel();
+            this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenuPrincipal.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.pOcultar.SuspendLayout();
@@ -138,7 +139,8 @@
             this.usuariosToolStripMenuItem1,
             this.empleadosToolStripMenuItem1,
             this.almacenToolStripMenuItem1,
-            this.clientesToolStripMenuItem1});
+            this.clientesToolStripMenuItem1,
+            this.facturasToolStripMenuItem});
             this.consultaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultaToolStripMenuItem.Image")));
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
@@ -345,6 +347,13 @@
             this.lblMinimizar.VisitedLinkColor = System.Drawing.Color.Black;
             this.lblMinimizar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMinimizar_LinkClicked);
             // 
+            // facturasToolStripMenuItem
+            // 
+            this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.facturasToolStripMenuItem.Text = "Facturas";
+            this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -410,5 +419,6 @@
         private System.Windows.Forms.LinkLabel lblCerrar;
         private System.Windows.Forms.Panel pOcultar;
         private System.Windows.Forms.LinkLabel lblMinimizar;
+        private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
     }
 }

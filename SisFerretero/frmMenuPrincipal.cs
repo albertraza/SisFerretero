@@ -127,5 +127,10 @@ namespace SisFerretero
         {
             new frmConsultaUsuarios().Show();
         }
+
+        private void facturasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmConsultaFacturas().Show();
+        }
     }
 }
