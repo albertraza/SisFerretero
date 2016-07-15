@@ -77,6 +77,7 @@
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.pOcultar = new System.Windows.Forms.Panel();
             this.lblOcultar = new System.Windows.Forms.LinkLabel();
+            this.btnDespachar = new System.Windows.Forms.Button();
             this.gbInformacionProducto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nCantComprar)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
@@ -555,7 +556,7 @@
             this.gbFacturaTotal.ForeColor = System.Drawing.Color.DimGray;
             this.gbFacturaTotal.Location = new System.Drawing.Point(721, 316);
             this.gbFacturaTotal.Name = "gbFacturaTotal";
-            this.gbFacturaTotal.Size = new System.Drawing.Size(264, 166);
+            this.gbFacturaTotal.Size = new System.Drawing.Size(264, 203);
             this.gbFacturaTotal.TabIndex = 3;
             this.gbFacturaTotal.TabStop = false;
             this.gbFacturaTotal.Text = "Total Factura";
@@ -564,7 +565,7 @@
             // 
             this.lblCantidadArticulos.AutoSize = true;
             this.lblCantidadArticulos.ForeColor = System.Drawing.Color.Black;
-            this.lblCantidadArticulos.Location = new System.Drawing.Point(6, 38);
+            this.lblCantidadArticulos.Location = new System.Drawing.Point(6, 22);
             this.lblCantidadArticulos.Name = "lblCantidadArticulos";
             this.lblCantidadArticulos.Size = new System.Drawing.Size(147, 15);
             this.lblCantidadArticulos.TabIndex = 3;
@@ -574,7 +575,7 @@
             // 
             this.lblTotalaPagar.AutoSize = true;
             this.lblTotalaPagar.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalaPagar.Location = new System.Drawing.Point(56, 114);
+            this.lblTotalaPagar.Location = new System.Drawing.Point(56, 98);
             this.lblTotalaPagar.Name = "lblTotalaPagar";
             this.lblTotalaPagar.Size = new System.Drawing.Size(97, 15);
             this.lblTotalaPagar.TabIndex = 2;
@@ -584,7 +585,7 @@
             // 
             this.lblTotalITEBIS.AutoSize = true;
             this.lblTotalITEBIS.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalITEBIS.Location = new System.Drawing.Point(99, 90);
+            this.lblTotalITEBIS.Location = new System.Drawing.Point(99, 74);
             this.lblTotalITEBIS.Name = "lblTotalITEBIS";
             this.lblTotalITEBIS.Size = new System.Drawing.Size(54, 15);
             this.lblTotalITEBIS.TabIndex = 1;
@@ -594,7 +595,7 @@
             // 
             this.lblTotalComprado.AutoSize = true;
             this.lblTotalComprado.ForeColor = System.Drawing.Color.Black;
-            this.lblTotalComprado.Location = new System.Drawing.Point(40, 63);
+            this.lblTotalComprado.Location = new System.Drawing.Point(40, 47);
             this.lblTotalComprado.Name = "lblTotalComprado";
             this.lblTotalComprado.Size = new System.Drawing.Size(113, 15);
             this.lblTotalComprado.TabIndex = 0;
@@ -652,6 +653,21 @@
             this.lblOcultar.VisitedLinkColor = System.Drawing.Color.White;
             this.lblOcultar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
+            // btnDespachar
+            // 
+            this.btnDespachar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDespachar.ForeColor = System.Drawing.Color.DimGray;
+            this.btnDespachar.Image = ((System.Drawing.Image)(resources.GetObject("btnDespachar.Image")));
+            this.btnDespachar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDespachar.Location = new System.Drawing.Point(780, 525);
+            this.btnDespachar.Name = "btnDespachar";
+            this.btnDespachar.Size = new System.Drawing.Size(152, 33);
+            this.btnDespachar.TabIndex = 32;
+            this.btnDespachar.Text = "Despachar";
+            this.btnDespachar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDespachar.UseVisualStyleBackColor = true;
+            this.btnDespachar.Click += new System.EventHandler(this.btnDespachar_Click);
+            // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -659,6 +675,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1013, 570);
+            this.Controls.Add(this.btnDespachar);
             this.Controls.Add(this.pOcultar);
             this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.gbFacturaTotal);
@@ -741,5 +758,6 @@
         private System.Windows.Forms.Label lblTotalITEBIS;
         private System.Windows.Forms.Label lblTotalComprado;
         private System.Windows.Forms.Label lblCantidadArticulos;
+        private System.Windows.Forms.Button btnDespachar;
     }
 }

@@ -281,6 +281,11 @@ namespace SisFerretero
             }
         }
 
+        // variables para guardar el total de cada transacsion
+        private double TITEBIS = 0, TSINIMP = 0;
+        public double TPagar = 0;
+        private int CANTART = 0;
+
         // este evento añade el producto al carrito
         private void btnAnadirCarrito_Click(object sender, EventArgs e)
         {
@@ -308,7 +313,7 @@ namespace SisFerretero
                     carrito[] pcarrito = carrito.getCarrito(facturacion.getNewFacturaID()).ToArray();
 
                     // se hace un foreach que calcula el total de cada uno de los elementos.
-                    foreach(carrito Pcarrito in pcarrito)
+                    foreach (carrito Pcarrito in pcarrito)
                     {
                         cantarticulos += Pcarrito.Cantidad;
                         VtotalSinImP = (Pcarrito.Cantidad * Pcarrito.Precio_Und);
@@ -317,15 +322,21 @@ namespace SisFerretero
                         totalpagar += Pcarrito.Total;
                     }
 
+                    // se guardan los datos en las variables externas
+                    TITEBIS = itebis;
+                    TSINIMP = totalSinImp;
+                    TPagar = totalpagar;
+                    CANTART = cantarticulos;
+
                     // se prensenta el total en los labels.
                     lblTotalITEBIS.Text = "";
-                    lblTotalITEBIS.Text = "ITEBIS: " + itebis.ToString("f2");
+                    lblTotalITEBIS.Text = "ITEBIS: " + TITEBIS.ToString("f2");
                     lblTotalaPagar.Text = "";
-                    lblTotalaPagar.Text = "Total a Pagar: " + totalpagar.ToString("f2");
+                    lblTotalaPagar.Text = "Total a Pagar: " + TPagar.ToString("f2");
                     lblTotalComprado.Text = "";
-                    lblTotalComprado.Text = "Total Comprado: " + totalSinImp.ToString("f2");
+                    lblTotalComprado.Text = "Total Comprado: " + TSINIMP.ToString("f2");
                     lblCantidadArticulos.Text = "";
-                    lblCantidadArticulos.Text = "Cantidad de Articulos: " + cantarticulos;
+                    lblCantidadArticulos.Text = "Cantidad de Articulos: " + CANTART;
                 }
                 catch (Exception ex)
                 {
@@ -351,6 +362,31 @@ namespace SisFerretero
                 txtNombreProducto.Text = pConsulta.pProducto.nombre;
                 txtPrecioUnitario.Text = pConsulta.pProducto.precioUnd.ToString("f2");
                 txtCantidadExistente.Text = pConsulta.pProducto.cantExistente.ToString();
+            }
+        }
+
+        // evento para despachar la orden
+        private void btnDespachar_Click(object sender, EventArgs e)
+        {
+            if (CANTART <= 0)
+            {
+                MessageBox.Show("No hay productos en el carrito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                frmConfirmacionPago pConfirmacion = new frmConfirmacionPago();
+                pConfirmacion.TPagar = TPagar;
+                pConfirmacion.CantArticulos = CANTART;
+                pConfirmacion.ShowDialog();
+
+                if (pConfirmacion.pago)
+                {
+                    MessageBox.Show("Pago realizado exitosamente, Devuelta: " + pConfirmacion.DEVUELTA.ToString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("El Pago no fue realizado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
         }
     }
