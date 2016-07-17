@@ -144,9 +144,12 @@
             // 
             // txtNOCuenta
             // 
+            this.txtNOCuenta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNOCuenta.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNOCuenta.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNOCuenta.Location = new System.Drawing.Point(260, 42);
             this.txtNOCuenta.Name = "txtNOCuenta";
-            this.txtNOCuenta.Size = new System.Drawing.Size(142, 21);
+            this.txtNOCuenta.Size = new System.Drawing.Size(142, 20);
             this.txtNOCuenta.TabIndex = 18;
             this.txtNOCuenta.Leave += new System.EventHandler(this.txtNOCuenta_Leave);
             // 
