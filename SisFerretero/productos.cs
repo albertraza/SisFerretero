@@ -15,7 +15,7 @@ namespace SisFerretero
         public double precioUnd { get; set; }
         public int cantExistente { get; set; }
         public string Nombre_Suplidor { get; set; }
-        public string Departamento { get; set; }
+        public string Categoria { get; set; }
 
         public productos() { }
         public productos(int c, string n, string d, double pu, int ce, string ns, string de)
@@ -26,7 +26,7 @@ namespace SisFerretero
             precioUnd = pu;
             cantExistente = ce;
             Nombre_Suplidor = ns;
-            Departamento = de;
+            Categoria = de;
         }
 
         // para tomar la informacion del producto desde la base de datos
@@ -70,7 +70,7 @@ namespace SisFerretero
                     pProducto.precioUnd = Convert.ToDouble(re["precioUnd"]);
                     pProducto.cantExistente = Convert.ToInt32(re["cantExistente"]);
                     pProducto.Nombre_Suplidor = re["NombreSuplidor"].ToString();
-                    pProducto.Departamento = re["categoria"].ToString();
+                    pProducto.Categoria = re["categoria"].ToString();
 
                     list.Add(pProducto);
                 }
@@ -96,7 +96,7 @@ namespace SisFerretero
                     pProducto.precioUnd = Convert.ToDouble(re["precioUnd"]);
                     pProducto.cantExistente = Convert.ToInt32(re["cantExistente"]);
                     pProducto.Nombre_Suplidor = re["NombreSuplidor"].ToString();
-                    pProducto.Departamento = re["categoria"].ToString();
+                    pProducto.Categoria = re["categoria"].ToString();
 
                     list.Add(pProducto);
                 }
