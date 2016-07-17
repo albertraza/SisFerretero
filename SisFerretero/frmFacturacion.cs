@@ -12,9 +12,29 @@ namespace SisFerretero
 {
     public partial class frmFacturacion : Form
     {
+        // enumerador para validar el despacho
+        enum Despachado
+        {
+            Si = 1,
+            No = 0
+        }
+
         public frmFacturacion()
         {
             InitializeComponent();
+        }
+
+        // metodo para presentar el total del carrito
+        private void showValues()
+        {
+            lblTotalITEBIS.Text = "";
+            lblTotalITEBIS.Text = "ITEBIS: " + TITEBIS.ToString("f2");
+            lblTotalaPagar.Text = "";
+            lblTotalaPagar.Text = "Total a Pagar: " + TPagar.ToString("f2");
+            lblTotalComprado.Text = "";
+            lblTotalComprado.Text = "Total Comprado: " + TSINIMP.ToString("f2");
+            lblCantidadArticulos.Text = "";
+            lblCantidadArticulos.Text = "Cantidad de Articulos: " + CANTART;
         }
         // metodo para limpiar todos los textboxes de los productos
         private void clearProductos()
@@ -163,7 +183,12 @@ namespace SisFerretero
                 // cada vez que se abre la ventana se creara una factura nueva
                 facturacion.registerFactura(0, DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0);
                 dgvCarrito.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+
+                // se carga el carrito correspondiente a la nueva factura
                 dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
+
+                // se muestra el total hasta el momento
+                showValues();
             }
             catch(Exception ex)
             {
@@ -329,14 +354,7 @@ namespace SisFerretero
                     CANTART = cantarticulos;
 
                     // se prensenta el total en los labels.
-                    lblTotalITEBIS.Text = "";
-                    lblTotalITEBIS.Text = "ITEBIS: " + TITEBIS.ToString("f2");
-                    lblTotalaPagar.Text = "";
-                    lblTotalaPagar.Text = "Total a Pagar: " + TPagar.ToString("f2");
-                    lblTotalComprado.Text = "";
-                    lblTotalComprado.Text = "Total Comprado: " + TSINIMP.ToString("f2");
-                    lblCantidadArticulos.Text = "";
-                    lblCantidadArticulos.Text = "Cantidad de Articulos: " + CANTART;
+                    showValues();
                 }
                 catch (Exception ex)
                 {
@@ -375,6 +393,21 @@ namespace SisFerretero
 
                 // se cargan los productos en la tabla
                 dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
+
+                // se limpian todos los valores de las variables en donde se guardan los datos
+                TITEBIS = 0;
+                TSINIMP = 0;
+                TPagar = 0;
+                CANTART = 0;
+             
+                // mostrar todos los valores del Total
+                showValues();
+
+                // se limpian los texbox del producto
+                clearProductos();
+
+                // se limpian los texbox del cliente
+                clearCliente();
             }
             catch(Exception ex)
             {
@@ -399,6 +432,32 @@ namespace SisFerretero
                 if (pConfirmacion.pago)
                 {
                     MessageBox.Show("Pago realizado exitosamente, Devuelta: " + pConfirmacion.DEVUELTA.ToString(), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    frmConfirmacionFechaEntrega pFechaEntrega = new frmConfirmacionFechaEntrega();
+                    pFechaEntrega.ShowDialog();
+                    // variable para guardar la fecha de entrega
+                    DateTime fechaEntrega = pFechaEntrega.fechaEntrega;
+
+                    // variable para guardar el resultado del despacho de la order
+                    int despacho;
+
+                    if (pFechaEntrega.Despachado)
+                    {
+                        despacho = Convert.ToInt32(Despachado.No);
+                    }
+                    else
+                    {
+                        despacho = Convert.ToInt32(Despachado.Si);
+                    }
+
+                    // ya con todo confirmado se registra la factura
+                    try
+                    {
+                        MessageBox.Show(facturacion.updateFactura(0, fechaEntrega, CANTART, TSINIMP, TITEBIS, TPagar, despacho, facturacion.getNewFacturaID()), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
