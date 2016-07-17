@@ -72,5 +72,25 @@ namespace SisFerretero
             }
             return list;
         }
+
+        // metodo para borrar el carrito
+        public static string deleteCarrito(int codigoFactura)
+        {
+            string mensaje = null;
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("delete ProductosVendidos where codigoFactura = '{0}'", codigoFactura), con);
+                if (comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Listo!";
+                }
+                else
+                {
+                    mensaje = "No se pudo borrar la factura correctamente";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
     }
 }
