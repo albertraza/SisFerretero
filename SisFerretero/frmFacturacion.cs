@@ -365,6 +365,23 @@ namespace SisFerretero
             }
         }
 
+        // evento para limpiar la factura
+        private void btnLimpiarTodo_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // se eliminan todos los productos en el carrito
+                carrito.deleteCarrito(facturacion.getNewFacturaID());
+
+                // se cargan los productos en la tabla
+                dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         // evento para despachar la orden
         private void btnDespachar_Click(object sender, EventArgs e)
         {

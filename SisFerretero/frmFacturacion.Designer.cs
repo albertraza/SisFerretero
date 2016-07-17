@@ -682,6 +682,7 @@
             this.btnLimpiarTodo.Text = "Nueva Factura";
             this.btnLimpiarTodo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnLimpiarTodo.UseVisualStyleBackColor = true;
+            this.btnLimpiarTodo.Click += new System.EventHandler(this.btnLimpiarTodo_Click);
             // 
             // frmFacturacion
             // 
