@@ -33,6 +33,28 @@ namespace SisFerretero
             }
             return mensaje;
         }
+
+        // metodo para actualizar la factura para poder ser despachada
+        public static string updateFactura(int codigoCliente, DateTime fechaEntrega, int totalArticulos, double totalComprado, double ITEBIS, double totalPagar, int codigoFactura)
+        {
+            string mensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("update Factura set codigoCliente = '{0}', fechaEntrega = '{1}', totalArticulos = '{2}', totalComprado = '{3}', ITEBIS = '{4}', totalPagar = '{5}' where codigo = '{6}'",
+                    codigoCliente, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, codigoFactura), con);
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Factura creada!";
+                }
+                else
+                {
+                    mensaje = "La factura no se pudo registrar correctamente, Intente nuevamente";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
+
         // metodo para obtener el ID de la nueva Factura
         public static int getNewFacturaID()
         {
@@ -45,6 +67,7 @@ namespace SisFerretero
             }
             return r;
         }
+
         // metodo para borrar las facturas junto con el carrito de compras
         public static string deleteFactura(int codigoFactura)
         {
