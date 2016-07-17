@@ -41,6 +41,7 @@
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
+            this.btnDetalles = new System.Windows.Forms.Button();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gbFiltro.SuspendLayout();
@@ -106,6 +107,7 @@
             // gbFiltro
             // 
             this.gbFiltro.BackColor = System.Drawing.Color.LightGray;
+            this.gbFiltro.Controls.Add(this.btnDetalles);
             this.gbFiltro.Controls.Add(this.txtBusqueda);
             this.gbFiltro.Controls.Add(this.btnBuscar);
             this.gbFiltro.Controls.Add(this.btnLimpiar);
@@ -134,7 +136,7 @@
             // btnBuscar
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscar.Location = new System.Drawing.Point(534, 59);
+            this.btnBuscar.Location = new System.Drawing.Point(534, 45);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(129, 25);
             this.btnBuscar.TabIndex = 5;
@@ -144,7 +146,7 @@
             // btnLimpiar
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(534, 31);
+            this.btnLimpiar.Location = new System.Drawing.Point(534, 17);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(129, 25);
             this.btnLimpiar.TabIndex = 4;
@@ -196,6 +198,16 @@
             this.dgvFacturas.Size = new System.Drawing.Size(875, 321);
             this.dgvFacturas.TabIndex = 0;
             // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.Location = new System.Drawing.Point(534, 74);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.Size = new System.Drawing.Size(129, 25);
+            this.btnDetalles.TabIndex = 7;
+            this.btnDetalles.Text = "Ver Detalles";
+            this.btnDetalles.UseVisualStyleBackColor = true;
+            // 
             // frmConsultaFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -240,5 +252,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Label lblBusqueda;
         private System.Windows.Forms.MaskedTextBox txtBusqueda;
+        private System.Windows.Forms.Button btnDetalles;
     }
 }
