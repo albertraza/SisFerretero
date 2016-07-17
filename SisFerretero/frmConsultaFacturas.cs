@@ -118,5 +118,11 @@ namespace SisFerretero
                 }
             }
         }
+
+        // evento para verificar los detalles de una factura
+        private void btnDetalles_Click(object sender, EventArgs e)
+        {
+            new frmDetallesFactura().ShowDialog();
+        }
     }
 }

@@ -207,6 +207,7 @@
             this.btnDetalles.TabIndex = 7;
             this.btnDetalles.Text = "Ver Detalles";
             this.btnDetalles.UseVisualStyleBackColor = true;
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
             // 
             // frmConsultaFacturas
             // 
