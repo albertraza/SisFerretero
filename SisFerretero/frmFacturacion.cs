@@ -58,7 +58,9 @@ namespace SisFerretero
             txtDireccionCli.Clear();
             txtNombreCli.Clear();
             txtTelefonoCli.Clear();
-            txtCelularCli.Focus();
+            txtCedulaCliente.Clear();
+            txtCedulaCliente.Focus();
+            pCLiente = null;
         }
 
         // metodo para hacer los texbox disable
@@ -415,12 +417,60 @@ namespace SisFerretero
             }
         }
 
+        // variable tipo objeto para guardar la info del cliente
+        private baseClientes pCLiente;
+
+        // evento para buscar un cliente
+        private void lblBuscarCliente_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!txtCedulaCliente.MaskCompleted)
+            {
+                MessageBox.Show("No se ha digitado una matricula", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCedulaCliente.Focus();
+            }
+            else
+            {
+                if (baseClientes.getClienteInfo(txtCedulaCliente.Text) != null)
+                {
+                    pCLiente = baseClientes.getClienteInfo(txtCedulaCliente.Text);
+
+                    txtNombreCli.Text = pCLiente.nombre;
+                    txtApellidoCli.Text = pCLiente.apellido;
+                    txtCelularCli.Text = pCLiente.celular;
+                    txtDireccionCli.Text = pCLiente.direccion;
+                    txtTelefonoCli.Text = pCLiente.telefono;
+                    
+                }
+                else
+                {
+                    if (MessageBox.Show("El Cliente no Existe, Desea registrarlo?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        new Clientes().Show();
+                    }
+                    else
+                    {
+                        clearCliente();
+                    }
+                }
+            }
+        }
+
         // evento para despachar la orden
         private void btnDespachar_Click(object sender, EventArgs e)
         {
             if (CANTART <= 0)
             {
                 MessageBox.Show("No hay productos en el carrito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if(txtNombreCli.Text == string.Empty || txtDireccionCli.Text == string.Empty)
+            {
+                MessageBox.Show("No se ha especificado un cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCedulaCliente.Focus();
+            }
+            else if(pCLiente == null)
+            {
+                MessageBox.Show("No se ha especificado un cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCedulaCliente.Focus();
             }
             else
             {
@@ -452,7 +502,26 @@ namespace SisFerretero
                     // ya con todo confirmado se registra la factura
                     try
                     {
-                        MessageBox.Show(facturacion.updateFactura(0, fechaEntrega, CANTART, TSINIMP, TITEBIS, TPagar, despacho, facturacion.getNewFacturaID()), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(facturacion.updateFactura(pCLiente.codigo, fechaEntrega, CANTART, TSINIMP, TITEBIS, TPagar, despacho, facturacion.getNewFacturaID()), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        // ya con la factura registrada se registra una factura nueva con todo vacio
+                        facturacion.registerFactura(0, DateTime.Today, DateTime.Today, 0, 0, 0, 0, 0);
+
+                        // se carga el carrito de la factura vacia
+                        dgvCarrito.DataSource = carrito.getCarrito(facturacion.getNewFacturaID());
+
+                        // se limpian todos los texbox
+                        clearCliente();
+                        clearProductos();
+
+                        // se limpian las variables
+                        TITEBIS = 0;
+                        TSINIMP = 0;
+                        TPagar = 0;
+                        CANTART = 0;
+
+                        // se muestran los valores vacios en los labels
+                        showValues();
                     }
                     catch(Exception ex)
                     {

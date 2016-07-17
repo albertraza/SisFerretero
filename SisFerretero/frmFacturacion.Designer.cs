@@ -511,6 +511,7 @@
             this.lblBuscarCliente.TabStop = true;
             this.lblBuscarCliente.Text = "Buscar";
             this.lblBuscarCliente.VisitedLinkColor = System.Drawing.Color.Red;
+            this.lblBuscarCliente.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblBuscarCliente_LinkClicked);
             // 
             // lblCedula
             // 
