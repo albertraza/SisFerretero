@@ -35,13 +35,13 @@ namespace SisFerretero
         }
 
         // metodo para actualizar la factura para poder ser despachada
-        public static string updateFactura(int codigoCliente, DateTime fechaEntrega, int totalArticulos, double totalComprado, double ITEBIS, double totalPagar, int codigoFactura)
+        public static string updateFactura(int codigoCliente, DateTime fechaEntrega, int totalArticulos, double totalComprado, double ITEBIS, double totalPagar, int despachado, int codigoFactura)
         {
             string mensaje = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("update Factura set codigoCliente = '{0}', fechaEntrega = '{1}', totalArticulos = '{2}', totalComprado = '{3}', ITEBIS = '{4}', totalPagar = '{5}' where codigo = '{6}'",
-                    codigoCliente, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, codigoFactura), con);
+                SqlCommand comand = new SqlCommand(string.Format("update Factura set codigoCliente = '{0}', fechaEntrega = '{1}', totalArticulos = '{2}', totalComprado = '{3}', ITEBIS = '{4}', totalPagar = '{5}', despachado = '{6}' where codigo = '{7}'",
+                    codigoCliente, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, despachado, codigoFactura), con);
                 if(comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Factura creada!";
