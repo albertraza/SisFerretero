@@ -12,6 +12,22 @@ namespace SisFerretero
 {
     public partial class frmConfirmacionFechaEntrega : Form
     {
+        // metodo para validar el despacho
+        private void validateDespacho()
+        {
+            if (rbNo.Checked)
+            {
+                txtFechaEntrega.Clear();
+                txtFechaEntrega.Text = DateTime.Today.Date.ToString("MM/dd/yyyy");
+                txtFechaEntrega.Enabled = false;
+            }
+            else
+            {
+                txtFechaEntrega.Clear();
+                txtFechaEntrega.Enabled = true;
+                txtFechaEntrega.Focus();
+            }
+        }
         // propiedades para indicar los resultados
         public DateTime fechaEntrega { get; set; }
         public bool Despachado { get; set; }
@@ -74,5 +90,16 @@ namespace SisFerretero
                 this.Close();
             }
         }
+
+        // eventos para validar el despacho
+        private void rbSi_CheckedChanged(object sender, EventArgs e)
+        {
+            validateDespacho();
+        }
+        private void rbNo_CheckedChanged(object sender, EventArgs e)
+        {
+            validateDespacho();
+        }
+        // fin eventos para validar el despacho
     }
 }
