@@ -98,6 +98,12 @@
     <Compile Include="frmConsultaAlmacen.Designer.cs">
       <DependentUpon>frmConsultaAlmacen.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaEmpleado.designer.cs">
+      <DependentUpon>frmConsultaEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaFacturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -127,6 +133,12 @@
     </Compile>
     <Compile Include="frmMantenimientoAlmacen.Designer.cs">
       <DependentUpon>frmMantenimientoAlmacen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMantenimientoEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMantenimientoEmpleado.designer.cs">
+      <DependentUpon>frmMantenimientoEmpleado.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -171,6 +183,9 @@
     <EmbeddedResource Include="frmConsultaAlmacen.resx">
       <DependentUpon>frmConsultaAlmacen.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaEmpleado.resx">
+      <DependentUpon>frmConsultaEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaFacturas.resx">
       <DependentUpon>frmConsultaFacturas.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMantenimientoAlmacen.resx">
       <DependentUpon>frmMantenimientoAlmacen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMantenimientoEmpleado.resx">
+      <DependentUpon>frmMantenimientoEmpleado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMenuPrincipal.resx">
       <DependentUpon>frmMenuPrincipal.cs</DependentUpon>
