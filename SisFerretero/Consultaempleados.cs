@@ -20,5 +20,10 @@ namespace SisFerretero
         {
 
         }
+
+        private void Consultaempleados_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
