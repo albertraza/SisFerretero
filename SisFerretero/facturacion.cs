@@ -98,6 +98,44 @@ namespace SisFerretero
         }
 
         //metodo para cargar todas las facturas
+        public static List<facturacion> listAllFacturas()
+        {
+            List<facturacion> list = new List<facturacion>();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand("", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    facturacion pFactura = new facturacion();
+                    pFactura.codigo = Convert.ToInt32(re["codigo"]);
+                    pFactura.Nombre_Cliente = re["nombre"].ToString();
+                    pFactura.Apellido_Cliente = re["nombre"].ToString();
+                    pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("dd/MM/yyyy"));
+                    pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("dd/MM/yyyy"));
+                    pFactura.TotalProductos = Convert.ToInt32(re["totalArticulos"]);
+                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
+                    pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
+                    pFactura.TotalPagar = Convert.ToDouble(re["totalPagar"]);
+                    if (Convert.ToInt32(re["despachado"]) > 0)
+                    {
+                        pFactura.despachado = "Si";
+                    }
+                    else if(Convert.ToInt32(re["despachado"]) == 0)
+                    {
+                        pFactura.despachado = "No";
+                    }
+                    else
+                    {
+                        pFactura.despachado = "--";
+                    }
+
+                    list.Add(pFactura);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
     public class baseFacturacion
     {
