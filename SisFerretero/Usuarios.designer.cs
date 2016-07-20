@@ -63,6 +63,8 @@
             // 
             // txtcontraseña
             // 
+            this.txtcontraseña.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtcontraseña.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtcontraseña.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtcontraseña.Location = new System.Drawing.Point(89, 289);
             this.txtcontraseña.MaxLength = 10;
@@ -84,6 +86,8 @@
             // 
             // txtusuario
             // 
+            this.txtusuario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtusuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtusuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtusuario.Location = new System.Drawing.Point(89, 236);
             this.txtusuario.MaxLength = 10;
