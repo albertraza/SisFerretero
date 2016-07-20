@@ -44,7 +44,6 @@
             this.facturasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transaccionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ventaDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.compraDeMercanciaParaLaVentaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -188,8 +187,7 @@
             // transaccionesToolStripMenuItem
             // 
             this.transaccionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ventaDeProductosToolStripMenuItem,
-            this.compraDeMercanciaParaLaVentaToolStripMenuItem});
+            this.ventaDeProductosToolStripMenuItem});
             this.transaccionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("transaccionesToolStripMenuItem.Image")));
             this.transaccionesToolStripMenuItem.Name = "transaccionesToolStripMenuItem";
             this.transaccionesToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
@@ -201,12 +199,6 @@
             this.ventaDeProductosToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.ventaDeProductosToolStripMenuItem.Text = "Venta de Productos";
             this.ventaDeProductosToolStripMenuItem.Click += new System.EventHandler(this.ventaDeProductosToolStripMenuItem_Click);
-            // 
-            // compraDeMercanciaParaLaVentaToolStripMenuItem
-            // 
-            this.compraDeMercanciaParaLaVentaToolStripMenuItem.Name = "compraDeMercanciaParaLaVentaToolStripMenuItem";
-            this.compraDeMercanciaParaLaVentaToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.compraDeMercanciaParaLaVentaToolStripMenuItem.Text = "Compra de mercancia para la venta";
             // 
             // reportesToolStripMenuItem
             // 
@@ -406,7 +398,6 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem transaccionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ventaDeProductosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem compraDeMercanciaParaLaVentaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem2;
