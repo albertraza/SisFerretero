@@ -152,5 +152,10 @@ namespace SisFerretero
         {
             new frmCalendario().Show();
         }
+
+        private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            new frmConsultaEmpleado().Show();
+        }
     }
 }
