@@ -270,14 +270,16 @@
             // 
             this.calendarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("calendarioToolStripMenuItem.Image")));
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
-            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.calendarioToolStripMenuItem.Text = "Calendario";
+            this.calendarioToolStripMenuItem.Click += new System.EventHandler(this.calendarioToolStripMenuItem_Click);
             // 
             // calculadoraToolStripMenuItem
             // 
             this.calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
-            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.calculadoraToolStripMenuItem.Text = "Calculadora";
+            this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 

@@ -142,5 +142,15 @@ namespace SisFerretero
         {
             new Usuarios().Show();
         }
+
+        private void calculadoraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("Calc");
+        }
+
+        private void calendarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmCalendario().Show();
+        }
     }
 }

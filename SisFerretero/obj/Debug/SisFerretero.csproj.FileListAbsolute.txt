@@ -18,3 +18,5 @@ C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\Sis
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConfirmacionPago.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConfirmacionFechaEntrega.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmDetallesFactura.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.ConsultaClientes.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Usuarios.resources
