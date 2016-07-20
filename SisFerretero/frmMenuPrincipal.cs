@@ -137,5 +137,10 @@ namespace SisFerretero
         {
             new ConsultaClientes().Show();
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Usuarios().Show();
+        }
     }
 }
