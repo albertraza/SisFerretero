@@ -95,7 +95,7 @@ namespace SisFerretero
             int re = -1;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select COUNT(*) as Total Ordenes from Factura where codigoCliente = '{0}'", codigo), con);
+                SqlCommand comand = new SqlCommand(string.Format("select COUNT(*) as Total_Ordenes from Factura where codigoCliente = '{0}'", codigo), con);
                 re = Convert.ToInt32(comand.ExecuteScalar());
                 con.Close();
             }
