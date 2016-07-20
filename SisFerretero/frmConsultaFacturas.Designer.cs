@@ -34,6 +34,7 @@
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.gbFiltro = new System.Windows.Forms.GroupBox();
+            this.btnDetalles = new System.Windows.Forms.Button();
             this.txtBusqueda = new System.Windows.Forms.MaskedTextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.cbFiltro = new System.Windows.Forms.ComboBox();
             this.lblFiltro = new System.Windows.Forms.Label();
             this.dgvFacturas = new System.Windows.Forms.DataGridView();
-            this.btnDetalles = new System.Windows.Forms.Button();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gbFiltro.SuspendLayout();
@@ -122,6 +122,17 @@
             this.gbFiltro.TabStop = false;
             this.gbFiltro.Text = "Filtro de Busqueda";
             // 
+            // btnDetalles
+            // 
+            this.btnDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDetalles.Location = new System.Drawing.Point(534, 74);
+            this.btnDetalles.Name = "btnDetalles";
+            this.btnDetalles.Size = new System.Drawing.Size(129, 25);
+            this.btnDetalles.TabIndex = 7;
+            this.btnDetalles.Text = "Ver Detalles";
+            this.btnDetalles.UseVisualStyleBackColor = true;
+            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
+            // 
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -198,17 +209,6 @@
             this.dgvFacturas.Size = new System.Drawing.Size(875, 321);
             this.dgvFacturas.TabIndex = 0;
             // 
-            // btnDetalles
-            // 
-            this.btnDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDetalles.Location = new System.Drawing.Point(534, 74);
-            this.btnDetalles.Name = "btnDetalles";
-            this.btnDetalles.Size = new System.Drawing.Size(129, 25);
-            this.btnDetalles.TabIndex = 7;
-            this.btnDetalles.Text = "Ver Detalles";
-            this.btnDetalles.UseVisualStyleBackColor = true;
-            this.btnDetalles.Click += new System.EventHandler(this.btnDetalles_Click);
-            // 
             // frmConsultaFacturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -224,6 +224,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta Facturas";
             this.TransparencyKey = System.Drawing.Color.White;
+            this.Load += new System.EventHandler(this.frmConsultaFacturas_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmConsultaFacturas_MouseDown);
             this.MouseHover += new System.EventHandler(this.frmConsultaFacturas_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmConsultaFacturas_MouseMove);

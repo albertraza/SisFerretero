@@ -122,7 +122,32 @@ namespace SisFerretero
         // evento para verificar los detalles de una factura
         private void btnDetalles_Click(object sender, EventArgs e)
         {
-            new frmDetallesFactura().ShowDialog();
+            if(dgvFacturas.SelectedRows.Count == 1)
+            {
+                int codigo = Convert.ToInt32(dgvFacturas.CurrentRow.Cells[0].Value);
+                frmDetallesFactura pDetalles = new frmDetallesFactura();
+                pDetalles.codigoFactura = codigo;
+                pDetalles.ShowDialog();
+            }
+        }
+
+        //evento que detecta cuando la ventana se ha abierto.
+        private void frmConsultaFacturas_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                // le cambio el style al data grid view
+                dgvFacturas.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Bold);
+                dgvFacturas.DefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Regular);
+                dgvFacturas.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+                dgvFacturas.DefaultCellStyle.ForeColor = Color.Black;
+                // se cargn todas las facturas
+                dgvFacturas.DataSource = facturacion.listAllFacturas();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
