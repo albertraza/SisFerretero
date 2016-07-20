@@ -103,7 +103,7 @@ namespace SisFerretero
             List<facturacion> list = new List<facturacion>();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("", con);
+                SqlCommand comand = new SqlCommand("select * from Factura inner join Clientes on Clientes.codigo = Factura.codigoCliente", con);
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
@@ -111,8 +111,8 @@ namespace SisFerretero
                     pFactura.codigo = Convert.ToInt32(re["codigo"]);
                     pFactura.Nombre_Cliente = re["nombre"].ToString();
                     pFactura.Apellido_Cliente = re["nombre"].ToString();
-                    pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("dd/MM/yyyy"));
-                    pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("dd/MM/yyyy"));
+                    pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
+                    pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
                     pFactura.TotalProductos = Convert.ToInt32(re["totalArticulos"]);
                     pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
                     pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
@@ -177,8 +177,8 @@ namespace SisFerretero
                     {
                         pFactura.codigo = Convert.ToInt32(re["codigo"]);
                         pFactura.codigoCliente = Convert.ToInt32(re["codigoCliente"]);
-                        pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("dd/MM/yyyy"));
-                        pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("dd/MM/yyyy"));
+                        pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
+                        pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
                         pFactura.cantProductos = Convert.ToInt32(re["totalArticulos"]);
                         pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
                         pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
