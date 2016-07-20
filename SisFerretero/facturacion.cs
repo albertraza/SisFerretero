@@ -91,4 +91,62 @@ namespace SisFerretero
             return r;
         }
     }
+    public class baseFacturacion
+    {
+        public int codigo { get; set; }
+        public int codigoCliente { get; set; }
+        public DateTime fechaRegistro { get; set; }
+        public DateTime fechaEntrega { get; set; }
+        public int cantProductos { get; set; }
+        public double TotalCompradoSinITEBIS { get; set; }
+        public double ITEBIS { get; set; }
+        public double TotalPagar { get; set; }
+        public int despachado { get; set; }
+
+        public baseFacturacion() { }
+        public baseFacturacion(int c, int cCl, DateTime fR, DateTime fE, int cP, double TPSI, double Itebis, double tP, int D)
+        {
+            codigo = c;
+            codigoCliente = cCl;
+            fechaRegistro = fR;
+            fechaEntrega = fE;
+            cantProductos = cP;
+            TotalCompradoSinITEBIS = TPSI;
+            ITEBIS = Itebis;
+            TotalPagar = tP;
+            despachado = D;
+        }
+
+        // metodo para obtener la informacion de la factura
+        public static baseFacturacion getFactura(int codigo)
+        {
+            baseFacturacion pFactura = new baseFacturacion();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("select * from Factura where codigo = '{0}'", codigo), con);
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    while (re.Read())
+                    {
+                        pFactura.codigo = Convert.ToInt32(re["codigo"]);
+                        pFactura.codigoCliente = Convert.ToInt32(re["codigoCliente"]);
+                        pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("dd/MM/yyyy"));
+                        pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("dd/MM/yyyy"));
+                        pFactura.cantProductos = Convert.ToInt32(re["totalArticulos"]);
+                        pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
+                        pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
+                        pFactura.TotalPagar = Convert.ToDouble(re["totalPagar"]);
+                        pFactura.despachado = Convert.ToInt32(re["despachado"]);
+                    }
+                }
+                else
+                {
+                    pFactura = null;
+                }
+                con.Close();
+            }
+            return pFactura;
+        }
+    }
 }
