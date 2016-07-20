@@ -61,6 +61,12 @@
     <Compile Include="ConsultaClientes.designer.cs">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Consultaempleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultaempleados.designer.cs">
+      <DependentUpon>Consultaempleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataBase.cs" />
     <Compile Include="facturacion.cs" />
     <Compile Include="FerreteriaDBDataSet.Designer.cs">
@@ -152,6 +158,12 @@
     <Compile Include="frmSplash.Designer.cs">
       <DependentUpon>frmSplash.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frmsuplidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frmsuplidores.designer.cs">
+      <DependentUpon>Frmsuplidores.cs</DependentUpon>
+    </Compile>
     <Compile Include="productos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ConsultaClientes.resx">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultaempleados.resx">
+      <DependentUpon>Consultaempleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -209,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmSplash.resx">
       <DependentUpon>frmSplash.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frmsuplidores.resx">
+      <DependentUpon>Frmsuplidores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -23,3 +23,5 @@ C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\Sis
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmCalendario.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaEmpleado.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmMantenimientoEmpleado.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Consultaempleados.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Frmsuplidores.resources
