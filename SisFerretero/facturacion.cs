@@ -10,9 +10,15 @@ namespace SisFerretero
     public class facturacion
     {
         public int codigo { get; set; }
-        public decimal ITEBIS { get; set; }
-        public decimal TotalComprado { get; set; }
-        public int Total_Articulos { get; set; }
+        public string Nombre_Cliente { get; set; }
+        public string Apellido_Cliente { get; set; }
+        public DateTime fechaRegistro { get; set; }
+        public DateTime fechaEntrega { get; set; }
+        public int TotalProductos { get; set; }
+        public double TotalCompradoSinITEBIS { get; set; }
+        public double ITEBIS { get; set; }
+        public double TotalPagar { get; set; }
+        public string despachado { get; set; }
 
         // metodo para registrar una nueva factura
         public static string registerFactura(int codigoCliente, DateTime fechaRegistro, DateTime fechaEntrega, int totalArticulos, double totalComprado, double ITEBIS, double totalPagar, int despachado)
@@ -90,6 +96,8 @@ namespace SisFerretero
             }
             return r;
         }
+
+        //metodo para cargar todas las facturas
     }
     public class baseFacturacion
     {
