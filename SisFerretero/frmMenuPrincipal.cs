@@ -162,5 +162,15 @@ namespace SisFerretero
         {
             new frmMantenimientoEmpleado().Show();
         }
+
+        private void suplidoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new Frmsuplidores().Show();
+        }
+
+        private void suplidoresToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new Consultaempleados().Show();
+        }
     }
 }

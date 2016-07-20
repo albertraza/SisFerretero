@@ -60,6 +60,7 @@
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.pOcultar = new System.Windows.Forms.Panel();
             this.lblMinimizar = new System.Windows.Forms.LinkLabel();
+            this.suplidoresToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.msMenuPrincipal.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.pOcultar.SuspendLayout();
@@ -115,14 +116,15 @@
             // 
             this.suplidoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("suplidoresToolStripMenuItem.Image")));
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
+            this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
             // almacenToolStripMenuItem
             // 
             this.almacenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("almacenToolStripMenuItem.Image")));
             this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
-            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.almacenToolStripMenuItem.Text = "Almacen";
             this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
             // 
@@ -130,7 +132,7 @@
             // 
             this.clientesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesToolStripMenuItem.Image")));
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -141,7 +143,8 @@
             this.empleadosToolStripMenuItem1,
             this.almacenToolStripMenuItem1,
             this.clientesToolStripMenuItem1,
-            this.facturasToolStripMenuItem});
+            this.facturasToolStripMenuItem,
+            this.suplidoresToolStripMenuItem2});
             this.consultaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("consultaToolStripMenuItem.Image")));
             this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
             this.consultaToolStripMenuItem.Size = new System.Drawing.Size(82, 20);
@@ -352,6 +355,14 @@
             this.lblMinimizar.VisitedLinkColor = System.Drawing.Color.Black;
             this.lblMinimizar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMinimizar_LinkClicked);
             // 
+            // suplidoresToolStripMenuItem2
+            // 
+            this.suplidoresToolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("suplidoresToolStripMenuItem2.Image")));
+            this.suplidoresToolStripMenuItem2.Name = "suplidoresToolStripMenuItem2";
+            this.suplidoresToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.suplidoresToolStripMenuItem2.Text = "Suplidores";
+            this.suplidoresToolStripMenuItem2.Click += new System.EventHandler(this.suplidoresToolStripMenuItem2_Click);
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,5 +428,6 @@
         private System.Windows.Forms.Panel pOcultar;
         private System.Windows.Forms.LinkLabel lblMinimizar;
         private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem suplidoresToolStripMenuItem2;
     }
 }

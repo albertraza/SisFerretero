@@ -16,5 +16,15 @@ namespace SisFerretero
         {
             InitializeComponent();
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -117,30 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAApcAAADuCAIAAADjvLvmAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAABGZJREFUeF7t1UFuGkEURVGvxevJZrPCTieUQ/gB2ZJlU1c6T4cBTVUzvC/Hp/f6
-        8wcA8HmrrB/eRys+/gYA+Dqrvu/tnYqPlwIA32n1+MEeVny8BQB4ltXm/3a/4uMyAPBcq9C3mxUfdwCA
-        faxav+2m4uMoALCb1ew/u1Z8HAIA9rTKreIAkLPK/bfi42cAYGeXfKs4ACStio+nAMD+VBwAwlQcAKpe
-        xncAoELFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGgSsUBoErFAaBKxQGg
-        SsUBoErFASDpOA4VB4AkFQeAKhUHgKrfFT8/4ykAsLkz3yoOAEnXip8bvwEA27q0+5yKA0DJJdyXrYqf
-        G4cAgN2sZr/tWvFz4ygAsI9V6392U/Fz4wIAsIPV6dvNip8b1wCAJ1p5vrc7Fb9svAIA+GYryY92HL8A
-        vhLui/U92y8AAAAASUVORK5CYII=
-</value>
-  </data>
 </root>
