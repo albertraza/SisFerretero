@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frmsuplidores));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -91,6 +90,8 @@
             // 
             // maskedTextBox1
             // 
+            this.maskedTextBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.maskedTextBox1.Location = new System.Drawing.Point(19, 83);
             this.maskedTextBox1.Mask = "(999)000-0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
@@ -99,6 +100,8 @@
             // 
             // textBox4
             // 
+            this.textBox4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox4.Location = new System.Drawing.Point(143, 84);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(219, 20);
@@ -124,6 +127,8 @@
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox2.Location = new System.Drawing.Point(19, 146);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
@@ -141,6 +146,8 @@
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox1.Location = new System.Drawing.Point(19, 34);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(147, 20);
@@ -159,13 +166,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(403, 282);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Frmsuplidores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SUPLIDORES";
