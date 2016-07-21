@@ -53,6 +53,11 @@
             this.lblFechaRegistro = new System.Windows.Forms.Label();
             this.pCerrar = new System.Windows.Forms.Panel();
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
+            this.lblTotalSinImp = new System.Windows.Forms.Label();
+            this.lblITEBIS = new System.Windows.Forms.Label();
+            this.lblTotalPagar = new System.Windows.Forms.Label();
+            this.lblInformacionPago = new System.Windows.Forms.Label();
+            this.lblTotalItems = new System.Windows.Forms.Label();
             this.gbCarrito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.gbInformacionCliente.SuspendLayout();
@@ -63,11 +68,16 @@
             // gbCarrito
             // 
             this.gbCarrito.BackColor = System.Drawing.Color.Tan;
+            this.gbCarrito.Controls.Add(this.lblTotalItems);
+            this.gbCarrito.Controls.Add(this.lblInformacionPago);
+            this.gbCarrito.Controls.Add(this.lblTotalPagar);
+            this.gbCarrito.Controls.Add(this.lblITEBIS);
+            this.gbCarrito.Controls.Add(this.lblTotalSinImp);
             this.gbCarrito.Controls.Add(this.dgvProductos);
             this.gbCarrito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCarrito.Location = new System.Drawing.Point(21, 272);
             this.gbCarrito.Name = "gbCarrito";
-            this.gbCarrito.Size = new System.Drawing.Size(776, 266);
+            this.gbCarrito.Size = new System.Drawing.Size(788, 266);
             this.gbCarrito.TabIndex = 0;
             this.gbCarrito.TabStop = false;
             this.gbCarrito.Text = "Productos comprados";
@@ -78,7 +88,7 @@
             this.dgvProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvProductos.Location = new System.Drawing.Point(6, 18);
             this.dgvProductos.Name = "dgvProductos";
-            this.dgvProductos.Size = new System.Drawing.Size(764, 242);
+            this.dgvProductos.Size = new System.Drawing.Size(578, 242);
             this.dgvProductos.TabIndex = 0;
             // 
             // gbInformacionCliente
@@ -237,7 +247,7 @@
             this.gbInformacionEnvio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbInformacionEnvio.Location = new System.Drawing.Point(496, 59);
             this.gbInformacionEnvio.Name = "gbInformacionEnvio";
-            this.gbInformacionEnvio.Size = new System.Drawing.Size(301, 207);
+            this.gbInformacionEnvio.Size = new System.Drawing.Size(313, 207);
             this.gbInformacionEnvio.TabIndex = 2;
             this.gbInformacionEnvio.TabStop = false;
             this.gbInformacionEnvio.Text = "Informacion del Envio";
@@ -312,6 +322,7 @@
             this.pCerrar.Size = new System.Drawing.Size(105, 34);
             this.pCerrar.TabIndex = 0;
             this.pCerrar.Click += new System.EventHandler(this.pCerrar_Click);
+            this.pCerrar.MouseHover += new System.EventHandler(this.pCerrar_MouseHover);
             // 
             // lblCerrar
             // 
@@ -330,6 +341,57 @@
             this.lblCerrar.VisitedLinkColor = System.Drawing.Color.WhiteSmoke;
             this.lblCerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCerrar_LinkClicked);
             // 
+            // lblTotalSinImp
+            // 
+            this.lblTotalSinImp.AutoSize = true;
+            this.lblTotalSinImp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalSinImp.Location = new System.Drawing.Point(607, 90);
+            this.lblTotalSinImp.Name = "lblTotalSinImp";
+            this.lblTotalSinImp.Size = new System.Drawing.Size(94, 15);
+            this.lblTotalSinImp.TabIndex = 1;
+            this.lblTotalSinImp.Text = "Total sin Imp:";
+            // 
+            // lblITEBIS
+            // 
+            this.lblITEBIS.AutoSize = true;
+            this.lblITEBIS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblITEBIS.Location = new System.Drawing.Point(647, 119);
+            this.lblITEBIS.Name = "lblITEBIS";
+            this.lblITEBIS.Size = new System.Drawing.Size(54, 15);
+            this.lblITEBIS.TabIndex = 2;
+            this.lblITEBIS.Text = "ITEBIS:";
+            // 
+            // lblTotalPagar
+            // 
+            this.lblTotalPagar.AutoSize = true;
+            this.lblTotalPagar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalPagar.Location = new System.Drawing.Point(604, 147);
+            this.lblTotalPagar.Name = "lblTotalPagar";
+            this.lblTotalPagar.Size = new System.Drawing.Size(97, 15);
+            this.lblTotalPagar.TabIndex = 3;
+            this.lblTotalPagar.Text = "Total a Pagar:";
+            // 
+            // lblInformacionPago
+            // 
+            this.lblInformacionPago.AutoSize = true;
+            this.lblInformacionPago.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInformacionPago.ForeColor = System.Drawing.Color.DodgerBlue;
+            this.lblInformacionPago.Location = new System.Drawing.Point(626, 31);
+            this.lblInformacionPago.Name = "lblInformacionPago";
+            this.lblInformacionPago.Size = new System.Drawing.Size(120, 15);
+            this.lblInformacionPago.TabIndex = 4;
+            this.lblInformacionPago.Text = "Informacion Pago";
+            // 
+            // lblTotalItems
+            // 
+            this.lblTotalItems.AutoSize = true;
+            this.lblTotalItems.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalItems.Location = new System.Drawing.Point(590, 63);
+            this.lblTotalItems.Name = "lblTotalItems";
+            this.lblTotalItems.Size = new System.Drawing.Size(111, 15);
+            this.lblTotalItems.TabIndex = 5;
+            this.lblTotalItems.Text = "Total Productos:";
+            // 
             // frmDetallesFactura
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,7 +408,9 @@
             this.Text = "Detalles Factura";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.frmDetallesFactura_Load);
+            this.MouseHover += new System.EventHandler(this.frmDetallesFactura_MouseHover);
             this.gbCarrito.ResumeLayout(false);
+            this.gbCarrito.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.gbInformacionCliente.ResumeLayout(false);
             this.gbInformacionCliente.PerformLayout();
@@ -384,5 +448,10 @@
         private System.Windows.Forms.Label lblFechaEntrega;
         private System.Windows.Forms.TextBox txtFechaRegistro;
         private System.Windows.Forms.Label lblFechaRegistro;
+        private System.Windows.Forms.Label lblInformacionPago;
+        private System.Windows.Forms.Label lblTotalPagar;
+        private System.Windows.Forms.Label lblITEBIS;
+        private System.Windows.Forms.Label lblTotalSinImp;
+        private System.Windows.Forms.Label lblTotalItems;
     }
 }

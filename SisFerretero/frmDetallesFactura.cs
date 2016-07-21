@@ -81,6 +81,12 @@ namespace SisFerretero
                         // se carga la fecha de entrega y la fecha de registro
                         txtFechaRegistro.Text = factura.fechaRegistro.ToString("dd/MM/yyyy");
                         txtFechaEntrega.Text = factura.fechaEntrega.ToString("dd/MM/yyyy");
+
+                        // se cargan el total pagado con imp y sin imp
+                        lblTotalSinImp.Text = lblTotalSinImp.Text + " " + factura.TotalCompradoSinITEBIS.ToString("f2");
+                        lblITEBIS.Text = lblITEBIS.Text + " " + factura.ITEBIS.ToString("f2");
+                        lblTotalPagar.Text = lblTotalPagar.Text + " " + factura.TotalPagar.ToString("f2");
+                        lblTotalItems.Text = lblTotalItems.Text + " " + factura.cantProductos.ToString();
                     }
                     else
                     {
@@ -109,5 +115,17 @@ namespace SisFerretero
         {
             this.Close();
         }
+        // fin eventos para cerrar la ventana
+
+        // eventos para cambiar el cursor
+        private void pCerrar_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+        private void frmDetallesFactura_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+        }
+        // fin eventos para cambiar el cursor
     }
 }
