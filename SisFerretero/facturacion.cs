@@ -110,7 +110,7 @@ namespace SisFerretero
                     facturacion pFactura = new facturacion();
                     pFactura.codigo = Convert.ToInt32(re["codigo"]);
                     pFactura.Nombre_Cliente = re["nombre"].ToString();
-                    pFactura.Apellido_Cliente = re["nombre"].ToString();
+                    pFactura.Apellido_Cliente = re["apellido"].ToString();
                     pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
                     pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
                     pFactura.TotalProductos = Convert.ToInt32(re["totalArticulos"]);
@@ -151,7 +151,7 @@ namespace SisFerretero
                     facturacion pFactura = new facturacion();
                     pFactura.codigo = Convert.ToInt32(re["codigo"]);
                     pFactura.Nombre_Cliente = re["nombre"].ToString();
-                    pFactura.Apellido_Cliente = re["nombre"].ToString();
+                    pFactura.Apellido_Cliente = re["apellido"].ToString();
                     pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
                     pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
                     pFactura.TotalProductos = Convert.ToInt32(re["totalArticulos"]);
