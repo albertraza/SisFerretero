@@ -149,5 +149,41 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // evento para buscar las facturas
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtBusqueda.Text == string.Empty || !txtBusqueda.MaskCompleted)
+                {
+                    MessageBox.Show("No se ha digitado la busqueda", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtBusqueda.Focus();
+                }
+                else
+                {
+                    if (cbFiltro.Text == "Codigo Factura")
+                    {
+                        dgvFacturas.DataSource = facturacion.searchFacturas(txtBusqueda.Text, "", "", "");
+                    }
+                    else if (cbFiltro.Text == "Cedula Cliente")
+                    {
+                        dgvFacturas.DataSource = facturacion.searchFacturas("", txtBusqueda.Text, "", "");
+                    }
+                    else if (cbFiltro.Text == "Nombre Cliente")
+                    {
+                        dgvFacturas.DataSource = facturacion.searchFacturas("", "", txtBusqueda.Text, "");
+                    }
+                    else if (cbFiltro.Text == "Fecha Compra")
+                    {
+                        dgvFacturas.DataSource = facturacion.searchFacturas("", "", "", txtBusqueda.Text);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
