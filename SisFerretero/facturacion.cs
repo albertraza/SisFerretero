@@ -136,6 +136,47 @@ namespace SisFerretero
             }
             return list;
         }
+
+        // metodo para buscar las facturas
+        public static List<facturacion> searchFacturas(int codigo, string cedula, string nombreCliente, string fecha)
+        {
+            List<facturacion> list = new List<facturacion>();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand(string.Format("select * from Factura inner join Clientes on Clientes.codigo = Factura.codigoCliente where Factura.codigo Like '{0}%' and Clientes.cedula like '{1}%' and Clientes.nombre like '{2}%' and Factura.fechaRegistro like '{3}%'",
+                    codigo, cedula, nombreCliente, fecha), con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    facturacion pFactura = new facturacion();
+                    pFactura.codigo = Convert.ToInt32(re["codigo"]);
+                    pFactura.Nombre_Cliente = re["nombre"].ToString();
+                    pFactura.Apellido_Cliente = re["nombre"].ToString();
+                    pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
+                    pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
+                    pFactura.TotalProductos = Convert.ToInt32(re["totalArticulos"]);
+                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
+                    pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
+                    pFactura.TotalPagar = Convert.ToDouble(re["totalPagar"]);
+                    if (Convert.ToInt32(re["despachado"]) > 0)
+                    {
+                        pFactura.despachado = "Si";
+                    }
+                    else if (Convert.ToInt32(re["despachado"]) == 0)
+                    {
+                        pFactura.despachado = "No";
+                    }
+                    else
+                    {
+                        pFactura.despachado = "--";
+                    }
+
+                    list.Add(pFactura);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
     public class baseFacturacion
     {
