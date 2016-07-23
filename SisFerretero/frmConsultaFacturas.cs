@@ -185,5 +185,26 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // metodo para limpiar la busqueda
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            // se limpia el mask texbox y se le cambia el mask
+            txtBusqueda.Clear();
+            txtBusqueda.Mask = "";
+
+            // se selecciona el item vacio
+            cbFiltro.SelectedIndex = -1;
+
+            // se cargan todas las facturass
+            try
+            {
+                dgvFacturas.DataSource = facturacion.listAllFacturas();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
