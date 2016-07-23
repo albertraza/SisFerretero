@@ -12,6 +12,21 @@ namespace SisFerretero
 {
     public partial class Usuarios : Form
     {
+        // metodo para cargar los departamentos en el combobox
+        private void getDepartamentos()
+        {
+            cbDepartamento.Items.Clear();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand("select * from departamentos", con);
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    cbDepartamento.Items.Add(re["Nombre"]);
+                }
+                con.Close();
+            }
+        }
         public Usuarios()
         {
             InitializeComponent();
@@ -21,6 +36,14 @@ namespace SisFerretero
         {
             this.txtusuario.Select();
             this.txtcontraseña.Focus();
+            try
+            {
+                getDepartamentos();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }        
 
         private void btncrear_Click_1(object sender, EventArgs e)
@@ -41,7 +64,7 @@ namespace SisFerretero
                     try
                     {
 
-                        SqlConnection con = new SqlConnection(@" ");
+                        SqlConnection con = DataBase.connect();
 
                         SqlCommand cmd = new SqlCommand();
                         cmd.CommandType = System.Data.CommandType.Text;
