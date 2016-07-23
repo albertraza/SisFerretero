@@ -138,7 +138,7 @@ namespace SisFerretero
         }
 
         // metodo para buscar las facturas
-        public static List<facturacion> searchFacturas(int codigo, string cedula, string nombreCliente, string fecha)
+        public static List<facturacion> searchFacturas(string codigo, string cedula, string nombreCliente, string fecha)
         {
             List<facturacion> list = new List<facturacion>();
             using (SqlConnection con = DataBase.connect())
