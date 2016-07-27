@@ -16,6 +16,7 @@ namespace SisFerretero
             InitializeComponent();
         }
 
+        // evento para validar la entrada de los datos
         private void btnAceptar_Click(object sender, EventArgs e)
         {
             if (txtidusuario.Text == string.Empty)
@@ -48,5 +49,27 @@ namespace SisFerretero
                 }
             }
         }
+
+        // evento para cerrar la ventana
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        private void pbCerrar_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        // fin eventos para cerrar la ventana
+
+        // evento para cambiar el cursor
+        private void pbCerrar_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Hand;
+        }
+        private void frmLogin_MouseHover(object sender, EventArgs e)
+        {
+            this.Cursor = Cursors.Arrow;
+        }
+        // fin eventos para cambiar el cursor
     }
 }
