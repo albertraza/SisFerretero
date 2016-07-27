@@ -362,6 +362,7 @@ namespace SisFerretero
 
                     // se guarda el producto en la propiedad
                     pProducto = pConsulta.pProducto;
+                    btnRegistrar.Enabled = false;
                 }
             }
             catch(Exception ex)
