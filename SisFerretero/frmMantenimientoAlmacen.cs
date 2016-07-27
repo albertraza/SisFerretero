@@ -318,6 +318,9 @@ namespace SisFerretero
             }
         }
 
+        // propiedad para guardar el Producto
+        private baseProductos pProducto;
+
         // evento para hacer una busqueda avanzada de los productos
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -356,12 +359,21 @@ namespace SisFerretero
                     {
                         MessageBox.Show("Error al validar la exoneracion de impuestos", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
+
+                    // se guarda el producto en la propiedad
+                    pProducto = pConsulta.pProducto;
                 }
             }
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        // evento para modificar el producto
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

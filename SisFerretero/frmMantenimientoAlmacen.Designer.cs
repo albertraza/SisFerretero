@@ -55,6 +55,7 @@
             this.btnRegistrar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gnInformacionProducto.SuspendLayout();
@@ -192,6 +193,7 @@
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(98, 21);
             this.txtCodigo.TabIndex = 11;
+            this.txtCodigo.Visible = false;
             this.txtCodigo.TextChanged += new System.EventHandler(this.txtCodigo_TextChanged);
             // 
             // lblCodigoProducto
@@ -203,6 +205,7 @@
             this.lblCodigoProducto.Size = new System.Drawing.Size(56, 15);
             this.lblCodigoProducto.TabIndex = 10;
             this.lblCodigoProducto.Text = "Codigo:";
+            this.lblCodigoProducto.Visible = false;
             // 
             // nCantExistente
             // 
@@ -364,7 +367,7 @@
             // 
             this.btnLimpiar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(152, 443);
+            this.btnLimpiar.Location = new System.Drawing.Point(304, 443);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(175, 35);
             this.btnLimpiar.TabIndex = 14;
@@ -376,13 +379,26 @@
             // 
             this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Location = new System.Drawing.Point(348, 443);
+            this.btnBuscar.Location = new System.Drawing.Point(495, 443);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(157, 35);
             this.btnBuscar.TabIndex = 15;
             this.btnBuscar.Text = "Buscar Producto";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Enabled = false;
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
+            this.btnModificar.Location = new System.Drawing.Point(176, 443);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(91, 35);
+            this.btnModificar.TabIndex = 16;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // frmMantenimientoAlmacen
             // 
@@ -391,6 +407,7 @@
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(946, 501);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnRegistrar);
@@ -452,5 +469,6 @@
         private System.Windows.Forms.Button btnRegistrar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnModificar;
     }
 }
