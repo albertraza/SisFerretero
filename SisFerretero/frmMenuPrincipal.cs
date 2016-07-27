@@ -108,7 +108,7 @@ namespace SisFerretero
 
         private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new frmMantenimientoAlmacen().Show();
+            
         }
 
         private void almacenToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -171,6 +171,11 @@ namespace SisFerretero
         private void suplidoresToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             new Consultaempleados().Show();
+        }
+
+        private void compraDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmMantenimientoAlmacen().Show();
         }
     }
 }
