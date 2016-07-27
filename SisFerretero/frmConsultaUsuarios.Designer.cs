@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsultaUsuarios));
             this.pOcultar = new System.Windows.Forms.Panel();
             this.lblOcultar = new System.Windows.Forms.LinkLabel();
@@ -190,6 +191,9 @@
             this.dgvUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvUsuarios.Location = new System.Drawing.Point(32, 183);
             this.dgvUsuarios.Name = "dgvUsuarios";
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(653, 311);
             this.dgvUsuarios.TabIndex = 3;
             // 

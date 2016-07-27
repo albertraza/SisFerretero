@@ -164,6 +164,7 @@
     <Compile Include="Frmsuplidores.designer.cs">
       <DependentUpon>Frmsuplidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="login.cs" />
     <Compile Include="productos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
