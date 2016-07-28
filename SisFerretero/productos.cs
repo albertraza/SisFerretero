@@ -149,5 +149,11 @@ namespace SisFerretero
             }
             return mensaje;
         }
+
+        // metodo para modificar un producto existente
+        public static string update(baseClientes pProducto)
+        {
+
+        }
     }
 }
