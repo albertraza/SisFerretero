@@ -272,5 +272,24 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // when a cell is clicked wiht a right click
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!menu)
+            {
+                int codigoProducto = Convert.ToInt32(dgvProductos.CurrentRow.Cells[0].Value);
+
+                if(productos.getProducto(codigoProducto) != null)
+                {
+                    pProducto = productos.getProducto(codigoProducto);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El Producto no existe, seleccione uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }
