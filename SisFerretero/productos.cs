@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SisFerretero
 {
@@ -135,8 +136,34 @@ namespace SisFerretero
             string mensaje = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("execute registerProducto '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}'",
-                    pProducto.nombre, pProducto.detalles, pProducto.precioUnd, pProducto.cantExistente, pProducto.codigoSuplidor, pProducto.Imp, pProducto.codigoCategoria), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+
+                comand.CommandText = "registerProducto";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@nombre"].Value = pProducto.nombre;
+
+                comand.Parameters.Add(new SqlParameter("@descripcion", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@descripcion"].Value = pProducto.detalles;
+
+                comand.Parameters.Add(new SqlParameter("@precioUnidad", System.Data.SqlDbType.Money));
+                comand.Parameters["@precioUnidad"].Value = pProducto.precioUnd;
+
+                comand.Parameters.Add(new SqlParameter("@cantidadExistente", System.Data.SqlDbType.Int));
+                comand.Parameters["@cantidadExistente"].Value = pProducto.cantExistente;
+
+                comand.Parameters.Add(new SqlParameter("@Suplidor", System.Data.SqlDbType.Int));
+                comand.Parameters["@Suplidor"].Value = pProducto.codigoSuplidor;
+
+                comand.Parameters.Add(new SqlParameter("@impuesto", System.Data.SqlDbType.Int));
+                comand.Parameters["@impuesto"].Value = pProducto.Imp;
+
+                comand.Parameters.Add(new SqlParameter("@Departamento", System.Data.SqlDbType.Int));
+                comand.Parameters["@Departamento"].Value = pProducto.codigoCategoria;
+
+
                 if(comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Producto Registrado Existosamente!";
@@ -145,15 +172,59 @@ namespace SisFerretero
                 {
                     mensaje = "No se pudo Registrar el Producto";
                 }
+
                 con.Close();
             }
             return mensaje;
         }
 
         // metodo para modificar un producto existente
-        public static string update(baseClientes pProducto)
+        public static string update(baseProductos pProducto)
         {
+            string mensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
 
+                comand.CommandText = "updateProducto";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@nombre"].Value = pProducto.nombre;
+
+                comand.Parameters.Add(new SqlParameter("@descripcion", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@descripcion"].Value = pProducto.detalles;
+
+                comand.Parameters.Add(new SqlParameter("@precioUnidad", System.Data.SqlDbType.Money));
+                comand.Parameters["@precioUnidad"].Value = pProducto.precioUnd;
+
+                comand.Parameters.Add(new SqlParameter("@cantidadExistente", System.Data.SqlDbType.Int));
+                comand.Parameters["@cantidadExistente"].Value = pProducto.cantExistente;
+
+                comand.Parameters.Add(new SqlParameter("@Suplidor", System.Data.SqlDbType.Int));
+                comand.Parameters["@Suplidor"].Value = pProducto.codigoSuplidor;
+
+                comand.Parameters.Add(new SqlParameter("@impuesto", System.Data.SqlDbType.Int));
+                comand.Parameters["@impuesto"].Value = pProducto.Imp;
+
+                comand.Parameters.Add(new SqlParameter("@Departamento", System.Data.SqlDbType.Int));
+                comand.Parameters["@Departamento"].Value = pProducto.codigoCategoria;
+
+                comand.Parameters.Add(new SqlParameter("@codigoProducto", System.Data.SqlDbType.Int));
+                comand.Parameters["@codigoProducto"].Value = pProducto.codigo;
+
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Modificado Exitosamente!";
+                }
+                else
+                {
+                    mensaje = "No se pudo modificar";
+                }
+                con.Close();
+            }
+            return mensaje;
         }
     }
 }
