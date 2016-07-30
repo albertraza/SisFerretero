@@ -1,4 +1,4 @@
-﻿using System;
+﻿ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,19 +35,26 @@ namespace SisFerretero
             baseClientes pCliente = new baseClientes();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from clientes where cedula = '{0}'", cedula), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getClienteInfoCed";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@cedula", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@cedula"].Value = cedula;
+
                 SqlDataReader reader = comand.ExecuteReader();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        pCliente.codigo = Convert.ToInt32(reader["codigo"]);
-                        pCliente.nombre = reader["nombre"].ToString();
-                        pCliente.apellido = reader["apellido"].ToString();
-                        pCliente.direccion = reader["direccion"].ToString();
-                        pCliente.telefono = reader["telefono"].ToString();
-                        pCliente.cedula = reader["cedula"].ToString();
-                        pCliente.celular = reader["celular"].ToString();
+                        pCliente.codigo = Convert.ToInt32(reader["NoCliente"]);
+                        pCliente.nombre = reader["Name"].ToString();
+                        pCliente.apellido = reader["LastName"].ToString();
+                        pCliente.direccion = reader["AddressCl"].ToString();
+                        pCliente.telefono = reader["phone"].ToString();
+                        pCliente.cedula = reader["IDnum"].ToString();
+                        pCliente.celular = reader["Cellphone"].ToString();
                     }
                 }
                 else
@@ -65,19 +72,26 @@ namespace SisFerretero
             baseClientes pCliente = new baseClientes();
             using (SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from clientes where codigo = '{0}'", codigo), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getClienteInfo";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NOCliente", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NOCliente"].Value = codigo;
+
                 SqlDataReader reader = comand.ExecuteReader();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        pCliente.codigo = Convert.ToInt32(reader["codigo"]);
-                        pCliente.nombre = reader["nombre"].ToString();
-                        pCliente.apellido = reader["apellido"].ToString();
-                        pCliente.direccion = reader["direccion"].ToString();
-                        pCliente.telefono = reader["telefono"].ToString();
-                        pCliente.cedula = reader["cedula"].ToString();
-                        pCliente.celular = reader["celular"].ToString();
+                        pCliente.codigo = Convert.ToInt32(reader["NoCliente"]);
+                        pCliente.nombre = reader["Name"].ToString();
+                        pCliente.apellido = reader["LastName"].ToString();
+                        pCliente.direccion = reader["AddressCl"].ToString();
+                        pCliente.telefono = reader["phone"].ToString();
+                        pCliente.cedula = reader["IDnum"].ToString();
+                        pCliente.celular = reader["Cellphone"].ToString();
                     }
                 }
                 else
@@ -95,7 +109,14 @@ namespace SisFerretero
             int re = -1;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select COUNT(*) as Total_Ordenes from Factura where codigoCliente = '{0}'", codigo), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getTotalOrdenesCliente";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoCliente", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoCliente"].Value = codigo;
+
                 re = Convert.ToInt32(comand.ExecuteScalar());
                 con.Close();
             }
