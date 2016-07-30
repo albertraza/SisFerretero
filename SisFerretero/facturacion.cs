@@ -26,7 +26,35 @@ namespace SisFerretero
             string mensaje = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("execute registerFactura '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}'", codigoCliente, fechaRegistro, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, despachado), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "registerFactura";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@codigoCliente", System.Data.SqlDbType.Int));
+                comand.Parameters["@codigoCliente"].Value = codigoCliente;
+
+                comand.Parameters.Add(new SqlParameter("@fechaRegistro", System.Data.SqlDbType.DateTime));
+                comand.Parameters["@fechaRegistro"].Value = fechaRegistro;
+
+                comand.Parameters.Add(new SqlParameter("@fechaEntrega", System.Data.SqlDbType.DateTime));
+                comand.Parameters["@fechaEntrega"].Value = fechaEntrega;
+
+                comand.Parameters.Add(new SqlParameter("@totalArticulos", System.Data.SqlDbType.Int));
+                comand.Parameters["@totalArticulos"].Value = totalArticulos;
+
+                comand.Parameters.Add(new SqlParameter("@totalComprado", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalComprado"].Value = totalComprado;
+
+                comand.Parameters.Add(new SqlParameter("@ITEBIS", System.Data.SqlDbType.Money));
+                comand.Parameters["@ITEBIS"].Value = ITEBIS;
+
+                comand.Parameters.Add(new SqlParameter("@totalPagar", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalPagar"].Value = totalPagar;
+
+                comand.Parameters.Add(new SqlParameter("@despachado", System.Data.SqlDbType.Int));
+                comand.Parameters["@despachado"].Value = despachado;
+
                 if(comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Factura registrada!";
@@ -46,8 +74,35 @@ namespace SisFerretero
             string mensaje = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("update Factura set codigoCliente = '{0}', fechaEntrega = '{1}', totalArticulos = '{2}', totalComprado = '{3}', ITEBIS = '{4}', totalPagar = '{5}', despachado = '{6}' where codigo = '{7}'",
-                    codigoCliente, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, despachado, codigoFactura), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "updateFactura";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@Cliente", System.Data.SqlDbType.Int));
+                comand.Parameters["@Cliente"].Value = codigoCliente;
+
+                comand.Parameters.Add(new SqlParameter("@fechaEntrega", System.Data.SqlDbType.DateTime));
+                comand.Parameters["@fechaEntrega"].Value = fechaEntrega;
+
+                comand.Parameters.Add(new SqlParameter("@totalArticulos", System.Data.SqlDbType.Int));
+                comand.Parameters["@totalArticulos"].Value = totalArticulos;
+
+                comand.Parameters.Add(new SqlParameter("@totalComprado", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalComprado"].Value = totalComprado;
+
+                comand.Parameters.Add(new SqlParameter("@itebis", System.Data.SqlDbType.Money));
+                comand.Parameters["@itebis"].Value = ITEBIS;
+
+                comand.Parameters.Add(new SqlParameter("@totalPagar", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalPagar"].Value = totalPagar;
+
+                comand.Parameters.Add(new SqlParameter("@despachado", System.Data.SqlDbType.Int));
+                comand.Parameters["@despachado"].Value = despachado;
+
+                comand.Parameters.Add(new SqlParameter("@codigoFactura", System.Data.SqlDbType.Int));
+                comand.Parameters["@codigoFactura"].Value = codigoFactura;
+
                 if(comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Factura creada!";
