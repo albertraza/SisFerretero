@@ -33,8 +33,27 @@ namespace SisFerretero
             string r = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("execute añadirCarrito '{0}', '{1}', '{2}', {3}, '{4}'", codigoProducto, codigoFactura, cantidadVendida, itebis, total), con);
-                if(comand.ExecuteNonQuery() > 0)
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "añadirCarrito";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@codigoProducto", System.Data.SqlDbType.Int));
+                comand.Parameters["@codigoProducto"].Value = codigoProducto;
+
+                comand.Parameters.Add(new SqlParameter("@codigoFactura", System.Data.SqlDbType.Int));
+                comand.Parameters["@codigoFactura"].Value = codigoFactura;
+
+                comand.Parameters.Add(new SqlParameter("@cantidadVendida", System.Data.SqlDbType.Int));
+                comand.Parameters["@cantidadVendida"].Value = cantidadVendida;
+
+                comand.Parameters.Add(new SqlParameter("@ITEBIS", System.Data.SqlDbType.Money));
+                comand.Parameters["@ITEBIS"].Value = itebis;
+
+                comand.Parameters.Add(new SqlParameter("@total", System.Data.SqlDbType.Money));
+                comand.Parameters["@total"].Value = total;
+
+                if (comand.ExecuteNonQuery() > 0)
                 {
                     r = "Producto añadido al carrito!";
                 }
