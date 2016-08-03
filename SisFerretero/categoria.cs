@@ -25,14 +25,21 @@ namespace SisFerretero
             categoria pCateforia = new categoria();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from categorias where categoria = '{0}'", categoria), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getCategoria";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@Categoria", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Categoria"].Value = categoria;
+
                 SqlDataReader reader = comand.ExecuteReader();
                 if (reader.HasRows)
                 { 
                     while (reader.Read())
                     {
-                        pCateforia.codigo = Convert.ToInt32(reader["codigo"]);
-                        pCateforia.Categoria = reader["categoria"].ToString();
+                        pCateforia.codigo = Convert.ToInt32(reader["NoCategoria"]);
+                        pCateforia.Categoria = reader["Nombre"].ToString();
                     }
                 }
                 else
@@ -43,19 +50,26 @@ namespace SisFerretero
             }
             return pCateforia;
         }
-        public static categoria getCategoriaCodigo(int codigo)
+        public static categoria getCategoriaCodigo(int NoCategoria)
         {
             categoria pCateforia = new categoria();
             using (SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from categorias where codigo = '{0}'", codigo), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getCategoriaByNumber";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoCategoria", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoCategoria"].Value = NoCategoria;
+
                 SqlDataReader reader = comand.ExecuteReader();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
                     {
-                        pCateforia.codigo = Convert.ToInt32(reader["codigo"]);
-                        pCateforia.Categoria = reader["categoria"].ToString();
+                        pCateforia.codigo = Convert.ToInt32(reader["NoCategoria"]);
+                        pCateforia.Categoria = reader["Nombre"].ToString();
                     }
                 }
                 else
