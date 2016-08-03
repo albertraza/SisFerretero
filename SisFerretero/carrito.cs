@@ -67,18 +67,25 @@ namespace SisFerretero
         }
 
         // metodo para mostrar el carrito en una tabla cualquiera
-        public static List<carrito> getCarrito(int codigoFactura)
+        public static List<carrito> getCarrito(int NoFactura)
         {
             List<carrito> list = new List<carrito>();
             using (SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select codigoProducto, nombre, cantidadVendida, precioUnd, ITEBIS, Total from ProductosVendidos inner join Productos on Productos.codigo = ProductosVendidos.codigoProducto where codigoFactura = '{0}'", codigoFactura), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "listCarrito";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoFactura", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoFactura"].Value = NoFactura;
+
                 SqlDataReader reader = comand.ExecuteReader();
                 while (reader.Read())
                 {
                     carrito pCarrito = new carrito();
 
-                    pCarrito.Codigo = Convert.ToInt32(reader["codigoProducto"]);
+                    pCarrito.Codigo = Convert.ToInt32(reader["NoProducto"]);
                     pCarrito.Nombre = reader["nombre"].ToString();
                     pCarrito.Cantidad = Convert.ToInt32(reader["cantidadVendida"]);
                     pCarrito.Precio_Und = double.Parse(reader["precioUnd"].ToString());
@@ -93,12 +100,19 @@ namespace SisFerretero
         }
 
         // metodo para borrar el carrito
-        public static string deleteCarrito(int codigoFactura)
+        public static string deleteCarrito(int NoFactura)
         {
             string mensaje = null;
             using (SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("delete ProductosVendidos where codigoFactura = '{0}'", codigoFactura), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "deleteCarrito";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoFactura", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoFactura"].Value = NoFactura;
+
                 if (comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Listo!";
