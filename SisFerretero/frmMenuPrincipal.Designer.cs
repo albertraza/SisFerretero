@@ -211,6 +211,7 @@
             // 
             // ventaDeProductosToolStripMenuItem
             // 
+            this.ventaDeProductosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ventaDeProductosToolStripMenuItem.Image")));
             this.ventaDeProductosToolStripMenuItem.Name = "ventaDeProductosToolStripMenuItem";
             this.ventaDeProductosToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
             this.ventaDeProductosToolStripMenuItem.Text = "Venta de Productos";
