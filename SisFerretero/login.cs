@@ -9,12 +9,22 @@ namespace SisFerretero
 {
     public class login
     {
-        public static bool getUservalidation(string nombreUsuario, string contrasena)
+        public static bool getUservalidation(string UserName, string Password)
         {
             bool validate = false;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from Usuarios where contrasena = '{0}' and Nombre = '{1}'", contrasena, nombreUsuario), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getUserValidation";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@UserName", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@UserName"].Value = UserName;
+
+                comand.Parameters.Add(new SqlParameter("@Password", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Password"].Value = Password;
+
                 SqlDataReader re = comand.ExecuteReader();
                 if (re.HasRows)
                 {

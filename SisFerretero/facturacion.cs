@@ -21,12 +21,40 @@ namespace SisFerretero
         public string despachado { get; set; }
 
         // metodo para registrar una nueva factura
-        public static string registerFactura(int codigoCliente, DateTime fechaRegistro, DateTime fechaEntrega, int totalArticulos, double totalComprado, double ITEBIS, double totalPagar, int despachado)
+        public static string registerFactura(int Cliente, DateTime fechaRegistro, DateTime fechaEntrega, int totalArticulos, double totalComprado, double ITEBIS, double totalPagar, int despachado)
         {
             string mensaje = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("execute registerFactura '{0}', '{1}', '{2}', '{3}', '{4}', '{5}', '{6}', '{7}'", codigoCliente, fechaRegistro, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, despachado), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "registerFactura";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@codigoCliente", System.Data.SqlDbType.Int));
+                comand.Parameters["@codigoCliente"].Value = Cliente;
+
+                comand.Parameters.Add(new SqlParameter("@fechaRegistro", System.Data.SqlDbType.DateTime));
+                comand.Parameters["@fechaRegistro"].Value = fechaRegistro;
+
+                comand.Parameters.Add(new SqlParameter("@fechaEntrega", System.Data.SqlDbType.DateTime));
+                comand.Parameters["@fechaEntrega"].Value = fechaEntrega;
+
+                comand.Parameters.Add(new SqlParameter("@totalArticulos", System.Data.SqlDbType.Int));
+                comand.Parameters["@totalArticulos"].Value = totalArticulos;
+
+                comand.Parameters.Add(new SqlParameter("@totalComprado", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalComprado"].Value = totalComprado;
+
+                comand.Parameters.Add(new SqlParameter("@ITEBIS", System.Data.SqlDbType.Money));
+                comand.Parameters["@ITEBIS"].Value = ITEBIS;
+
+                comand.Parameters.Add(new SqlParameter("@totalPagar", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalPagar"].Value = totalPagar;
+
+                comand.Parameters.Add(new SqlParameter("@despachado", System.Data.SqlDbType.Int));
+                comand.Parameters["@despachado"].Value = despachado;
+
                 if(comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Factura registrada!";
@@ -46,8 +74,35 @@ namespace SisFerretero
             string mensaje = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("update Factura set codigoCliente = '{0}', fechaEntrega = '{1}', totalArticulos = '{2}', totalComprado = '{3}', ITEBIS = '{4}', totalPagar = '{5}', despachado = '{6}' where codigo = '{7}'",
-                    codigoCliente, fechaEntrega, totalArticulos, totalComprado, ITEBIS, totalPagar, despachado, codigoFactura), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "updateFactura";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@Cliente", System.Data.SqlDbType.Int));
+                comand.Parameters["@Cliente"].Value = codigoCliente;
+
+                comand.Parameters.Add(new SqlParameter("@fechaEntrega", System.Data.SqlDbType.DateTime));
+                comand.Parameters["@fechaEntrega"].Value = fechaEntrega;
+
+                comand.Parameters.Add(new SqlParameter("@totalArticulos", System.Data.SqlDbType.Int));
+                comand.Parameters["@totalArticulos"].Value = totalArticulos;
+
+                comand.Parameters.Add(new SqlParameter("@totalComprado", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalComprado"].Value = totalComprado;
+
+                comand.Parameters.Add(new SqlParameter("@itebis", System.Data.SqlDbType.Money));
+                comand.Parameters["@itebis"].Value = ITEBIS;
+
+                comand.Parameters.Add(new SqlParameter("@totalPagar", System.Data.SqlDbType.Money));
+                comand.Parameters["@totalPagar"].Value = totalPagar;
+
+                comand.Parameters.Add(new SqlParameter("@despachado", System.Data.SqlDbType.Int));
+                comand.Parameters["@despachado"].Value = despachado;
+
+                comand.Parameters.Add(new SqlParameter("@codigoFactura", System.Data.SqlDbType.Int));
+                comand.Parameters["@codigoFactura"].Value = codigoFactura;
+
                 if(comand.ExecuteNonQuery() > 0)
                 {
                     mensaje = "Factura creada!";
@@ -67,7 +122,13 @@ namespace SisFerretero
             int r = -1;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("select codigo from Factura where codigoCliente = 0", con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+
+                // este SP no contiene parametros a llenar
+                comand.CommandText = "getNewFacturaID";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
                 r = Convert.ToInt32(comand.ExecuteScalar());
                 con.Close();
             }
@@ -80,10 +141,22 @@ namespace SisFerretero
             string r = null;
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("delete Factura where codigo = '{0}'", codigoFactura), con);
-                comand.ExecuteNonQuery();
-                SqlCommand comand1 = new SqlCommand(string.Format("delete ProductosVendidos where codigoFactura = '{0}'", codigoFactura), con);
-                comand.ExecuteNonQuery();
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "deleteFactura";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoFactura", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoFactura"].Value = codigoFactura;
+
+                SqlCommand comand1 = new SqlCommand();
+                comand1.Connection = con;
+                comand1.CommandText = "deleteProductosVendidos";
+                comand1.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand1.Parameters.Add(new SqlParameter("@NoFactura", System.Data.SqlDbType.Int));
+                comand1.Parameters["@NoFactura"].Value = codigoFactura;
+
                 if (comand1.ExecuteNonQuery() > 0 && comand.ExecuteNonQuery() > 0)
                 {
                     r = "Factura Cancelada";
@@ -103,20 +176,24 @@ namespace SisFerretero
             List<facturacion> list = new List<facturacion>();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("select * from Factura inner join Clientes on Clientes.codigo = Factura.codigoCliente", con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "listAllFactura";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
                     facturacion pFactura = new facturacion();
-                    pFactura.codigo = Convert.ToInt32(re["codigo"]);
-                    pFactura.Nombre_Cliente = re["nombre"].ToString();
-                    pFactura.Apellido_Cliente = re["apellido"].ToString();
+                    pFactura.codigo = Convert.ToInt32(re["NoFactura"]);
+                    pFactura.Nombre_Cliente = re["NombreCliente"].ToString();
+                    pFactura.Apellido_Cliente = re["ApellidoCliente"].ToString();
                     pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
                     pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
-                    pFactura.TotalProductos = Convert.ToInt32(re["totalArticulos"]);
-                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
+                    pFactura.TotalProductos = Convert.ToInt32(re["Total_articulos"]);
+                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["Total_Sin_Impuestos"]);
                     pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
-                    pFactura.TotalPagar = Convert.ToDouble(re["totalPagar"]);
+                    pFactura.TotalPagar = Convert.ToDouble(re["Total_a_Pagar"]);
                     if (Convert.ToInt32(re["despachado"]) > 0)
                     {
                         pFactura.despachado = "Si";
@@ -138,26 +215,41 @@ namespace SisFerretero
         }
 
         // metodo para buscar las facturas
-        public static List<facturacion> searchFacturas(string codigo, string cedula, string nombreCliente, string fecha)
+        public static List<facturacion> searchFacturas(string NoFactura, string cedula, string nombreCliente, string fecha)
         {
             List<facturacion> list = new List<facturacion>();
             using (SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from Factura inner join Clientes on Clientes.codigo = Factura.codigoCliente where Factura.codigo Like '{0}%' and Clientes.cedula like '{1}%' and Clientes.nombre like '{2}%' and Factura.fechaRegistro like '{3}%'",
-                    codigo, cedula, nombreCliente, fecha), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "searchFacturas";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoFactura", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NoFactura"].Value = NoFactura;
+
+                comand.Parameters.Add(new SqlParameter("@cedula", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@cedula"].Value = cedula;
+
+                comand.Parameters.Add(new SqlParameter("@NombreCliente", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NombreCliente"].Value = nombreCliente;
+
+                comand.Parameters.Add(new SqlParameter("@fecha", System.Data.SqlDbType.DateTime));
+                comand.Parameters["@fecha"].Value = fecha;
+
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
                     facturacion pFactura = new facturacion();
-                    pFactura.codigo = Convert.ToInt32(re["codigo"]);
-                    pFactura.Nombre_Cliente = re["nombre"].ToString();
-                    pFactura.Apellido_Cliente = re["apellido"].ToString();
+                    pFactura.codigo = Convert.ToInt32(re["NoFactura"]);
+                    pFactura.Nombre_Cliente = re["NombreCliente"].ToString();
+                    pFactura.Apellido_Cliente = re["ApellidoCliente"].ToString();
                     pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
                     pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
-                    pFactura.TotalProductos = Convert.ToInt32(re["totalArticulos"]);
-                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
+                    pFactura.TotalProductos = Convert.ToInt32(re["Total_articulos"]);
+                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["Total_Sin_Impuestos"]);
                     pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
-                    pFactura.TotalPagar = Convert.ToDouble(re["totalPagar"]);
+                    pFactura.TotalPagar = Convert.ToDouble(re["Total_a_Pagar"]);
                     if (Convert.ToInt32(re["despachado"]) > 0)
                     {
                         pFactura.despachado = "Si";
@@ -205,23 +297,30 @@ namespace SisFerretero
         }
 
         // metodo para obtener la informacion de la factura
-        public static baseFacturacion getFactura(int codigo)
+        public static baseFacturacion getFactura(int NoFactura)
         {
             baseFacturacion pFactura = new baseFacturacion();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from Factura where codigo = '{0}'", codigo), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getBaseFactura";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoFactura", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoFactura"].Value = NoFactura;
+
                 SqlDataReader re = comand.ExecuteReader();
                 if (re.HasRows)
                 {
                     while (re.Read())
                     {
-                        pFactura.codigo = Convert.ToInt32(re["codigo"]);
-                        pFactura.codigoCliente = Convert.ToInt32(re["codigoCliente"]);
+                        pFactura.codigo = Convert.ToInt32(re["NoFactura"]);
+                        pFactura.codigoCliente = Convert.ToInt32(re["NoCliente"]);
                         pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(re["fechaRegistro"]).ToString("MM/dd/yyyy"));
                         pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(re["fechaEntrega"]).ToString("MM/dd/yyyy"));
                         pFactura.cantProductos = Convert.ToInt32(re["totalArticulos"]);
-                        pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["totalComprado"]);
+                        pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(re["TotalSinImpuestos"]);
                         pFactura.ITEBIS = Convert.ToDouble(re["ITEBIS"]);
                         pFactura.TotalPagar = Convert.ToDouble(re["totalPagar"]);
                         pFactura.despachado = Convert.ToInt32(re["despachado"]);

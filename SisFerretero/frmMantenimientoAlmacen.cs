@@ -51,6 +51,9 @@ namespace SisFerretero
             txtNombre.Focus();
             rbExonerado.Checked = false;
             rbNoExonerado.Checked = false;
+            pProducto = null;
+            btnRegistrar.Enabled = true;
+            btnModificar.Enabled = false;
         }
 
         public frmMantenimientoAlmacen()
@@ -362,7 +365,10 @@ namespace SisFerretero
 
                     // se guarda el producto en la propiedad
                     pProducto = pConsulta.pProducto;
+
+                    // se desactivan y se activan lod botones
                     btnRegistrar.Enabled = false;
+                    btnModificar.Enabled = true;
                 }
             }
             catch(Exception ex)
@@ -374,7 +380,51 @@ namespace SisFerretero
         // evento para modificar el producto
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if(pProducto != null)
+            {
+                pProducto.nombre = txtNombre.Text;
+                pProducto.cantExistente = Convert.ToInt32(nCantExistente.Value);
 
+                // se toma el codigo de la categoria seleccionada
+                pProducto.codigoCategoria = codigoCategoria;
+
+                // se valida si se ha seleccionado un suplidor diferente al original
+                if(pSuplidor != null)
+                {
+                    pProducto.codigoSuplidor = pSuplidor.codigo;
+                }
+
+                pProducto.precioUnd = double.Parse(txtPrecioUnd.Text);
+                pProducto.detalles = txtDescripcion.Text;
+
+                // se valida si el producto es exonerado de impuesto
+                int DetallesExoneracion;
+                if (rbExonerado.Checked)
+                {
+                    DetallesExoneracion = Convert.ToInt32(Impuesto.Exonerado);
+                }
+                else
+                {
+                    DetallesExoneracion = Convert.ToInt32(Impuesto.NoExonerado);
+                }
+                pProducto.Imp = DetallesExoneracion;
+
+                // una vez que se obtengan todos los datos validados
+                // se actualiza la informacion del producto.
+                try
+                {
+                    MessageBox.Show(baseProductos.update(pProducto), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha cargado un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnBuscar.Focus();
+            }
         }
     }
 }

@@ -27,14 +27,18 @@ namespace SisFerretero
             List<suplidores> list = new List<suplidores>();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("select * from Suplidores where nombre != 'Todos'", con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "ListSuplidoresCodigoNombre";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
                 SqlDataReader rea = comand.ExecuteReader();
                 while(rea.Read())
                 {
                     suplidores pSuplidores = new suplidores();
-                    pSuplidores.Codigo = Convert.ToInt32(rea["codigo"]);
-                    pSuplidores.Nombre_Suplidor = rea["nombre"].ToString();
-                    pSuplidores.Telefono = rea["telefono"].ToString();
+                    pSuplidores.Codigo = Convert.ToInt32(rea["NoSuplidor"]);
+                    pSuplidores.Nombre_Suplidor = rea["NombreSuplidor"].ToString();
+                    pSuplidores.Telefono = rea["Telefono"].ToString();
                     list.Add(pSuplidores);
                 }
                 con.Close();
@@ -61,21 +65,28 @@ namespace SisFerretero
         }
 
         // metodo para obtener la info del suplidor
-        public static baseSuplidores getSuplidores(int codigo)
+        public static baseSuplidores getSuplidores(int NoSuplidor)
         {
             baseSuplidores pSuplidor = new baseSuplidores();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from Suplidores where codigo = '{0}'", codigo), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getSuplidoresByNumber";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoSuplidor", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoSuplidor"].Value = NoSuplidor;
+
                 SqlDataReader re = comand.ExecuteReader();
                 if (re.HasRows)
                 {
                     while (re.Read())
                     {
-                        pSuplidor.codigo = Convert.ToInt32(re["codigo"]);
-                        pSuplidor.nombre = re["nombre"].ToString();
+                        pSuplidor.codigo = Convert.ToInt32(re["NoSuplidor"]);
+                        pSuplidor.nombre = re["NombreSuplidor"].ToString();
                         pSuplidor.descripcion = re["descripcion"].ToString();
-                        pSuplidor.Telefono = re["telefono"].ToString();
+                        pSuplidor.Telefono = re["Telefono"].ToString();
                         pSuplidor.direccion = re["direccion"].ToString();
                     }
                 }
@@ -94,16 +105,23 @@ namespace SisFerretero
             baseSuplidores pSuplidor = new baseSuplidores();
             using (SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from Suplidores where nombre = '{0}'", nombre), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getSuplidorNombreSupl";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@Nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Nombre"].Value = nombre;
+
                 SqlDataReader re = comand.ExecuteReader();
                 if (re.HasRows)
                 {
                     while (re.Read())
                     {
-                        pSuplidor.codigo = Convert.ToInt32(re["codigo"]);
-                        pSuplidor.nombre = re["nombre"].ToString();
+                        pSuplidor.codigo = Convert.ToInt32(re["NoSuplidor"]);
+                        pSuplidor.nombre = re["NombreSuplidor"].ToString();
                         pSuplidor.descripcion = re["descripcion"].ToString();
-                        pSuplidor.Telefono = re["telefono"].ToString();
+                        pSuplidor.Telefono = re["Telefono"].ToString();
                         pSuplidor.direccion = re["direccion"].ToString();
                     }
                 }
