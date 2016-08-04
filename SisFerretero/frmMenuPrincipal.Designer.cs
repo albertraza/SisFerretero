@@ -62,9 +62,11 @@
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.pOcultar = new System.Windows.Forms.Panel();
             this.lblMinimizar = new System.Windows.Forms.LinkLabel();
+            this.dgvOrdenesPendientes = new System.Windows.Forms.DataGridView();
             this.msMenuPrincipal.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.pOcultar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesPendientes)).BeginInit();
             this.SuspendLayout();
             // 
             // msMenuPrincipal
@@ -101,7 +103,7 @@
             // 
             this.usuariosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem.Image")));
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
-            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
@@ -109,7 +111,7 @@
             // 
             this.empleadosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("empleadosToolStripMenuItem.Image")));
             this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
-            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.empleadosToolStripMenuItem.Text = "Empleados";
             this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
@@ -117,7 +119,7 @@
             // 
             this.suplidoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("suplidoresToolStripMenuItem.Image")));
             this.suplidoresToolStripMenuItem.Name = "suplidoresToolStripMenuItem";
-            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.suplidoresToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.suplidoresToolStripMenuItem.Text = "Suplidores";
             this.suplidoresToolStripMenuItem.Click += new System.EventHandler(this.suplidoresToolStripMenuItem_Click);
             // 
@@ -125,7 +127,7 @@
             // 
             this.almacenToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("almacenToolStripMenuItem.Image")));
             this.almacenToolStripMenuItem.Name = "almacenToolStripMenuItem";
-            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.almacenToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.almacenToolStripMenuItem.Text = "Almacen";
             this.almacenToolStripMenuItem.Click += new System.EventHandler(this.almacenToolStripMenuItem_Click);
             // 
@@ -133,7 +135,7 @@
             // 
             this.clientesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesToolStripMenuItem.Image")));
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -155,7 +157,7 @@
             // 
             this.usuariosToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("usuariosToolStripMenuItem1.Image")));
             this.usuariosToolStripMenuItem1.Name = "usuariosToolStripMenuItem1";
-            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.usuariosToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.usuariosToolStripMenuItem1.Text = "Usuarios";
             this.usuariosToolStripMenuItem1.Click += new System.EventHandler(this.usuariosToolStripMenuItem1_Click);
             // 
@@ -163,7 +165,7 @@
             // 
             this.empleadosToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("empleadosToolStripMenuItem1.Image")));
             this.empleadosToolStripMenuItem1.Name = "empleadosToolStripMenuItem1";
-            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.empleadosToolStripMenuItem1.Text = "Empleados";
             this.empleadosToolStripMenuItem1.Click += new System.EventHandler(this.empleadosToolStripMenuItem1_Click);
             // 
@@ -171,7 +173,7 @@
             // 
             this.almacenToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("almacenToolStripMenuItem1.Image")));
             this.almacenToolStripMenuItem1.Name = "almacenToolStripMenuItem1";
-            this.almacenToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.almacenToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.almacenToolStripMenuItem1.Text = "Almacen";
             this.almacenToolStripMenuItem1.Click += new System.EventHandler(this.almacenToolStripMenuItem1_Click);
             // 
@@ -179,7 +181,7 @@
             // 
             this.clientesToolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("clientesToolStripMenuItem1.Image")));
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
             this.clientesToolStripMenuItem1.Text = "Clientes";
             this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
             // 
@@ -187,7 +189,7 @@
             // 
             this.facturasToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("facturasToolStripMenuItem.Image")));
             this.facturasToolStripMenuItem.Name = "facturasToolStripMenuItem";
-            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.facturasToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.facturasToolStripMenuItem.Text = "Facturas";
             this.facturasToolStripMenuItem.Click += new System.EventHandler(this.facturasToolStripMenuItem_Click);
             // 
@@ -195,7 +197,7 @@
             // 
             this.suplidoresToolStripMenuItem2.Image = ((System.Drawing.Image)(resources.GetObject("suplidoresToolStripMenuItem2.Image")));
             this.suplidoresToolStripMenuItem2.Name = "suplidoresToolStripMenuItem2";
-            this.suplidoresToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
+            this.suplidoresToolStripMenuItem2.Size = new System.Drawing.Size(132, 22);
             this.suplidoresToolStripMenuItem2.Text = "Suplidores";
             this.suplidoresToolStripMenuItem2.Click += new System.EventHandler(this.suplidoresToolStripMenuItem2_Click);
             // 
@@ -376,13 +378,25 @@
             this.lblMinimizar.VisitedLinkColor = System.Drawing.Color.Black;
             this.lblMinimizar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblMinimizar_LinkClicked);
             // 
+            // dgvOrdenesPendientes
+            // 
+            this.dgvOrdenesPendientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenesPendientes.Location = new System.Drawing.Point(29, 103);
+            this.dgvOrdenesPendientes.Name = "dgvOrdenesPendientes";
+            this.dgvOrdenesPendientes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvOrdenesPendientes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgvOrdenesPendientes.Size = new System.Drawing.Size(897, 439);
+            this.dgvOrdenesPendientes.TabIndex = 3;
+            this.dgvOrdenesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenesPendientes_CellContentClick);
+            // 
             // frmMenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.BackgroundImage = global::SisFerretero.Properties.Resources.fondoMenu;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(958, 565);
+            this.Controls.Add(this.dgvOrdenesPendientes);
             this.Controls.Add(this.pOcultar);
             this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.msMenuPrincipal);
@@ -404,6 +418,7 @@
             this.pCerrar.PerformLayout();
             this.pOcultar.ResumeLayout(false);
             this.pOcultar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenesPendientes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,5 +459,6 @@
         private System.Windows.Forms.ToolStripMenuItem facturasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem suplidoresToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem compraDeProductosToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dgvOrdenesPendientes;
     }
 }

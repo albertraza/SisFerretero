@@ -178,7 +178,27 @@ namespace SisFerretero
             new frmMantenimientoAlmacen().Show();
         }
 
+        // evento que evalua cuando la ventana se ha abierto
         private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+            // se cambia el style de la tabla
+            dgvOrdenesPendientes.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Bold);
+            dgvOrdenesPendientes.DefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Regular);
+            dgvOrdenesPendientes.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dgvOrdenesPendientes.DefaultCellStyle.ForeColor = Color.Black;
+
+            try
+            {
+                dgvOrdenesPendientes.DataSource = facturacion.listAllFacturasNoDespachadas();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // evento que toma los datos de la tabla para ver los 
+        private void dgvOrdenesPendientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
