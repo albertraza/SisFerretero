@@ -31,23 +31,30 @@ namespace SisFerretero
         }
 
         // para tomar la informacion del producto desde la base de datos
-        public static baseProductos getProducto(int codigoProducto)
+        public static baseProductos getProducto(int NoProducto)
         {
             baseProductos pProducto = new baseProductos();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select * from Productos where codigo = '{0}'", codigoProducto), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getProducto";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoProducto", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoProducto"].Value = NoProducto;
+
                 SqlDataReader reader = comand.ExecuteReader();
                 while (reader.Read())
                 {
-                    pProducto.codigo = Convert.ToInt32(reader["codigo"]);
+                    pProducto.codigo = Convert.ToInt32(reader["NoProducto"]);
                     pProducto.nombre = reader["nombre"].ToString();
                     pProducto.detalles = reader["descripcion"].ToString();
                     pProducto.precioUnd = Convert.ToDouble(double.Parse(reader["precioUnd"].ToString()).ToString("f2"));
                     pProducto.cantExistente = Convert.ToInt32(reader["cantExistente"]);
-                    pProducto.codigoSuplidor = Convert.ToInt32(reader["codigoSuplidor"]);
+                    pProducto.codigoSuplidor = Convert.ToInt32(reader["Suplidor"]);
                     pProducto.Imp = Convert.ToInt32(reader["impuesto"]);
-                    pProducto.codigoCategoria = Convert.ToInt32(reader["codDepartamento"]);
+                    pProducto.codigoCategoria = Convert.ToInt32(reader["Categoria"]);
                 }
                 con.Close();
             }
@@ -60,7 +67,11 @@ namespace SisFerretero
             List<productos> list = new List<productos>();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("select Productos.codigo, Productos.nombre, Productos.descripcion, Productos.precioUnd, Productos.cantExistente, Suplidores.nombre as NombreSuplidor, categorias.categoria from Productos inner join categorias on categorias.codigo = Productos.codDepartamento inner join Suplidores on Suplidores.codigo = Productos.codigoSuplidor", con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "listAllProducto";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
@@ -81,12 +92,28 @@ namespace SisFerretero
         }
 
         // metodo para buscar un producto
-        public static List<productos> searchProductos(string codigo, string nombre, string proveedor, string categoria)
+        public static List<productos> searchProductos(string NoProducto, string nombre, string proveedor, string categoria)
         {
             List<productos> list = new List<productos>();
             using (SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand(string.Format("select Productos.codigo, Productos.nombre, Productos.descripcion, Productos.precioUnd, Productos.cantExistente, Suplidores.nombre as NombreSuplidor, categorias.categoria from Productos inner join categorias on categorias.codigo = Productos.codDepartamento inner join Suplidores on Suplidores.codigo = Productos.codigoSuplidor where Productos.codigo like '{0}%' and Productos.nombre like '{1}%' and Suplidores.nombre like '{2}%' and Categorias.categoria like '{3}%'", codigo, nombre, proveedor, categoria), con);
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "searchProducto";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoProducto", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NoProducto"].Value = NoProducto;
+
+                comand.Parameters.Add(new SqlParameter("@NombreProducto", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NombreProducto"].Value = nombre;
+
+                comand.Parameters.Add(new SqlParameter("@NombreSuplidor", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NombreSuplidor"].Value = proveedor;
+
+                comand.Parameters.Add(new SqlParameter("@Categoria", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Categoria"].Value = categoria;
+
                 SqlDataReader re = comand.ExecuteReader();
                 while (re.Read())
                 {
