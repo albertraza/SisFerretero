@@ -25,3 +25,57 @@ C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\Sis
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmMantenimientoEmpleado.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Consultaempleados.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Frmsuplidores.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\bin\Debug\SisFerretero.exe.config
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.exe
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.pdb
+C:\Users\user\Desktop\SisFerretero\SisFerretero\bin\Debug\SisFerretero.exe
+C:\Users\user\Desktop\SisFerretero\SisFerretero\bin\Debug\SisFerretero.pdb
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Clientes.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.ConsultaClientes.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Consultaempleados.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmLogin.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmCalendario.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConfirmacionFechaEntrega.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConfirmacionPago.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaAlmacen.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaEmpleado.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaFacturas.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaUsuarios.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmDetallesFactura.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmFacturacion.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmMantenimientoAlmacen.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmMantenimientoEmpleado.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmMenuPrincipal.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmSplash.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Frmsuplidores.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Properties.Resources.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Usuarios.resources
+C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\bin\Debug\SisFerretero.exe.config
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.exe
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.pdb
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\bin\Debug\SisFerretero.exe
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\bin\Debug\SisFerretero.pdb
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Clientes.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.ConsultaClientes.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Consultaempleados.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmLogin.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmCalendario.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmConfirmacionFechaEntrega.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmConfirmacionPago.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmConsultaAlmacen.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmConsultaEmpleado.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmConsultaFacturas.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmConsultaUsuarios.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmDetallesFactura.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmFacturacion.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmMantenimientoAlmacen.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmMantenimientoEmpleado.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmMenuPrincipal.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.frmSplash.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Frmsuplidores.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Properties.Resources.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Usuarios.resources
+C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.csproj.GenerateResource.Cache

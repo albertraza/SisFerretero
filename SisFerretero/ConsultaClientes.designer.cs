@@ -163,6 +163,9 @@
             this.Text = "ConsultaClientes";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.ConsultaClientes_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ConsultaClientes_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ConsultaClientes_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ConsultaClientes_MouseUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
