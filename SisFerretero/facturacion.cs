@@ -271,10 +271,10 @@ namespace SisFerretero
         }
 
         // metodo para listar todas las ordenes no completadas
-        public static List<facturacion> listAllFacturasNoDespachadas()
+        public static List<facturaPendiente> listAllFacturasNoDespachadas()
         {
-            List<facturacion> list = new List<facturacion>();
-            using(SqlConnection con = new SqlConnection())
+            List<facturaPendiente> list = new List<facturaPendiente>();
+            using(SqlConnection con = DataBase.connect())
             {
                 SqlCommand comand = new SqlCommand();
                 comand.Connection = con;
@@ -284,28 +284,12 @@ namespace SisFerretero
                 SqlDataReader reader = comand.ExecuteReader();
                 while (reader.Read())
                 {
-                    facturacion pFactura = new facturacion();
-                    pFactura.codigo = Convert.ToInt32(reader["NoFactura"]);
+                    facturaPendiente pFactura = new facturaPendiente();
+                    pFactura.Codigo_Factura = Convert.ToInt32(reader["NoFactura"]);
                     pFactura.Nombre_Cliente = reader["NombreCliente"].ToString();
                     pFactura.Apellido_Cliente = reader["ApellidoCliente"].ToString();
-                    pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(reader["fechaRegistro"]).ToString("MM/dd/yyyy"));
-                    pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(reader["fechaEntrega"]).ToString("MM/dd/yyyy"));
-                    pFactura.TotalProductos = Convert.ToInt32(reader["Total_articulos"]);
-                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(reader["Total_Sin_Impuestos"]);
-                    pFactura.ITEBIS = Convert.ToDouble(reader["ITEBIS"]);
-                    pFactura.TotalPagar = Convert.ToDouble(reader["Total_a_Pagar"]);
-                    if (Convert.ToInt32(reader["despachado"]) > 0)
-                    {
-                        pFactura.despachado = "Si";
-                    }
-                    else if (Convert.ToInt32(reader["despachado"]) == 0)
-                    {
-                        pFactura.despachado = "No";
-                    }
-                    else
-                    {
-                        pFactura.despachado = "--";
-                    }
+                    pFactura.Total_Articulos = Convert.ToInt32(reader["Total_articulos"]);
+                    pFactura.Total_a_Pagar = Convert.ToDouble(reader["Total_a_Pagar"]);
 
                     list.Add(pFactura);
                 }
@@ -377,6 +361,24 @@ namespace SisFerretero
                 con.Close();
             }
             return pFactura;
+        }
+    }
+    public class facturaPendiente
+    {
+        public int Codigo_Factura { get; set; }
+        public string Nombre_Cliente { get; set; }
+        public string Apellido_Cliente { get; set; }
+        public int Total_Articulos { get; set; }
+        public double Total_a_Pagar { get; set; }
+
+        public facturaPendiente() { }
+        public facturaPendiente(int c, string n, string a, int ta, double tp)
+        {
+            Codigo_Factura = c;
+            Nombre_Cliente = n;
+            Apellido_Cliente = a;
+            Total_Articulos = ta;
+            Total_a_Pagar = tp;
         }
     }
 }
