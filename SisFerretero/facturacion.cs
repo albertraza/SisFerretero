@@ -269,6 +269,50 @@ namespace SisFerretero
             }
             return list;
         }
+
+        // metodo para listar todas las ordenes no completadas
+        public static List<facturacion> listAllFacturasNoDespachadas()
+        {
+            List<facturacion> list = new List<facturacion>();
+            using(SqlConnection con = new SqlConnection())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "listAllFacturasNoDespachadas";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    facturacion pFactura = new facturacion();
+                    pFactura.codigo = Convert.ToInt32(reader["NoFactura"]);
+                    pFactura.Nombre_Cliente = reader["NombreCliente"].ToString();
+                    pFactura.Apellido_Cliente = reader["ApellidoCliente"].ToString();
+                    pFactura.fechaRegistro = DateTime.Parse(Convert.ToDateTime(reader["fechaRegistro"]).ToString("MM/dd/yyyy"));
+                    pFactura.fechaEntrega = DateTime.Parse(Convert.ToDateTime(reader["fechaEntrega"]).ToString("MM/dd/yyyy"));
+                    pFactura.TotalProductos = Convert.ToInt32(reader["Total_articulos"]);
+                    pFactura.TotalCompradoSinITEBIS = Convert.ToDouble(reader["Total_Sin_Impuestos"]);
+                    pFactura.ITEBIS = Convert.ToDouble(reader["ITEBIS"]);
+                    pFactura.TotalPagar = Convert.ToDouble(reader["Total_a_Pagar"]);
+                    if (Convert.ToInt32(reader["despachado"]) > 0)
+                    {
+                        pFactura.despachado = "Si";
+                    }
+                    else if (Convert.ToInt32(reader["despachado"]) == 0)
+                    {
+                        pFactura.despachado = "No";
+                    }
+                    else
+                    {
+                        pFactura.despachado = "--";
+                    }
+
+                    list.Add(pFactura);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
     public class baseFacturacion
     {
