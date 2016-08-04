@@ -26,5 +26,27 @@ namespace SisFerretero
         {
             this.Close();
         }
+
+
+        private bool mousePresionado;
+        private Point posicionActual;
+        private void frmMantenimientoEmpleado_MouseDown(object sender, MouseEventArgs e)
+        {
+            posicionActual = new Point(Cursor.Position.X - Location.X, Cursor.Position.Y - Location.Y);
+            mousePresionado = true;
+        }
+
+        private void frmMantenimientoEmpleado_MouseUp(object sender, MouseEventArgs e)
+        {
+            mousePresionado = false;
+        }
+
+        private void frmMantenimientoEmpleado_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mousePresionado)
+            {
+                this.Location = new Point(Cursor.Position.X - posicionActual.X, Cursor.Position.Y - posicionActual.Y);
+            }
+        }
     }
 }

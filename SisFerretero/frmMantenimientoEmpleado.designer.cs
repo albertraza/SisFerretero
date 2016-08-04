@@ -257,6 +257,9 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.White;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmMantenimientoEmpleado_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMantenimientoEmpleado_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmMantenimientoEmpleado_MouseUp);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);

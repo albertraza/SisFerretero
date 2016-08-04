@@ -177,5 +177,10 @@ namespace SisFerretero
         {
             new frmMantenimientoAlmacen().Show();
         }
+
+        private void frmMenuPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

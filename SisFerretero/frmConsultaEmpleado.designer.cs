@@ -186,8 +186,13 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmConsultaEmpleado";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConsultaEmpleado";
             this.TransparencyKey = System.Drawing.Color.White;
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmConsultaEmpleado_MouseDown);
+            this.MouseHover += new System.EventHandler(this.frmConsultaEmpleado_MouseHover);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmConsultaEmpleado_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmConsultaEmpleado_MouseUp);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
