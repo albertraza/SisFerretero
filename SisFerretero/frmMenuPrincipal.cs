@@ -187,6 +187,9 @@ namespace SisFerretero
             dgvOrdenesPendientes.DefaultCellStyle.BackColor = Color.WhiteSmoke;
             dgvOrdenesPendientes.DefaultCellStyle.ForeColor = Color.Black;
 
+            // inicio el timer para poder actualizar la tabla sin salir del programa
+            tReload.Start();
+
             try
             {
                 dgvOrdenesPendientes.DataSource = facturacion.listAllFacturasNoDespachadas();
@@ -200,7 +203,33 @@ namespace SisFerretero
         // evento que toma los datos de la tabla para ver los 
         private void dgvOrdenesPendientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // detengo el timer para que el focus no se mueva del producto seleccionado.
+            tReload.Stop();
 
+            frmDetallesFactura pDetalles = new frmDetallesFactura();
+
+            if(MessageBox.Show("Desea ver los detalles de esta order?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {                
+                // le paso el codigo de la factura al form que se va a abrir
+                pDetalles.codigoFactura = Convert.ToInt32(dgvOrdenesPendientes.CurrentRow.Cells[0].Value);
+                pDetalles.ShowDialog();
+
+                // luego que el usuario cierre el form que el timer se vuelva a iniciar
+                tReload.Start();
+            }
+        }
+
+        // evento que recarga la tabla cuando un tick ocurra
+        private void tReload_Tick(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvOrdenesPendientes.DataSource = facturacion.listAllFacturasNoDespachadas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

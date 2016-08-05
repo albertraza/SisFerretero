@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMenuPrincipal));
             this.msMenuPrincipal = new System.Windows.Forms.MenuStrip();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -63,6 +64,7 @@
             this.pOcultar = new System.Windows.Forms.Panel();
             this.lblMinimizar = new System.Windows.Forms.LinkLabel();
             this.dgvOrdenesPendientes = new System.Windows.Forms.DataGridView();
+            this.tReload = new System.Windows.Forms.Timer(this.components);
             this.msMenuPrincipal.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.pOcultar.SuspendLayout();
@@ -289,7 +291,7 @@
             // 
             this.calendarioToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("calendarioToolStripMenuItem.Image")));
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
-            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.calendarioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.calendarioToolStripMenuItem.Text = "Calendario";
             this.calendarioToolStripMenuItem.Click += new System.EventHandler(this.calendarioToolStripMenuItem_Click);
             // 
@@ -297,7 +299,7 @@
             // 
             this.calculadoraToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("calculadoraToolStripMenuItem.Image")));
             this.calculadoraToolStripMenuItem.Name = "calculadoraToolStripMenuItem";
-            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.calculadoraToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.calculadoraToolStripMenuItem.Text = "Calculadora";
             this.calculadoraToolStripMenuItem.Click += new System.EventHandler(this.calculadoraToolStripMenuItem_Click);
             // 
@@ -385,9 +387,14 @@
             this.dgvOrdenesPendientes.Name = "dgvOrdenesPendientes";
             this.dgvOrdenesPendientes.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
             this.dgvOrdenesPendientes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
-            this.dgvOrdenesPendientes.Size = new System.Drawing.Size(897, 439);
+            this.dgvOrdenesPendientes.Size = new System.Drawing.Size(563, 439);
             this.dgvOrdenesPendientes.TabIndex = 3;
             this.dgvOrdenesPendientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenesPendientes_CellContentClick);
+            // 
+            // tReload
+            // 
+            this.tReload.Interval = 1000;
+            this.tReload.Tick += new System.EventHandler(this.tReload_Tick);
             // 
             // frmMenuPrincipal
             // 
@@ -460,5 +467,6 @@
         private System.Windows.Forms.ToolStripMenuItem suplidoresToolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem compraDeProductosToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvOrdenesPendientes;
+        private System.Windows.Forms.Timer tReload;
     }
 }
