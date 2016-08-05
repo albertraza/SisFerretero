@@ -53,5 +53,38 @@ namespace SisFerretero
             }
             return pDepartamento;
         }
+
+        // metodo para obtener la info de departamento por en codigo
+        public static departamento getDepartamentoInfoByNumber(int NoDepartamento)
+        {
+            departamento pDepartamento = new departamento();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getDepartamentoByNumber";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoDepartamento", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NoDepartamento"].Value = NoDepartamento;
+
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    while (re.Read())
+                    {
+                        pDepartamento.NoDepartamento = Convert.ToInt32(re["NoDepartamento"]);
+                        pDepartamento.Nombre = re["Nombre"].ToString();
+                        pDepartamento.Detalles = re["Detalles"].ToString();
+                    }
+                }
+                else
+                {
+                    pDepartamento = null;
+                }
+                con.Close();
+            }
+            return pDepartamento;
+        }
     }
 }
