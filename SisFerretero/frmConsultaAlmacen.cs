@@ -262,8 +262,10 @@ namespace SisFerretero
             try
             {
                 // se limpian todos los campos
+                cbFiltro.SelectedIndex = -1;
+                txtBusqueda.DropDownStyle = ComboBoxStyle.Simple;
                 txtBusqueda.Text = "";
-                cbFiltro.Text = "";
+                txtBusqueda.Select();
                 // se cargan todos los datos de los productos en el data grid view
                 dgvProductos.DataSource = productos.listAllProducto();
             }

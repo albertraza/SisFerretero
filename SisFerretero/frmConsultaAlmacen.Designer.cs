@@ -58,6 +58,8 @@
             this.dgvProductos.Name = "dgvProductos";
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             this.dgvProductos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProductos.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.dgvProductos.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvProductos.Size = new System.Drawing.Size(708, 311);
             this.dgvProductos.TabIndex = 0;
