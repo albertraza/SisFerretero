@@ -130,6 +130,7 @@
             this.btnBuscar.TabIndex = 9;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnNuevaBusqueda
             // 
@@ -140,6 +141,7 @@
             this.btnNuevaBusqueda.TabIndex = 8;
             this.btnNuevaBusqueda.Text = "Nueva Busqueda";
             this.btnNuevaBusqueda.UseVisualStyleBackColor = true;
+            this.btnNuevaBusqueda.Click += new System.EventHandler(this.btnNuevaBusqueda_Click);
             // 
             // txtBusqueda
             // 

@@ -91,5 +91,46 @@ namespace SisFerretero
                 }
             }
         }
+
+        // evento para buscar los usuarios
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbFiltro.Text == "Codigo")
+                {
+                    dgvUsuarios.DataSource = cUsuarios.searchUsuarios(txtBusqueda.Text, "");
+                }
+                else if (cbFiltro.Text == "Nombre Usuario")
+                {
+                    dgvUsuarios.DataSource = cUsuarios.searchUsuarios("", txtBusqueda.Text);
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un filtro para la busqueda", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cbFiltro.Select();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        // evento para limpiar los campos
+        private void btnNuevaBusqueda_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                cbFiltro.SelectedIndex = -1;
+                txtBusqueda.Clear();
+                txtBusqueda.Select();
+                dgvUsuarios.DataSource = "";
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
