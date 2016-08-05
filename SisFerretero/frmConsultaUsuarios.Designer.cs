@@ -195,9 +195,12 @@
             this.dgvUsuarios.Name = "dgvUsuarios";
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
             this.dgvUsuarios.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvUsuarios.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.dgvUsuarios.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvUsuarios.Size = new System.Drawing.Size(653, 311);
             this.dgvUsuarios.TabIndex = 3;
+            this.dgvUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUsuarios_CellContentClick);
             // 
             // frmConsultaUsuarios
             // 
@@ -215,6 +218,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta Usuarios";
             this.TransparencyKey = System.Drawing.Color.White;
+            this.Load += new System.EventHandler(this.frmConsultaUsuarios_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmConsultaUsuarios_MouseDown);
             this.MouseHover += new System.EventHandler(this.frmConsultaUsuarios_MouseHover);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmConsultaUsuarios_MouseMove);

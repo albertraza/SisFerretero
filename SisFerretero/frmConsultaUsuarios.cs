@@ -132,5 +132,52 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        // propiedad para evaluar si la ventana se abrio desde el menu.
+        public bool menu;
+        // evento que detecta cuando la ventana fue abierta.
+        private void frmConsultaUsuarios_Load(object sender, EventArgs e)
+        {
+            // se le cambia el style a la tabla de los usuarios
+            dgvUsuarios.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Bold);
+            dgvUsuarios.DefaultCellStyle.Font = new Font("Arial", 9.0F, FontStyle.Regular);
+            dgvUsuarios.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dgvUsuarios.DefaultCellStyle.ForeColor = Color.Black;
+
+            if (!menu)
+            {
+                try
+                {
+                    dgvUsuarios.DataSource = cUsuarios.listAllUsuarios();
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                txtBusqueda.Select();
+            }
+        }
+
+        // propiedad para guardar la info del usuario
+        public baseUsuarios pUser;
+        // evento para seleccionar los usuarios.
+        private void dgvUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!menu)
+            {
+                if(baseUsuarios.getUserInfo(Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value)) != null)
+                {
+                    pUser = baseUsuarios.getUserInfo(Convert.ToInt32(dgvUsuarios.CurrentRow.Cells[0].Value));
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El Usuario no Existe, Digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
     }
 }
