@@ -9,12 +9,14 @@ namespace SisFerretero
 {
     public class cUsuarios
     {
+        public int NoUsuario { get; set; }
         public string Nombre_Usuario { get; set; }
         public string Departamento { get; set; }
 
         public cUsuarios() { }
-        public cUsuarios(string d, string n)
+        public cUsuarios(int nu, string d, string n)
         {
+            NoUsuario = nu;
             Departamento = d;
             Nombre_Usuario = n;
         }
@@ -41,6 +43,34 @@ namespace SisFerretero
                 while (re.Read())
                 {
                     cUsuarios pUsuarios = new cUsuarios();
+                    pUsuarios.NoUsuario = Convert.ToInt32(re["NoUsuario"]);
+                    pUsuarios.Nombre_Usuario = re["UserName"].ToString();
+                    pUsuarios.Departamento = re["Departamento"].ToString();
+
+                    list.Add(pUsuarios);
+                }
+                con.Close();
+            }
+            return list;
+        }
+
+        // metodo para listar todos los usuarios
+        public static List<cUsuarios> listAllUsuarios()
+        {
+            List<cUsuarios> list = new List<cUsuarios>();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "listAllUsuarios";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader re = comand.ExecuteReader();
+
+                while (re.Read())
+                {
+                    cUsuarios pUsuarios = new cUsuarios();
+                    pUsuarios.NoUsuario = Convert.ToInt32(re["NoUsuario"]);
                     pUsuarios.Nombre_Usuario = re["UserName"].ToString();
                     pUsuarios.Departamento = re["Departamento"].ToString();
 
