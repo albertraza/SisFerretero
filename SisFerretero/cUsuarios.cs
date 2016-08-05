@@ -51,4 +51,52 @@ namespace SisFerretero
             return list;
         }
     }
+
+    public class baseUsuarios
+    {
+        public int codigo { get; set; }
+        public string Nombre { get; set; }
+        public int codDepartamento { get; set; }
+
+        public baseUsuarios() { }
+        public baseUsuarios(int c, string n, int d)
+        {
+            codigo = c;
+            Nombre = n;
+            codDepartamento = d;
+        }
+
+        public static baseUsuarios getUserInfo(int NoUser)
+        {
+            baseUsuarios pUser = new baseUsuarios();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getUsuario";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoUser", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoUser"].Value = NoUser;
+
+                SqlDataReader re = comand.ExecuteReader();
+
+                if (re.HasRows)
+                {
+                    while (re.Read())
+                    {
+                        pUser.codigo = Convert.ToInt32(re["NoUser"]);
+                        pUser.Nombre = re["UserName"].ToString();
+                        pUser.codDepartamento = Convert.ToInt32(re["Departamento"]);
+                    }
+                }
+                else
+                {
+                    pUser = null;
+                }
+                con.Close();
+            }
+            return pUser;
+        }
+    }
 }
