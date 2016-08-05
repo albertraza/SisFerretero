@@ -67,6 +67,7 @@
     <Compile Include="Consultaempleados.designer.cs">
       <DependentUpon>Consultaempleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="cUsuarios.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="departamento.cs" />
     <Compile Include="facturacion.cs" />
