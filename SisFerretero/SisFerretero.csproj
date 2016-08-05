@@ -68,6 +68,7 @@
       <DependentUpon>Consultaempleados.cs</DependentUpon>
     </Compile>
     <Compile Include="DataBase.cs" />
+    <Compile Include="departamento.cs" />
     <Compile Include="facturacion.cs" />
     <Compile Include="FerreteriaDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
