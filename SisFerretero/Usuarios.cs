@@ -55,43 +55,89 @@ namespace SisFerretero
             }
             else
                 if (txtcontraseña.Text == string.Empty)
+            {
+                MessageBox.Show("Escriba una clave.");
+                txtcontraseña.Select();
+            }
+            else if (cbDepartamento.Text == string.Empty)
+            {
+                MessageBox.Show("Seleccione un departamento");
+                cbDepartamento.Select();
+            }
+            else {
+                try
                 {
-                    MessageBox.Show("Escriba una clave.");
-                    txtcontraseña.Select();
+
+                    SqlConnection con = DataBase.connect();
+
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                    cmd.CommandText = "registerUsuario";
+                    cmd.Connection = con;
+
+                    cmd.Parameters.Add(new SqlParameter("@NombreUsuario", SqlDbType.VarChar));
+                    cmd.Parameters["@NombreUsuario"].Value = txtusuario.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Contrasena", SqlDbType.VarChar));
+                    cmd.Parameters["@Contrasena"].Value = txtcontraseña.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Nivel", SqlDbType.Int));
+                    cmd.Parameters["@Nivel"].Value = 10;
+
+                    cmd.Parameters.Add(new SqlParameter("@Departamento", SqlDbType.Int));
+                    cmd.Parameters["@Departamento"].Value = pDepartamento.NoDepartamento;
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Usuario creado exitosamente.");
+                    con.Close();
+                    txtusuario.Clear();
+                    txtcontraseña.Clear();
+                    txtusuario.Select();
+                    getDepartamentos();
+
                 }
-                else
+                catch (Exception ex)
                 {
-                    try
-                    {
-
-                        SqlConnection con = DataBase.connect();
-
-                        SqlCommand cmd = new SqlCommand();
-                        cmd.CommandType = System.Data.CommandType.Text;
-                        cmd.CommandText = "INSERT INTO Usuarios (Usuario, Clave) VALUES ('" + txtusuario.Text + "','" + txtcontraseña.Text + "')";
-                        cmd.Connection = con;
-                        con.Open();
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Usuario creado exitosamente.");                        
-                        con.Close();
-                        txtusuario.Clear();
-                        txtcontraseña.Clear();
-                        txtusuario.Select();
-
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                        txtusuario.Clear();
-                        txtusuario.Select();
-                        txtcontraseña.Clear();
-                    }
-                }     
+                    MessageBox.Show(ex.Message);
+                    txtusuario.Clear();
+                    txtusuario.Select();
+                    txtcontraseña.Clear();
+                }
+            }   
         }
 
         private void btncancelar_Click_1(object sender, EventArgs e)
         {
             this.Hide();
+        }
+
+        // propiedad para almacenar el departamento del usuario
+        private departamento pDepartamento;
+
+        // evento que detecta si se ha seleccionado un departamento
+        private void cbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // se limpia la propiedad donde se almacenara el departamento
+            pDepartamento = null;
+
+            if(cbDepartamento.Text != string.Empty)
+            {
+                try
+                {
+                    if (departamento.getDepartamentoByName(cbDepartamento.Text) != null)
+                    {
+                        pDepartamento = departamento.getDepartamentoByName(cbDepartamento.Text);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Departamento no Existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

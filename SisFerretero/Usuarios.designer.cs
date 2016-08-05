@@ -35,9 +35,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btncancelar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.lblDepartamento = new System.Windows.Forms.Label();
             this.cbDepartamento = new System.Windows.Forms.ComboBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,9 +57,9 @@
             // btncrear
             // 
             this.btncrear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncrear.Location = new System.Drawing.Point(60, 376);
+            this.btncrear.Location = new System.Drawing.Point(39, 353);
             this.btncrear.Name = "btncrear";
-            this.btncrear.Size = new System.Drawing.Size(84, 40);
+            this.btncrear.Size = new System.Drawing.Size(74, 31);
             this.btncrear.TabIndex = 46;
             this.btncrear.Text = "Crear";
             this.btncrear.UseVisualStyleBackColor = true;
@@ -108,16 +110,16 @@
             this.label1.TabIndex = 42;
             this.label1.Text = "Usuario:";
             // 
-            // btncancelar
+            // btnBuscar
             // 
-            this.btncancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncancelar.Location = new System.Drawing.Point(157, 376);
-            this.btncancelar.Name = "btncancelar";
-            this.btncancelar.Size = new System.Drawing.Size(75, 40);
-            this.btncancelar.TabIndex = 49;
-            this.btncancelar.Text = "Cancelar";
-            this.btncancelar.UseVisualStyleBackColor = true;
-            this.btncancelar.Click += new System.EventHandler(this.btncancelar_Click_1);
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(118, 353);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 31);
+            this.btnBuscar.TabIndex = 49;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btncancelar_Click_1);
             // 
             // lblDepartamento
             // 
@@ -139,6 +141,27 @@
             this.cbDepartamento.Name = "cbDepartamento";
             this.cbDepartamento.Size = new System.Drawing.Size(114, 24);
             this.cbDepartamento.TabIndex = 51;
+            this.cbDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbDepartamento_SelectedIndexChanged);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(199, 353);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 31);
+            this.btnModificar.TabIndex = 52;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminar.Location = new System.Drawing.Point(96, 389);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(109, 31);
+            this.btnEliminar.TabIndex = 53;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
             // Usuarios
             // 
@@ -147,9 +170,11 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(302, 432);
+            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.cbDepartamento);
             this.Controls.Add(this.lblDepartamento);
-            this.Controls.Add(this.btncancelar);
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btncrear);
             this.Controls.Add(this.txtcontraseña);
@@ -178,8 +203,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btncancelar;
+        private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label lblDepartamento;
         private System.Windows.Forms.ComboBox cbDepartamento;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
     }
 }
