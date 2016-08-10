@@ -56,5 +56,19 @@ namespace SisFerretero
                 this.Location = new Point(Cursor.Position.X - posicionactual.X, Cursor.Position.Y - posicionactual.Y);
             }
         }
+
+        // evento que detecta cuando la ventana fue abierta
+        private void frmConsultaEmpleado_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvEmpleados.DataSource = baseEmpleados.listAllEmpleados();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
     }
 }
