@@ -96,6 +96,7 @@ namespace SisFerretero
             codDepartamento = d;
         }
 
+        // metodo para obtener la info del usuario
         public static baseUsuarios getUserInfo(int NoUser)
         {
             baseUsuarios pUser = new baseUsuarios();
@@ -127,6 +128,97 @@ namespace SisFerretero
                 con.Close();
             }
             return pUser;
+        }
+
+        // metodo para actualizar la info del usuario
+        public static string updateUserInfo(baseUsuarios pUser, string contrasena)
+        {
+            string pMensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "updateUserInfo";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoUser", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoUser"].Value = pUser.codigo;
+
+                comand.Parameters.Add(new SqlParameter("@UserName", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@UserName"].Value = pUser.Nombre;
+
+                comand.Parameters.Add(new SqlParameter("@Password", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Password"].Value = contrasena;
+
+                comand.Parameters.Add(new SqlParameter("@Departamento", System.Data.SqlDbType.Int));
+                comand.Parameters["@Departamento"].Value = pUser.codDepartamento;
+
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    pMensaje = "Modificado con Exito";
+                }
+                else
+                {
+                    pMensaje = "No se pudo modificar";
+                }
+                con.Close();
+            }
+            return pMensaje;
+        }
+
+        // metodo para eliminar los usuarios
+        public static string deleteUsuario(int NoUsuario)
+        {
+            string mensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "deleteUser";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoUser", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoUser"].Value = NoUsuario;
+
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Usuario Eliminado Exitosamente";
+                }
+                else
+                {
+                    mensaje = "No se pudo eliminar el usuario";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
+
+        // metodo para validar el usuario antes de ser registrado
+        public static bool validateUser(string UserName)
+        {
+            bool validation = false;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "validateUserByUserName";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@UserName", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@UserName"].Value = UserName;
+
+                SqlDataReader re = comand.ExecuteReader();
+                if (re.HasRows)
+                {
+                    validation = true;
+                }
+                else
+                {
+                    validation = false;
+                }
+                con.Close();
+            }
+            return validation;
         }
     }
 }
