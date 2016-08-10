@@ -33,12 +33,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.cbDepartamento = new System.Windows.Forms.ComboBox();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
+            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
+            this.txtApellido = new System.Windows.Forms.TextBox();
+            this.txtNOmbre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -86,12 +89,15 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.LimeGreen;
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.maskedTextBox2);
-            this.groupBox2.Controls.Add(this.maskedTextBox1);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.btnBuscar);
+            this.groupBox2.Controls.Add(this.btnEliminar);
+            this.groupBox2.Controls.Add(this.cbDepartamento);
+            this.groupBox2.Controls.Add(this.btnModificar);
+            this.groupBox2.Controls.Add(this.btnGuardar);
+            this.groupBox2.Controls.Add(this.txtTelefono);
+            this.groupBox2.Controls.Add(this.txtCedula);
+            this.groupBox2.Controls.Add(this.txtApellido);
+            this.groupBox2.Controls.Add(this.txtNOmbre);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
@@ -104,61 +110,92 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del Empleado";
             // 
-            // button1
+            // btnBuscar
             // 
-            this.button1.Location = new System.Drawing.Point(363, 135);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Guardar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnBuscar.Location = new System.Drawing.Point(370, 72);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 90);
+            this.btnBuscar.TabIndex = 14;
+            this.btnBuscar.Text = "Busqueda Avanzada";
+            this.btnBuscar.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox2
+            // btnEliminar
             // 
-            this.maskedTextBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.maskedTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maskedTextBox2.Location = new System.Drawing.Point(338, 31);
-            this.maskedTextBox2.Mask = "(000)000-0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(82, 20);
-            this.maskedTextBox2.TabIndex = 9;
+            this.btnEliminar.Enabled = false;
+            this.btnEliminar.Location = new System.Drawing.Point(289, 139);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.TabIndex = 13;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = true;
             // 
-            // maskedTextBox1
+            // cbDepartamento
             // 
-            this.maskedTextBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.maskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.maskedTextBox1.Location = new System.Drawing.Point(147, 142);
-            this.maskedTextBox1.Mask = "000-0000000-0";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 20);
-            this.maskedTextBox1.TabIndex = 8;
+            this.cbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbDepartamento.FormattingEnabled = true;
+            this.cbDepartamento.Location = new System.Drawing.Point(147, 28);
+            this.cbDepartamento.Name = "cbDepartamento";
+            this.cbDepartamento.Size = new System.Drawing.Size(107, 21);
+            this.cbDepartamento.TabIndex = 12;
+            this.cbDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbDepartamento_SelectedIndexChanged);
             // 
-            // textBox3
+            // btnModificar
             // 
-            this.textBox3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox3.Location = new System.Drawing.Point(147, 103);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 7;
+            this.btnModificar.Enabled = false;
+            this.btnModificar.Location = new System.Drawing.Point(289, 106);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.TabIndex = 11;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // btnGuardar
             // 
-            this.textBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(147, 60);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
+            this.btnGuardar.Location = new System.Drawing.Point(289, 72);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.TabIndex = 10;
+            this.btnGuardar.Text = "Guardar";
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // textBox1
+            // txtTelefono
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(147, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
+            this.txtTelefono.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelefono.Location = new System.Drawing.Point(338, 31);
+            this.txtTelefono.Mask = "(000)000-0000";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(82, 20);
+            this.txtTelefono.TabIndex = 9;
+            // 
+            // txtCedula
+            // 
+            this.txtCedula.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCedula.Location = new System.Drawing.Point(147, 142);
+            this.txtCedula.Mask = "000-0000000-0";
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(100, 20);
+            this.txtCedula.TabIndex = 8;
+            // 
+            // txtApellido
+            // 
+            this.txtApellido.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtApellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido.Location = new System.Drawing.Point(147, 103);
+            this.txtApellido.Name = "txtApellido";
+            this.txtApellido.Size = new System.Drawing.Size(100, 20);
+            this.txtApellido.TabIndex = 7;
+            // 
+            // txtNOmbre
+            // 
+            this.txtNOmbre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtNOmbre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNOmbre.Location = new System.Drawing.Point(147, 60);
+            this.txtNOmbre.Name = "txtNOmbre";
+            this.txtNOmbre.Size = new System.Drawing.Size(100, 20);
+            this.txtNOmbre.TabIndex = 6;
             // 
             // label5
             // 
@@ -257,6 +294,7 @@
             this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.TransparencyKey = System.Drawing.Color.White;
+            this.Load += new System.EventHandler(this.frmMantenimientoEmpleado_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.frmMantenimientoEmpleado_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.frmMantenimientoEmpleado_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.frmMantenimientoEmpleado_MouseUp);
@@ -277,12 +315,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
+        private System.Windows.Forms.TextBox txtApellido;
+        private System.Windows.Forms.TextBox txtNOmbre;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
@@ -291,5 +328,9 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.ComboBox cbDepartamento;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
