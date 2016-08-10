@@ -40,16 +40,19 @@
             this.cbDepartamento = new System.Windows.Forms.ComboBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
+            this.pCerrar = new System.Windows.Forms.Panel();
+            this.lblCerrar = new System.Windows.Forms.LinkLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pCerrar.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(70, 43);
+            this.pictureBox1.Location = new System.Drawing.Point(70, 55);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 145);
+            this.pictureBox1.Size = new System.Drawing.Size(162, 133);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 48;
             this.pictureBox1.TabStop = false;
@@ -167,6 +170,32 @@
             this.btnEliminar.UseVisualStyleBackColor = true;
             this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
+            // pCerrar
+            // 
+            this.pCerrar.BackColor = System.Drawing.Color.Red;
+            this.pCerrar.Controls.Add(this.lblCerrar);
+            this.pCerrar.Location = new System.Drawing.Point(203, 8);
+            this.pCerrar.Name = "pCerrar";
+            this.pCerrar.Size = new System.Drawing.Size(75, 37);
+            this.pCerrar.TabIndex = 54;
+            this.pCerrar.Click += new System.EventHandler(this.pCerrar_Click);
+            this.pCerrar.MouseHover += new System.EventHandler(this.pCerrar_MouseHover);
+            // 
+            // lblCerrar
+            // 
+            this.lblCerrar.AutoSize = true;
+            this.lblCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCerrar.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lblCerrar.LinkColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCerrar.Location = new System.Drawing.Point(18, 10);
+            this.lblCerrar.Name = "lblCerrar";
+            this.lblCerrar.Size = new System.Drawing.Size(37, 15);
+            this.lblCerrar.TabIndex = 0;
+            this.lblCerrar.TabStop = true;
+            this.lblCerrar.Text = "Salir";
+            this.lblCerrar.VisitedLinkColor = System.Drawing.Color.White;
+            this.lblCerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCerrar_LinkClicked);
+            // 
             // Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,6 +203,7 @@
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(302, 432);
+            this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.cbDepartamento);
@@ -193,7 +223,10 @@
             this.Text = "Usuarios";
             this.TransparencyKey = System.Drawing.Color.White;
             this.Load += new System.EventHandler(this.Usuarios_Load);
+            this.MouseHover += new System.EventHandler(this.Usuarios_MouseHover);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pCerrar.ResumeLayout(false);
+            this.pCerrar.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -212,5 +245,7 @@
         private System.Windows.Forms.ComboBox cbDepartamento;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Panel pCerrar;
+        private System.Windows.Forms.LinkLabel lblCerrar;
     }
 }
