@@ -108,7 +108,7 @@ namespace SisFerretero
 
         private void almacenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            new frmMantenimientoAlmacen().Show();
         }
 
         private void almacenToolStripMenuItem1_Click(object sender, EventArgs e)
