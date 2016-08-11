@@ -105,6 +105,74 @@ namespace SisFerretero
             return pEmpleado;
         }
 
+        // evento para modificar el empleado
+        public static string modifyEmpleado(Empleados pEmpleado)
+        {
+            string mensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "modifyEmpleado";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@Nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Nombre"].Value = pEmpleado.Nombre;
+
+                comand.Parameters.Add(new SqlParameter("@Apellido", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Apellido"].Value = pEmpleado.Apellido;
+
+                comand.Parameters.Add(new SqlParameter("@Cedula", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Cedula"].Value = pEmpleado.Cedula;
+
+                comand.Parameters.Add(new SqlParameter("@Telefono", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Telefono"].Value = pEmpleado.Telefono;
+
+                comand.Parameters.Add(new SqlParameter("@Departamento", System.Data.SqlDbType.Int));
+                comand.Parameters["@Departamento"].Value = pEmpleado.Departamento;
+
+                comand.Parameters.Add(new SqlParameter("@NoEmpleado", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoEmpleado"].Value = pEmpleado.NoEmpleado;
+
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Modificado Exitosamente";
+                }
+                else
+                {
+                    mensaje = "No se pudo Modificar";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
+
+        // evento para elminiar el empleado
+        public static string deleteEmpleado(int NoEmpleado)
+        {
+            string mensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "deleteEmpleado";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoEmpleado", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoEmpleado"].Value = NoEmpleado;
+
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Empleado eliminado exitosamente";
+                }
+                else
+                {
+                    mensaje = "El empleado no se pudo eliminar";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
     }
     public class baseEmpleados
     {
