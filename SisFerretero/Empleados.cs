@@ -80,7 +80,7 @@ namespace SisFerretero
                 comand.CommandText = "getEmpleadoByNo";
                 comand.CommandType = System.Data.CommandType.StoredProcedure;
 
-                comand.Parameters.Add(new SqlParameter("", System.Data.SqlDbType.Int));
+                comand.Parameters.Add(new SqlParameter("@NoEmpleado", System.Data.SqlDbType.Int));
                 comand.Parameters["@NoEmpleado"].Value = NoEmpleado;
 
                 SqlDataReader reader = comand.ExecuteReader();
