@@ -195,5 +195,61 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        // evento para poder modificar la info del empleado
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (pEmpleado == null)
+            {
+                MessageBox.Show("No se ha seleccionado un empleado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnBuscar.Select();
+            }
+            else
+            {
+                try
+                {
+                    if (_pDepartamento != null)
+                    {
+                        pEmpleado.Departamento = _pDepartamento.NoDepartamento;
+                    }
+                    pEmpleado.Nombre = txtNOmbre.Text;
+                    pEmpleado.Apellido = txtApellido.Text;
+                    pEmpleado.Telefono = txtTelefono.Text;
+                    pEmpleado.Cedula = txtCedula.Text;
+
+                    MessageBox.Show(Empleados.modifyEmpleado(pEmpleado), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    clearAll();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // evento para eliminar el empleado
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (pEmpleado == null)
+            {
+                MessageBox.Show("No se ha seleccionado un empleado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                btnBuscar.Select();
+            }
+            else
+            {
+                if(MessageBox.Show("Seguro que desea eliminar el Empleado?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    try
+                    {
+                        MessageBox.Show(Empleados.deleteEmpleado(pEmpleado.NoEmpleado), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clearAll();
+                    }
+                    catch(Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+        }
     }
 }
