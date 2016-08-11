@@ -12,6 +12,9 @@ namespace SisFerretero
 {
     public partial class frmConsultaEmpleado : Form
     {
+        // propiedad para saber si se abre desde el menu
+        public bool menu { get; set; }
+
         public frmConsultaEmpleado()
         {
             InitializeComponent();
@@ -46,7 +49,7 @@ namespace SisFerretero
 
         private void frmConsultaEmpleado_MouseHover(object sender, EventArgs e)
         {
-            
+            this.Cursor = Cursors.Arrow;
         }
 
         private void frmConsultaEmpleado_MouseMove(object sender, MouseEventArgs e)
@@ -119,6 +122,28 @@ namespace SisFerretero
             catch(Exception ex)
             {
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // propiedad que guarda la info del empleado
+        public Empleados pEmpleado;
+
+        // evento que detecta los clicks en las celdas de la tabla
+        private void dgvEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // se verifica si la ventana fue abierta desde el menu
+            if (!menu)
+            {
+                if(Empleados.getEmpleadoByNo(Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value)) != null)
+                {
+                    pEmpleado = Empleados.getEmpleadoByNo(Convert.ToInt32(dgvEmpleados.CurrentRow.Cells[0].Value));
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("El empleado seleccionado no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    dgvEmpleados.DataSource = baseEmpleados.listAllEmpleados();
+                }
             }
         }
     }

@@ -76,6 +76,7 @@
             // txtBusqueda
             // 
             this.txtBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtBusqueda.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBusqueda.Location = new System.Drawing.Point(218, 46);
             this.txtBusqueda.Name = "txtBusqueda";
             this.txtBusqueda.Size = new System.Drawing.Size(240, 20);
@@ -143,6 +144,7 @@
             this.dgvEmpleados.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvEmpleados.Size = new System.Drawing.Size(584, 180);
             this.dgvEmpleados.TabIndex = 2;
+            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
             // 
             // panel1
             // 
