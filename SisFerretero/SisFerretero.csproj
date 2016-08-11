@@ -70,6 +70,7 @@
     <Compile Include="cUsuarios.cs" />
     <Compile Include="DataBase.cs" />
     <Compile Include="departamento.cs" />
+    <Compile Include="Empleados.cs" />
     <Compile Include="facturacion.cs" />
     <Compile Include="FerreteriaDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>

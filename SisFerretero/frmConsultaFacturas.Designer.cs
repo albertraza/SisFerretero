@@ -208,6 +208,8 @@
             this.dgvFacturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFacturas.Location = new System.Drawing.Point(36, 181);
             this.dgvFacturas.Name = "dgvFacturas";
+            this.dgvFacturas.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.Yellow;
+            this.dgvFacturas.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvFacturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFacturas.Size = new System.Drawing.Size(875, 321);
             this.dgvFacturas.TabIndex = 0;
