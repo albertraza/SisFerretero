@@ -118,6 +118,7 @@
             this.btnBuscar.TabIndex = 14;
             this.btnBuscar.Text = "Busqueda Avanzada";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnEliminar
             // 

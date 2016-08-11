@@ -17,12 +17,16 @@ namespace SisFerretero
         private void clearAll()
         {
             _pDepartamento = null;
+            pEmpleado = null;
             txtApellido.Clear();
             txtCedula.Clear();
             txtNOmbre.Clear();
             txtTelefono.Clear();
             getDepartamentos();
             txtNOmbre.Focus();
+            btnEliminar.Enabled = false;
+            btnModificar.Enabled = false;
+            btnGuardar.Enabled = true;
         }
         // metodo para cargar los departamentos en el combobox
         private void getDepartamentos()
@@ -152,6 +156,43 @@ namespace SisFerretero
             if(cbDepartamento.Text != string.Empty)
             {
                 _pDepartamento = departamento.getDepartamentoByName(cbDepartamento.Text);
+            }
+        }
+        // propiedad para guardar la infor del empleado seleccionado
+        private Empleados pEmpleado;
+
+        // evento para usar la busqueda avanzada.
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            frmConsultaEmpleado pConsulta = new frmConsultaEmpleado();
+            pConsulta.menu = false;
+
+            try
+            {
+                pConsulta.ShowDialog();
+                if(pConsulta.pEmpleado != null)
+                {
+                    pEmpleado = pConsulta.pEmpleado;
+                    txtApellido.Text = pConsulta.pEmpleado.Apellido;
+                    txtCedula.Text = pConsulta.pEmpleado.Cedula;
+                    txtNOmbre.Text = pConsulta.pEmpleado.Nombre;
+                    txtTelefono.Text = pConsulta.pEmpleado.Telefono;
+
+                    cbDepartamento.Text = departamento.getDepartamentoInfoByNumber(pConsulta.pEmpleado.Departamento).Nombre;
+
+                    btnGuardar.Enabled = false;
+                    btnEliminar.Enabled = true;
+                    btnModificar.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("No se selecciono un empleado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnBuscar.Select();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
