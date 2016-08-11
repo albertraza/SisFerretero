@@ -70,5 +70,56 @@ namespace SisFerretero
             }
 
         }
+
+        // evento que detecta el filtro a utlizar y adapta el mask a los diferentes filtros
+        private void cbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbFiltro.Text == "Telefono")
+            {
+                txtBusqueda.Mask = "(000)000-0000";
+                txtBusqueda.Focus();
+            }
+            else if(cbFiltro.Text == "Cedula")
+            {
+                txtBusqueda.Mask = "000-0000000-0";
+                txtBusqueda.Focus();
+            }
+            else
+            {
+                txtBusqueda.Mask = "";
+                txtBusqueda.Focus();
+            }
+        }
+
+        // evento del boton buscar
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbFiltro.Text != string.Empty)
+                {
+                    if (cbFiltro.Text == "Telefono")
+                    {
+                        dgvEmpleados.DataSource = baseEmpleados.searchEmpleados("", "", txtBusqueda.Text);
+                    }
+                    else if (cbFiltro.Text == "Cedula")
+                    {
+                        dgvEmpleados.DataSource = baseEmpleados.searchEmpleados("", txtBusqueda.Text, "");
+                    }
+                    else if (cbFiltro.Text == "Nombre")
+                    {
+                        dgvEmpleados.DataSource = baseEmpleados.searchEmpleados(txtBusqueda.Text, "", "");
+                    }
+                    else
+                    {
+                        MessageBox.Show("El filtro seleccionado es invalido, seleccione otro diferente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
