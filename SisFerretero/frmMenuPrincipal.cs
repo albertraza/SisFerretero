@@ -157,7 +157,9 @@ namespace SisFerretero
 
         private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new frmConsultaEmpleado().Show();
+            frmConsultaEmpleado pConsulta = new frmConsultaEmpleado();
+            pConsulta.menu = true;
+            pConsulta.Show();
         }
 
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
