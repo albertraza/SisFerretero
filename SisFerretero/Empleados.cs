@@ -69,6 +69,42 @@ namespace SisFerretero
             return mensaje;
         }
 
+        // metodo para obtener la info del empleado
+        public static Empleados getEmpleadoByNo(int NoEmpleado)
+        {
+            Empleados pEmpleado = new Empleados();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "getEmpleadoByNo";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoEmpleado"].Value = NoEmpleado;
+
+                SqlDataReader reader = comand.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        pEmpleado.NoEmpleado = Convert.ToInt32(reader["NoEmpleado"]);
+                        pEmpleado.Nombre = reader["Nombre"].ToString();
+                        pEmpleado.Apellido = reader["Apellido"].ToString();
+                        pEmpleado.Telefono = reader["Telefono"].ToString();
+                        pEmpleado.Cedula = reader["Cedula"].ToString();
+                        pEmpleado.Departamento = Convert.ToInt32(reader["Departamento"]);
+                    }
+                }
+                else
+                {
+                    pEmpleado = null;
+                }
+                con.Close();
+            }
+            return pEmpleado;
+        }
+
     }
     public class baseEmpleados
     {
