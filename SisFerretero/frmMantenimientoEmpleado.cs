@@ -199,30 +199,58 @@ namespace SisFerretero
         // evento para poder modificar la info del empleado
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            if (pEmpleado == null)
+            if (cbDepartamento.Text == string.Empty || _pDepartamento == null)
             {
-                MessageBox.Show("No se ha seleccionado un empleado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                btnBuscar.Select();
+                MessageBox.Show("No se ha seleccionado un departamento", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                cbDepartamento.Select();
+            }
+            else if (txtNOmbre.Text == string.Empty)
+            {
+                MessageBox.Show("El Nombre esta vacio, Digite uno valido", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtNOmbre.Select();
+            }
+            else if (txtApellido.Text == string.Empty)
+            {
+                MessageBox.Show("El Apellido esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtApellido.Select();
+            }
+            else if (!txtCedula.MaskCompleted)
+            {
+                MessageBox.Show("La cedula esta vacia o no haa sido completada", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtCedula.Select();
+            }
+            else if (txtTelefono.Text == string.Empty)
+            {
+                MessageBox.Show("El telefono esta vacio", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                txtTelefono.Focus();
             }
             else
             {
-                try
+                if (pEmpleado == null)
                 {
-                    if (_pDepartamento != null)
-                    {
-                        pEmpleado.Departamento = _pDepartamento.NoDepartamento;
-                    }
-                    pEmpleado.Nombre = txtNOmbre.Text;
-                    pEmpleado.Apellido = txtApellido.Text;
-                    pEmpleado.Telefono = txtTelefono.Text;
-                    pEmpleado.Cedula = txtCedula.Text;
-
-                    MessageBox.Show(Empleados.modifyEmpleado(pEmpleado), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    clearAll();
+                    MessageBox.Show("No se ha seleccionado un empleado", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    btnBuscar.Select();
                 }
-                catch (Exception ex)
+                else
                 {
-                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    try
+                    {
+                        if (_pDepartamento != null)
+                        {
+                            pEmpleado.Departamento = _pDepartamento.NoDepartamento;
+                        }
+                        pEmpleado.Nombre = txtNOmbre.Text;
+                        pEmpleado.Apellido = txtApellido.Text;
+                        pEmpleado.Telefono = txtTelefono.Text;
+                        pEmpleado.Cedula = txtCedula.Text;
+
+                        MessageBox.Show(Empleados.modifyEmpleado(pEmpleado), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        clearAll();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }
