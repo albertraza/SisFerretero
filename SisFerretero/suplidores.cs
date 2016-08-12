@@ -133,5 +133,107 @@ namespace SisFerretero
             }
             return pSuplidor;
         }
+
+        // metodo para registrar un nuevo suplidor
+        public static string registerSuplidor(baseSuplidores pSuplidor)
+        {
+            string mensaje = null;
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "registerSuplidor";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@Nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Nombre"].Value = pSuplidor.nombre;
+
+                comand.Parameters.Add(new SqlParameter("@Descripcion", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Descripcion"].Value = pSuplidor.descripcion;
+
+                comand.Parameters.Add(new SqlParameter("@Telefono", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Telefono"].Value = pSuplidor.Telefono;
+
+                comand.Parameters.Add(new SqlParameter("@Direccion", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Direccion"].Value = pSuplidor.direccion;
+
+                if(comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Registrado Exitosamente";
+                }
+                else
+                {
+                    mensaje = "No se pudo registrar el suplidor";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
+
+        // metodo para modificar los suplidores
+        public static string updateSuplidor(baseSuplidores pSuplidor)
+        {
+            string mensaje = null;
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "updateSuplidor";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@Nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Nombre"].Value = pSuplidor.nombre;
+
+                comand.Parameters.Add(new SqlParameter("@Descripcion", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Descripcion"].Value = pSuplidor.descripcion;
+
+                comand.Parameters.Add(new SqlParameter("@Telefono", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Telefono"].Value = pSuplidor.Telefono;
+
+                comand.Parameters.Add(new SqlParameter("@Direccion", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Direccion"].Value = pSuplidor.direccion;
+
+                comand.Parameters.Add(new SqlParameter("@NoSuplidor", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoSuplidor"].Value = pSuplidor.codigo;
+
+                if (comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Modificado Exitosamente";
+                }
+                else
+                {
+                    mensaje = "No se pudo modificar el suplidor";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
+
+        // metodo para eliminar el suplidor
+        public static string deleteSuplidor(int NoSuplidor)
+        {
+            string mensaje = null;
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "deleteSuplidor";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoSuplidor", System.Data.SqlDbType.Int));
+                comand.Parameters["@NoSuplidor"].Value = NoSuplidor;
+
+                if (comand.ExecuteNonQuery() > 0)
+                {
+                    mensaje = "Modificado Exitosamente";
+                }
+                else
+                {
+                    mensaje = "No se pudo modificar el suplidor";
+                }
+                con.Close();
+            }
+            return mensaje;
+        }
     }
 }
