@@ -174,7 +174,9 @@ namespace SisFerretero
 
         private void suplidoresToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            new Consultaempleados().Show();
+            frmConsultaSuplidores pConsulta = new frmConsultaSuplidores();
+            pConsulta.menu = true;
+            pConsulta.Show();
         }
 
         private void compraDeProductosToolStripMenuItem_Click(object sender, EventArgs e)
