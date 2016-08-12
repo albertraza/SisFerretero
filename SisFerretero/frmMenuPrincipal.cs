@@ -223,6 +223,11 @@ namespace SisFerretero
                 // luego que el usuario cierre el form que el timer se vuelva a iniciar
                 tReload.Start();
             }
+            else
+            {
+                // si el usuario responde que no se reinicia el timer
+                tReload.Start();
+            }
         }
 
         // evento que recarga la tabla cuando un tick ocurra
