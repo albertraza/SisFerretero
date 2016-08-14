@@ -100,6 +100,7 @@
             this.btnNuevaBusqueda.TabIndex = 4;
             this.btnNuevaBusqueda.Text = "Nueva Busqueda";
             this.btnNuevaBusqueda.UseVisualStyleBackColor = true;
+            this.btnNuevaBusqueda.Click += new System.EventHandler(this.btnNuevaBusqueda_Click);
             // 
             // label3
             // 

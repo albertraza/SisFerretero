@@ -146,5 +146,22 @@ namespace SisFerretero
                 }
             }
         }
+
+        // evento para limpiar todos los inputs
+        private void btnNuevaBusqueda_Click(object sender, EventArgs e)
+        {
+            cbFiltro.SelectedIndex = -1;
+            txtBusqueda.Clear();
+            txtBusqueda.Mask = "";
+            txtBusqueda.Select();
+            try
+            {
+                dgvEmpleados.DataSource = baseEmpleados.listAllEmpleados();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
