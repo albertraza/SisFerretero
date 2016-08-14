@@ -48,7 +48,7 @@ namespace SisFerretero
     }
     public class baseSuplidores
     {
-        public int codigo { get; set; }
+        public int NoSuplidor { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
         public string Telefono { get; set; }
@@ -57,7 +57,7 @@ namespace SisFerretero
         public baseSuplidores() { }
         public baseSuplidores(int c, string n, string des, string tel, string dir)
         {
-            codigo = c;
+            NoSuplidor = c;
             nombre = n;
             descripcion = des;
             Telefono = tel;
@@ -83,7 +83,7 @@ namespace SisFerretero
                 {
                     while (re.Read())
                     {
-                        pSuplidor.codigo = Convert.ToInt32(re["NoSuplidor"]);
+                        pSuplidor.NoSuplidor = Convert.ToInt32(re["NoSuplidor"]);
                         pSuplidor.nombre = re["NombreSuplidor"].ToString();
                         pSuplidor.descripcion = re["descripcion"].ToString();
                         pSuplidor.Telefono = re["Telefono"].ToString();
@@ -118,7 +118,7 @@ namespace SisFerretero
                 {
                     while (re.Read())
                     {
-                        pSuplidor.codigo = Convert.ToInt32(re["NoSuplidor"]);
+                        pSuplidor.NoSuplidor = Convert.ToInt32(re["NoSuplidor"]);
                         pSuplidor.nombre = re["NombreSuplidor"].ToString();
                         pSuplidor.descripcion = re["descripcion"].ToString();
                         pSuplidor.Telefono = re["Telefono"].ToString();
@@ -194,7 +194,7 @@ namespace SisFerretero
                 comand.Parameters["@Direccion"].Value = pSuplidor.direccion;
 
                 comand.Parameters.Add(new SqlParameter("@NoSuplidor", System.Data.SqlDbType.Int));
-                comand.Parameters["@NoSuplidor"].Value = pSuplidor.codigo;
+                comand.Parameters["@NoSuplidor"].Value = pSuplidor.NoSuplidor;
 
                 if (comand.ExecuteNonQuery() > 0)
                 {
@@ -234,6 +234,71 @@ namespace SisFerretero
                 con.Close();
             }
             return mensaje;
+        }
+
+        // metodo para cargar todos los suplidores
+        public static List<baseSuplidores> listAllSuplidores()
+        {
+            List<baseSuplidores> list = new List<baseSuplidores>();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "listAllSuplidores";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    baseSuplidores pSuplidor = new baseSuplidores();
+                    pSuplidor.NoSuplidor = Convert.ToInt32(re["codigo"]);
+                    pSuplidor.nombre = re["nombre"].ToString();
+                    pSuplidor.descripcion = re["descripcion"].ToString();
+                    pSuplidor.Telefono = re["telefono"].ToString();
+                    pSuplidor.direccion = re["direccion"].ToString();
+
+                    list.Add(pSuplidor);
+                }
+                con.Close();
+            }
+            return list;
+        }
+
+        // metodo pata buscar los suplidores
+        public static List<baseSuplidores> searchSuplidores(string NoSuplidor, string Nombre, string Telefono)
+        {
+            List<baseSuplidores> list = new List<baseSuplidores>();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandText = "searchSuplidor";
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+
+                comand.Parameters.Add(new SqlParameter("@NoSuplidor", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NoSuplidor"].Value = NoSuplidor;
+
+                comand.Parameters.Add(new SqlParameter("@Nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Nombre"].Value = Nombre;
+
+                comand.Parameters.Add(new SqlParameter("@Telefono", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Telefono"].Value = Telefono;
+
+                SqlDataReader re = comand.ExecuteReader();
+                while (re.Read())
+                {
+                    baseSuplidores pSuplidor = new baseSuplidores();
+                    pSuplidor.NoSuplidor = Convert.ToInt32(re["codigo"]);
+                    pSuplidor.nombre = re["nombre"].ToString();
+                    pSuplidor.descripcion = re["descripcion"].ToString();
+                    pSuplidor.Telefono = re["telefono"].ToString();
+                    pSuplidor.direccion = re["direccion"].ToString();
+
+                    list.Add(pSuplidor);
+                }
+                con.Close();
+            }
+            return list;
         }
     }
 }
