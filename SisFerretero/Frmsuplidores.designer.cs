@@ -56,15 +56,18 @@
             this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnBorrar
             // 
+            this.btnBorrar.Enabled = false;
             this.btnBorrar.Location = new System.Drawing.Point(309, 288);
             this.btnBorrar.Name = "btnBorrar";
             this.btnBorrar.Size = new System.Drawing.Size(75, 23);
             this.btnBorrar.TabIndex = 10;
             this.btnBorrar.Text = "Borrar";
             this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
             // 
             // groupBox1
             // 
@@ -160,12 +163,14 @@
             // 
             // btnModificar
             // 
+            this.btnModificar.Enabled = false;
             this.btnModificar.Location = new System.Drawing.Point(226, 288);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 12;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // pCerrar
             // 
@@ -201,6 +206,7 @@
             this.btnBusqueda.TabIndex = 14;
             this.btnBusqueda.Text = "Busqueda Avanzada";
             this.btnBusqueda.UseVisualStyleBackColor = true;
+            this.btnBusqueda.Click += new System.EventHandler(this.btnBusqueda_Click);
             // 
             // Frmsuplidores
             // 
