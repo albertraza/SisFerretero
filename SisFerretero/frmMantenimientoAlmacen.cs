@@ -214,7 +214,7 @@ namespace SisFerretero
                 // se llenan las propiedades con la infomarcion del producto
                 pProducto.nombre = txtNombre.Text;
                 pProducto.cantExistente = Convert.ToInt32(nCantExistente.Value);
-                pProducto.codigoSuplidor = pSuplidor.codigo;
+                pProducto.codigoSuplidor = pSuplidor.NoSuplidor;
                 pProducto.detalles = txtDescripcion.Text;
                 pProducto.Imp = DetallesExoneracion;
                 pProducto.precioUnd = double.Parse(txtPrecioUnd.Text);
@@ -391,7 +391,7 @@ namespace SisFerretero
                 // se valida si se ha seleccionado un suplidor diferente al original
                 if(pSuplidor != null)
                 {
-                    pProducto.codigoSuplidor = pSuplidor.codigo;
+                    pProducto.codigoSuplidor = pSuplidor.NoSuplidor;
                 }
 
                 pProducto.precioUnd = double.Parse(txtPrecioUnd.Text);
