@@ -23,7 +23,6 @@ C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\Sis
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmCalendario.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaEmpleado.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmMantenimientoEmpleado.resources
-C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Consultaempleados.resources
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.Frmsuplidores.resources
 C:\Users\user\Desktop\SisFerretero\SisFerretero\bin\Debug\SisFerretero.exe.config
 C:\Users\user\Desktop\SisFerretero\SisFerretero\obj\Debug\SisFerretero.exe
@@ -79,3 +78,4 @@ C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Fr
 C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Properties.Resources.resources
 C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Usuarios.resources
 C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.csproj.GenerateResource.Cache
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaSuplidores.resources

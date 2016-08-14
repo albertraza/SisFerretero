@@ -61,11 +61,11 @@
     <Compile Include="ConsultaClientes.designer.cs">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Consultaempleados.cs">
+    <Compile Include="frmConsultaSuplidores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Consultaempleados.designer.cs">
-      <DependentUpon>Consultaempleados.cs</DependentUpon>
+    <Compile Include="frmConsultaSuplidores.designer.cs">
+      <DependentUpon>frmConsultaSuplidores.cs</DependentUpon>
     </Compile>
     <Compile Include="cUsuarios.cs" />
     <Compile Include="DataBase.cs" />
@@ -184,8 +184,8 @@
     <EmbeddedResource Include="ConsultaClientes.resx">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Consultaempleados.resx">
-      <DependentUpon>Consultaempleados.cs</DependentUpon>
+    <EmbeddedResource Include="frmConsultaSuplidores.resx">
+      <DependentUpon>frmConsultaSuplidores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
