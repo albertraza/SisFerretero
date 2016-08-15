@@ -122,5 +122,80 @@ namespace SisFerretero
             }
             return re;
         }
+
+        // metodo para listar todos los clientes
+        public static List<baseClientes> listAllClientes()
+        {
+            List<baseClientes> list = new List<baseClientes>();
+            using(SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+                comand.CommandText = "listAllClientes";
+
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    baseClientes pCliente = new baseClientes();
+                    pCliente.codigo = Convert.ToInt32(reader["NoCliente"]);
+                    pCliente.nombre = reader["Name"].ToString();
+                    pCliente.apellido = reader["LastName"].ToString();
+                    pCliente.direccion = reader["AddressCl"].ToString();
+                    pCliente.telefono = reader["phone"].ToString();
+                    pCliente.cedula = reader["IDnum"].ToString();
+                    pCliente.celular = reader["Cellphone"].ToString();
+
+                    list.Add(pCliente);
+                }
+                con.Close();
+            }
+            return list;
+        }
+
+        // metodo para buscar los clientes
+        public static List<baseClientes> searchClientes(string NoCliente, string Nombre, string Cedula, string Telefono, string Celular)
+        {
+            List<baseClientes> list = new List<baseClientes>();
+            using (SqlConnection con = DataBase.connect())
+            {
+                SqlCommand comand = new SqlCommand();
+                comand.Connection = con;
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+                comand.CommandText = "searchClientes";
+
+                comand.Parameters.Add(new SqlParameter("@NoCliente", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@NoCliente"].Value = NoCliente;
+
+                comand.Parameters.Add(new SqlParameter("@Nombre", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Nombre"].Value = Nombre;
+
+                comand.Parameters.Add(new SqlParameter("@Cedula", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Cedula"].Value = Cedula;
+
+                comand.Parameters.Add(new SqlParameter("@Telefono", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Telefono"].Value = Telefono;
+
+                comand.Parameters.Add(new SqlParameter("@Celular", System.Data.SqlDbType.VarChar));
+                comand.Parameters["@Celular"].Value = Celular;
+
+                SqlDataReader reader = comand.ExecuteReader();
+                while (reader.Read())
+                {
+                    baseClientes pCliente = new baseClientes();
+                    pCliente.codigo = Convert.ToInt32(reader["NoCliente"]);
+                    pCliente.nombre = reader["Name"].ToString();
+                    pCliente.apellido = reader["LastName"].ToString();
+                    pCliente.direccion = reader["AddressCl"].ToString();
+                    pCliente.telefono = reader["phone"].ToString();
+                    pCliente.cedula = reader["IDnum"].ToString();
+                    pCliente.celular = reader["Cellphone"].ToString();
+
+                    list.Add(pCliente);
+                }
+                con.Close();
+            }
+            return list;
+        }
     }
 }
