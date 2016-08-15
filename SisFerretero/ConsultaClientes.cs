@@ -12,6 +12,9 @@ namespace SisFerretero
 {
     public partial class ConsultaClientes : Form
     {
+        public bool menu;
+        public baseClientes pCliente;
+
         public ConsultaClientes()
         {
             InitializeComponent();
@@ -19,8 +22,14 @@ namespace SisFerretero
 
         private void ConsultaClientes_Load(object sender, EventArgs e)
         {
-            this.txtcliente.Select();
-            this.txtcliente.Focus();
+            try
+            {
+                dgvClientes.DataSource = baseClientes.listAllClientes();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void llblbuscar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -57,6 +66,86 @@ namespace SisFerretero
             if (mousePresionado)
             {
                 this.Location = new Point(Cursor.Position.X - poscicionActual.X, Cursor.Position.Y - poscicionActual.Y);
+            }
+        }
+
+        private void dbFiltro_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbFiltro.Text == "Telefono" || cbFiltro.Text == "Celular")
+            {
+                txtBusqueda.Clear();
+                txtBusqueda.Mask = "(000)000-0000";
+                txtBusqueda.Select();
+            }
+            else if(cbFiltro.Text == "Cedula")
+            {
+                txtBusqueda.Clear();
+                txtBusqueda.Mask = "000-0000000-0";
+                txtBusqueda.Select();
+            }
+            else
+            {
+                txtBusqueda.Clear();
+                txtBusqueda.Mask = "";
+                txtBusqueda.Select();
+            }
+        }
+
+        private void txtBusqueda_TextChanged(object sender, EventArgs e)
+        {
+            if(cbFiltro.Text == "Codigo")
+            {
+                int comparacion;
+                if(!int.TryParse(txtBusqueda.Text, out comparacion))
+                {
+                    txtBusqueda.Clear();
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbFiltro.Text == "Codigo")
+                {
+                    dgvClientes.DataSource = baseClientes.searchClientes(txtBusqueda.Text, "", "", "", "");
+                }
+                else if (cbFiltro.Text == "Telefono")
+                {
+                    dgvClientes.DataSource = baseClientes.searchClientes("", "", "", txtBusqueda.Text, "");
+                }
+                else if (cbFiltro.Text == "Cedula")
+                {
+                    dgvClientes.DataSource = baseClientes.searchClientes("", "", txtBusqueda.Text, "", "");
+                }
+                else if (cbFiltro.Text == "Celular")
+                {
+                    dgvClientes.DataSource = baseClientes.searchClientes("", "", "", "", txtBusqueda.Text);
+                }
+                else if (cbFiltro.Text == "Nombre")
+                {
+                    dgvClientes.DataSource = baseClientes.searchClientes("", txtBusqueda.Text, "", "", "");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Clear();
+            txtBusqueda.Mask = "";
+            cbFiltro.SelectedIndex = -1;
+            try
+            {
+                dgvClientes.DataSource = baseClientes.listAllClientes();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
