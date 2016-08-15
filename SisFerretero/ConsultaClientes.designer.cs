@@ -78,6 +78,7 @@
             this.dgvClientes.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvClientes.Size = new System.Drawing.Size(516, 227);
             this.dgvClientes.TabIndex = 34;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // label1
             // 

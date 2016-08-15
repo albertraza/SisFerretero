@@ -148,5 +148,28 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (!menu)
+            {
+                try
+                {
+                    if(baseClientes.getClienteInfoCod(Convert.ToInt32(dgvClientes.CurrentRow.Cells[0].Value)) != null)
+                    {
+                        pCliente = baseClientes.getClienteInfoCod(Convert.ToInt32(dgvClientes.CurrentRow.Cells[0].Value));
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El cliente seleccionado no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
     }
 }
