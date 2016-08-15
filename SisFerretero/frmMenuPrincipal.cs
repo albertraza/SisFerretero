@@ -137,7 +137,9 @@ namespace SisFerretero
 
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            new ConsultaClientes().Show();
+           ConsultaClientes pConsulta = new ConsultaClientes();
+            pConsulta.menu = true;
+            pConsulta.ShowDialog();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
