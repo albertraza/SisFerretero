@@ -1,4 +1,4 @@
-﻿namespace Proyecto2
+﻿namespace SisFerretero
 {
     partial class Clientes
     {
@@ -30,11 +30,16 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clientes));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtCelular = new System.Windows.Forms.MaskedTextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.btnaceptar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.mtbtelefono = new System.Windows.Forms.MaskedTextBox();
+            this.txtTelefono = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.mtbcedula = new System.Windows.Forms.MaskedTextBox();
+            this.txtCedula = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtdireccion = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -54,11 +59,16 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.txtCelular);
+            this.groupBox1.Controls.Add(this.label7);
+            this.groupBox1.Controls.Add(this.btnBorrar);
+            this.groupBox1.Controls.Add(this.btnModificar);
+            this.groupBox1.Controls.Add(this.btnBuscar);
             this.groupBox1.Controls.Add(this.btnaceptar);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.mtbtelefono);
+            this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.mtbcedula);
+            this.groupBox1.Controls.Add(this.txtCedula);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtdireccion);
             this.groupBox1.Controls.Add(this.label4);
@@ -73,14 +83,68 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Informacion del Cliente";
             // 
+            // txtCelular
+            // 
+            this.txtCelular.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCelular.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCelular.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCelular.Location = new System.Drawing.Point(330, 90);
+            this.txtCelular.Mask = "(000) 000-0000";
+            this.txtCelular.Name = "txtCelular";
+            this.txtCelular.Size = new System.Drawing.Size(102, 22);
+            this.txtCelular.TabIndex = 16;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(271, 93);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 16);
+            this.label7.TabIndex = 15;
+            this.label7.Text = "Celular:";
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrar.Location = new System.Drawing.Point(365, 206);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(75, 40);
+            this.btnBorrar.TabIndex = 14;
+            this.btnBorrar.Text = "Borrar";
+            this.btnBorrar.UseVisualStyleBackColor = true;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.Location = new System.Drawing.Point(261, 206);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(75, 40);
+            this.btnModificar.TabIndex = 13;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscar.Location = new System.Drawing.Point(140, 206);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(95, 40);
+            this.btnBuscar.TabIndex = 12;
+            this.btnBuscar.Text = "Busqueda Avanzada";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
             // btnaceptar
             // 
             this.btnaceptar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnaceptar.Location = new System.Drawing.Point(36, 206);
+            this.btnaceptar.Location = new System.Drawing.Point(46, 206);
             this.btnaceptar.Name = "btnaceptar";
             this.btnaceptar.Size = new System.Drawing.Size(75, 40);
             this.btnaceptar.TabIndex = 11;
-            this.btnaceptar.Text = "Aceptar";
+            this.btnaceptar.Text = "Registrar";
             this.btnaceptar.UseVisualStyleBackColor = true;
             this.btnaceptar.Click += new System.EventHandler(this.btnaceptar_Click_1);
             // 
@@ -94,14 +158,16 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nombre:";
             // 
-            // mtbtelefono
+            // txtTelefono
             // 
-            this.mtbtelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mtbtelefono.Location = new System.Drawing.Point(388, 90);
-            this.mtbtelefono.Mask = "(000) 000-0000";
-            this.mtbtelefono.Name = "mtbtelefono";
-            this.mtbtelefono.Size = new System.Drawing.Size(102, 22);
-            this.mtbtelefono.TabIndex = 10;
+            this.txtTelefono.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtTelefono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTelefono.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefono.Location = new System.Drawing.Point(114, 122);
+            this.txtTelefono.Mask = "(000) 000-0000";
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Size = new System.Drawing.Size(102, 22);
+            this.txtTelefono.TabIndex = 10;
             // 
             // label2
             // 
@@ -113,19 +179,21 @@
             this.label2.TabIndex = 1;
             this.label2.Text = "Apellido:";
             // 
-            // mtbcedula
+            // txtCedula
             // 
-            this.mtbcedula.Location = new System.Drawing.Point(331, 52);
-            this.mtbcedula.Mask = "000-0000000-0";
-            this.mtbcedula.Name = "mtbcedula";
-            this.mtbcedula.Size = new System.Drawing.Size(124, 22);
-            this.mtbcedula.TabIndex = 9;
+            this.txtCedula.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCedula.Location = new System.Drawing.Point(329, 55);
+            this.txtCedula.Mask = "000-0000000-0";
+            this.txtCedula.Name = "txtCedula";
+            this.txtCedula.Size = new System.Drawing.Size(124, 22);
+            this.txtCedula.TabIndex = 9;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(33, 130);
+            this.label3.Location = new System.Drawing.Point(33, 158);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(68, 16);
             this.label3.TabIndex = 2;
@@ -133,7 +201,9 @@
             // 
             // txtdireccion
             // 
-            this.txtdireccion.Location = new System.Drawing.Point(107, 127);
+            this.txtdireccion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtdireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtdireccion.Location = new System.Drawing.Point(107, 155);
             this.txtdireccion.Name = "txtdireccion";
             this.txtdireccion.Size = new System.Drawing.Size(383, 22);
             this.txtdireccion.TabIndex = 8;
@@ -142,14 +212,16 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(271, 93);
+            this.label4.Location = new System.Drawing.Point(43, 126);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 16);
+            this.label4.Size = new System.Drawing.Size(65, 16);
             this.label4.TabIndex = 3;
-            this.label4.Text = "Telefono/Celular:";
+            this.label4.Text = "Telefono:";
             // 
             // txtapellido
             // 
+            this.txtapellido.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtapellido.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtapellido.Location = new System.Drawing.Point(96, 89);
             this.txtapellido.Name = "txtapellido";
             this.txtapellido.Size = new System.Drawing.Size(133, 22);
@@ -159,7 +231,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(271, 55);
+            this.label5.Location = new System.Drawing.Point(269, 58);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(54, 16);
             this.label5.TabIndex = 4;
@@ -167,6 +239,8 @@
             // 
             // txtnombre
             // 
+            this.txtnombre.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtnombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtnombre.Location = new System.Drawing.Point(96, 52);
             this.txtnombre.Name = "txtnombre";
             this.txtnombre.Size = new System.Drawing.Size(133, 22);
@@ -271,9 +345,9 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnaceptar;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox mtbtelefono;
+        private System.Windows.Forms.MaskedTextBox txtTelefono;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.MaskedTextBox mtbcedula;
+        private System.Windows.Forms.MaskedTextBox txtCedula;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtdireccion;
         private System.Windows.Forms.Label label4;
@@ -285,6 +359,10 @@
         private System.Windows.Forms.LinkLabel lblCerrar;
         private System.Windows.Forms.Panel pOcultar;
         private System.Windows.Forms.LinkLabel lblOcultar;
-
+        private System.Windows.Forms.MaskedTextBox txtCelular;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnBorrar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

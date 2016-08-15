@@ -8,10 +8,13 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-namespace Proyecto2
+namespace SisFerretero
 {
     public partial class Clientes : Form
     {
+        // propiedad para guardar la info del cliente
+        private baseClientes pClientes;
+
         public Clientes()
         {
             InitializeComponent();
@@ -25,30 +28,48 @@ namespace Proyecto2
 
         private void btnaceptar_Click_1(object sender, EventArgs e)
         {
-             if (txtnombre.Text == string.Empty || txtapellido.Text == string.Empty || mtbcedula.Text == string.Empty || txtdireccion.Text == string.Empty || mtbtelefono.Text == string.Empty)
+            SqlConnection con = DataBase.connect();
+            if (txtnombre.Text == string.Empty || txtapellido.Text == string.Empty || txtCedula.Text == string.Empty || txtdireccion.Text == string.Empty || txtTelefono.Text == string.Empty)
             {
                 MessageBox.Show("Ingrese todos los datos.");
                 txtnombre.Select();
-            }             
+            }
             else
                 try
                 {
-                    SqlConnection con = new SqlConnection(@" ");
 
                     SqlCommand cmd = new SqlCommand();
-                    cmd.CommandType = System.Data.CommandType.Text;
-                    cmd.CommandText = "INSERT INTO Clientes (Nombre, Apellido, Cedula, Direccion, Telefono) VALUES ('" + txtnombre.Text + "','" + txtapellido.Text + "','" + mtbcedula.Text + "','" + txtdireccion.Text + "','" + mtbtelefono.Text + "')";
                     cmd.Connection = con;
-                    con.Open();
+                    cmd.CommandText = "registerCliente";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.VarChar));
+                    cmd.Parameters["@Nombre"].Value = txtnombre.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Apellido", SqlDbType.VarChar));
+                    cmd.Parameters["@Apellido"].Value = txtapellido.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Direccion", SqlDbType.VarChar));
+                    cmd.Parameters["@Direccion"].Value = txtdireccion.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Telefono", SqlDbType.VarChar));
+                    cmd.Parameters["@Telefono"].Value = txtdireccion.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Cedula", SqlDbType.VarChar));
+                    cmd.Parameters["@Cedula"].Value = txtCedula.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Celular", SqlDbType.VarChar));
+                    cmd.Parameters["@Celular"].Value = txtCelular.Text;
+
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Cliente guardado exitosamente.");
                     con.Close();
                     txtnombre.Clear();
                     txtapellido.Clear();
-                    mtbcedula.Clear();
+                    txtCedula.Clear();
                     txtdireccion.Clear();
-                    mtbtelefono.Clear();
-                    txtnombre.Select();                   
+                    txtTelefono.Clear();
+                    txtnombre.Select();
 
                 }
                 catch (Exception ex)
@@ -69,35 +90,110 @@ namespace Proyecto2
 
         private void llblbuscar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            try
-            {
-                SqlConnection con = new SqlConnection(@" ");
+        }
 
-                con.Open();
-                string buscar = "Select * From Clientes where Cedula='" + mtbcedula.Text + "'";
-                SqlCommand cmd = new SqlCommand(buscar, con);
-                DataTable dt = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(buscar, con);
-                da.Fill(dt);
-
-                string nombre = dt.Rows[0]["Nombre"].ToString();
-                string apellido = dt.Rows[0]["Apellido"].ToString();
-                string cedula = dt.Rows[0]["Cedula"].ToString();
-                string direccion = dt.Rows[0]["Direccion"].ToString();
-                string telefono = dt.Rows[0]["Telefono"].ToString();
-                
-                
-                txtnombre.Text = nombre;
-                txtapellido.Text = apellido;
-                mtbcedula.Text = cedula;
-                txtdireccion.Text = direccion;
-                mtbtelefono.Text = telefono;
-                
-            }
-            catch (Exception ex)
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (txtnombre.Text == string.Empty || txtapellido.Text == string.Empty || txtCedula.Text == string.Empty || txtdireccion.Text == string.Empty || txtTelefono.Text == string.Empty)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Ingrese todos los datos.");
+                txtnombre.Select();
             }
+            else if(pClientes == null)
+            {
+                MessageBox.Show("No se ha cargado un cliente");
+            }
+            else
+            {
+                try {
+                    SqlConnection con = DataBase.connect();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "updateCliente";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@Nombre", SqlDbType.VarChar));
+                    cmd.Parameters["@Nombre"].Value = txtnombre.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Apellido", SqlDbType.VarChar));
+                    cmd.Parameters["@Apellido"].Value = txtapellido.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Direccion", SqlDbType.VarChar));
+                    cmd.Parameters["@Direccion"].Value = txtdireccion.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Telefono", SqlDbType.VarChar));
+                    cmd.Parameters["@Telefono"].Value = txtdireccion.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Cedula", SqlDbType.VarChar));
+                    cmd.Parameters["@Cedula"].Value = txtCedula.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@Celular", SqlDbType.VarChar));
+                    cmd.Parameters["@Celular"].Value = txtCelular.Text;
+
+                    cmd.Parameters.Add(new SqlParameter("@NoCliente", SqlDbType.Int));
+                    cmd.Parameters["@NoCliente"].Value = pClientes.codigo;
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cliente modificado exitosamente.");
+                    con.Close();
+                    txtnombre.Clear();
+                    txtapellido.Clear();
+                    txtCedula.Clear();
+                    txtdireccion.Clear();
+                    txtTelefono.Clear();
+                    txtnombre.Select();
+                    pClientes = null;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            if (txtnombre.Text == string.Empty || txtapellido.Text == string.Empty || txtCedula.Text == string.Empty || txtdireccion.Text == string.Empty || txtTelefono.Text == string.Empty)
+            {
+                MessageBox.Show("Ingrese todos los datos.");
+                txtnombre.Select();
+            }
+            else if (pClientes == null)
+            {
+                MessageBox.Show("No se ha cargado un cliente");
+            }
+            else {
+                try {
+                    SqlConnection con = DataBase.connect();
+                    SqlCommand cmd = new SqlCommand();
+                    cmd.Connection = con;
+                    cmd.CommandText = "updateCliente";
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cmd.Parameters.Add(new SqlParameter("@NoCliente", SqlDbType.Int));
+                    cmd.Parameters["@NoCliente"].Value = pClientes.codigo;
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Cliente modificado exitosamente.");
+                    con.Close();
+                    txtnombre.Clear();
+                    txtapellido.Clear();
+                    txtCedula.Clear();
+                    txtdireccion.Clear();
+                    txtTelefono.Clear();
+                    txtnombre.Select();
+                    pClientes = null;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            ConsultaClientes pConsulta = new ConsultaClientes();
 
         }
     }
