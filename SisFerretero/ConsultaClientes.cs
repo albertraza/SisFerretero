@@ -74,7 +74,7 @@ namespace SisFerretero
             if(cbFiltro.Text == "Telefono" || cbFiltro.Text == "Celular")
             {
                 txtBusqueda.Clear();
-                txtBusqueda.Mask = "(000)000-0000";
+                txtBusqueda.Mask = "(000) 000-0000";
                 txtBusqueda.Select();
             }
             else if(cbFiltro.Text == "Cedula")

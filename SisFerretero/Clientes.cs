@@ -167,14 +167,14 @@ namespace SisFerretero
                     SqlConnection con = DataBase.connect();
                     SqlCommand cmd = new SqlCommand();
                     cmd.Connection = con;
-                    cmd.CommandText = "updateCliente";
+                    cmd.CommandText = "deleteCliente";
                     cmd.CommandType = CommandType.StoredProcedure;
 
                     cmd.Parameters.Add(new SqlParameter("@NoCliente", SqlDbType.Int));
                     cmd.Parameters["@NoCliente"].Value = pClientes.codigo;
 
                     cmd.ExecuteNonQuery();
-                    MessageBox.Show("Cliente modificado exitosamente.");
+                    MessageBox.Show("Cliente Eliminado exitosamente.");
                     con.Close();
                     txtnombre.Clear();
                     txtapellido.Clear();
@@ -194,7 +194,30 @@ namespace SisFerretero
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             ConsultaClientes pConsulta = new ConsultaClientes();
+            pConsulta.menu = false;
+            pConsulta.ShowDialog();
 
+            try
+            {
+                if(pConsulta.pCliente != null)
+                {
+                    pClientes = pConsulta.pCliente;
+                    txtapellido.Text = pClientes.apellido;
+                    txtCedula.Text = pClientes.cedula;
+                    txtCelular.Text = pClientes.celular;
+                    txtdireccion.Text = pClientes.direccion;
+                    txtnombre.Text = pClientes.nombre;
+                    txtTelefono.Text = pClientes.telefono;
+                }
+                else
+                {
+                    MessageBox.Show("No se selecciono un Cliente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
