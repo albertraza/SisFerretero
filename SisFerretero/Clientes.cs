@@ -53,7 +53,7 @@ namespace SisFerretero
                     cmd.Parameters["@Direccion"].Value = txtdireccion.Text;
 
                     cmd.Parameters.Add(new SqlParameter("@Telefono", SqlDbType.VarChar));
-                    cmd.Parameters["@Telefono"].Value = txtdireccion.Text;
+                    cmd.Parameters["@Telefono"].Value = txtTelefono.Text;
 
                     cmd.Parameters.Add(new SqlParameter("@Cedula", SqlDbType.VarChar));
                     cmd.Parameters["@Cedula"].Value = txtCedula.Text;
