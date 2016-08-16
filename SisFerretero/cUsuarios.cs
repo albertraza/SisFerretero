@@ -11,13 +11,13 @@ namespace SisFerretero
     {
         public int NoUsuario { get; set; }
         public string Nombre_Usuario { get; set; }
-        public string Departamento { get; set; }
+        public string Empleado { get; set; }
 
         public cUsuarios() { }
         public cUsuarios(int nu, string d, string n)
         {
             NoUsuario = nu;
-            Departamento = d;
+            Empleado = d;
             Nombre_Usuario = n;
         }
 
@@ -45,7 +45,7 @@ namespace SisFerretero
                     cUsuarios pUsuarios = new cUsuarios();
                     pUsuarios.NoUsuario = Convert.ToInt32(re["NoUsuario"]);
                     pUsuarios.Nombre_Usuario = re["UserName"].ToString();
-                    pUsuarios.Departamento = re["Departamento"].ToString();
+                    pUsuarios.Empleado = re["Empleado"].ToString();
 
                     list.Add(pUsuarios);
                 }
@@ -72,7 +72,7 @@ namespace SisFerretero
                     cUsuarios pUsuarios = new cUsuarios();
                     pUsuarios.NoUsuario = Convert.ToInt32(re["NoUsuario"]);
                     pUsuarios.Nombre_Usuario = re["UserName"].ToString();
-                    pUsuarios.Departamento = re["Departamento"].ToString();
+                    pUsuarios.Empleado = re["Empleado"].ToString();
 
                     list.Add(pUsuarios);
                 }
@@ -86,14 +86,14 @@ namespace SisFerretero
     {
         public int codigo { get; set; }
         public string Nombre { get; set; }
-        public int codDepartamento { get; set; }
+        public int codEmpleado { get; set; }
 
         public baseUsuarios() { }
         public baseUsuarios(int c, string n, int d)
         {
             codigo = c;
             Nombre = n;
-            codDepartamento = d;
+            codEmpleado = d;
         }
 
         // metodo para obtener la info del usuario
@@ -118,7 +118,7 @@ namespace SisFerretero
                     {
                         pUser.codigo = Convert.ToInt32(re["NoUser"]);
                         pUser.Nombre = re["UserName"].ToString();
-                        pUser.codDepartamento = Convert.ToInt32(re["Departamento"]);
+                        pUser.codEmpleado = Convert.ToInt32(re["Empleado"]);
                     }
                 }
                 else
@@ -150,8 +150,8 @@ namespace SisFerretero
                 comand.Parameters.Add(new SqlParameter("@Password", System.Data.SqlDbType.VarChar));
                 comand.Parameters["@Password"].Value = contrasena;
 
-                comand.Parameters.Add(new SqlParameter("@Departamento", System.Data.SqlDbType.Int));
-                comand.Parameters["@Departamento"].Value = pUser.codDepartamento;
+                comand.Parameters.Add(new SqlParameter("@Empleado", System.Data.SqlDbType.Int));
+                comand.Parameters["@Empleado"].Value = pUser.codEmpleado;
 
                 if(comand.ExecuteNonQuery() > 0)
                 {
