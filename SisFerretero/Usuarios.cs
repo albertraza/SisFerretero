@@ -13,17 +13,20 @@ namespace SisFerretero
     public partial class Usuarios : Form
     {
         // metodo para cargar los departamentos en el combobox
-        private void getDepartamentos()
+        private void getEmpleados()
         {
-            cbDepartamento.Items.Clear();
+            cbEmpleado.Items.Clear();
             using(SqlConnection con = DataBase.connect())
             {
-                SqlCommand comand = new SqlCommand("select * from departamentos", con);
-                SqlDataReader re = comand.ExecuteReader();
-                while (re.Read())
-                {
-                    cbDepartamento.Items.Add(re["Nombre"]);
-                }
+                SqlCommand comand = new SqlCommand("select * from empleados", con);
+                SqlDataAdapter da = new SqlDataAdapter(comand);
+                DataTable dt = new DataTable("empleados");
+
+                da.Fill(dt);
+
+                cbEmpleado.DataSource = dt;
+                cbEmpleado.DisplayMember = "Nombre";
+                cbEmpleado.ValueMember = "codigo";
                 con.Close();
             }
         }
@@ -38,7 +41,7 @@ namespace SisFerretero
             this.txtcontraseña.Focus();
             try
             {
-                getDepartamentos();
+                getEmpleados();
             }
             catch(Exception ex)
             {
@@ -59,10 +62,10 @@ namespace SisFerretero
                 MessageBox.Show("Escriba una clave.");
                 txtcontraseña.Select();
             }
-            else if (cbDepartamento.Text == string.Empty)
+            else if (cbEmpleado.Text == string.Empty)
             {
                 MessageBox.Show("Seleccione un departamento");
-                cbDepartamento.Select();
+                cbEmpleado.Select();
             }
             else {
                 try
@@ -82,11 +85,8 @@ namespace SisFerretero
                         cmd.Parameters.Add(new SqlParameter("@Contrasena", SqlDbType.VarChar));
                         cmd.Parameters["@Contrasena"].Value = txtcontraseña.Text;
 
-                        cmd.Parameters.Add(new SqlParameter("@Nivel", SqlDbType.Int));
-                        cmd.Parameters["@Nivel"].Value = 10;
-
-                        cmd.Parameters.Add(new SqlParameter("@Departamento", SqlDbType.Int));
-                        cmd.Parameters["@Departamento"].Value = pDepartamento.NoDepartamento;
+                        cmd.Parameters.Add(new SqlParameter("@Empleado", SqlDbType.Int));
+                        cmd.Parameters["@Empleado"].Value = cbEmpleado.SelectedValue;
 
                         cmd.ExecuteNonQuery();
                         MessageBox.Show("Usuario creado exitosamente.");
@@ -94,8 +94,6 @@ namespace SisFerretero
                         txtusuario.Clear();
                         txtcontraseña.Clear();
                         txtusuario.Select();
-                        getDepartamentos();
-                        pDepartamento = null;
                     }
                     else
                     {
@@ -115,9 +113,12 @@ namespace SisFerretero
 
         // propiedad para guardar los usuarios
         private baseUsuarios pUser;
+
         // evento para buscar los usuarios
         private void btncancelar_Click_1(object sender, EventArgs e)
         {
+            // limpo las propiedades
+            pUser = null;
             try
             {
                 frmConsultaUsuarios pConsulta = new frmConsultaUsuarios();
@@ -126,8 +127,18 @@ namespace SisFerretero
                 if (pConsulta.pUser != null)
                 {
                     pUser = pConsulta.pUser;
+
+                    // valido si el empleado enlazado al usuario existe
+                    if (Empleados.getEmpleadoByNo(pUser.codEmpleado) != null)
+                    {
+                        cbEmpleado.Text = Empleados.getEmpleadoByNo(pUser.codEmpleado).Nombre;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Empleado enlazado a este usuario no existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
                     txtusuario.Text = pConsulta.pUser.Nombre;
-                    cbDepartamento.Text = departamento.getDepartamentoInfoByNumber(pConsulta.pUser.codDepartamento).Nombre;
                     btncrear.Enabled = false;
                     btnEliminar.Enabled = true;
                     btnModificar.Enabled = true;
@@ -144,33 +155,9 @@ namespace SisFerretero
             }
         }
 
-        // propiedad para almacenar el departamento del usuario
-        private departamento pDepartamento;
-
-        // evento que detecta si se ha seleccionado un departamento
         private void cbDepartamento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // se limpia la propiedad donde se almacenara el departamento
-            pDepartamento = null;
-
-            if(cbDepartamento.Text != string.Empty)
-            {
-                try
-                {
-                    if (departamento.getDepartamentoByName(cbDepartamento.Text) != null)
-                    {
-                        pDepartamento = departamento.getDepartamentoByName(cbDepartamento.Text);
-                    }
-                    else
-                    {
-                        MessageBox.Show("El Departamento no Existe", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                catch(Exception ex)
-                {
-                    MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+           // none...
         }
 
         // evento para modificar el usuario
@@ -187,10 +174,10 @@ namespace SisFerretero
                 MessageBox.Show("Escriba una clave.");
                 txtcontraseña.Select();
             }
-            else if (cbDepartamento.Text == string.Empty)
+            else if (cbEmpleado.Text == string.Empty)
             {
                 MessageBox.Show("Seleccione un departamento");
-                cbDepartamento.Select();
+                cbEmpleado.Select();
             }
             else
             {
@@ -199,14 +186,11 @@ namespace SisFerretero
                     try
                     {
                         pUser.Nombre = txtusuario.Text;
-                        pUser.codDepartamento = pDepartamento.NoDepartamento;
                         MessageBox.Show(baseUsuarios.updateUserInfo(pUser, txtcontraseña.Text), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         txtusuario.Clear();
                         txtcontraseña.Clear();
                         txtusuario.Select();
-                        getDepartamentos();
                         pUser = null;
-                        pDepartamento = null;
 
                         btncrear.Enabled = true;
                         btnModificar.Enabled = false;
@@ -231,9 +215,7 @@ namespace SisFerretero
                     txtusuario.Clear();
                     txtcontraseña.Clear();
                     txtusuario.Select();
-                    getDepartamentos();
                     pUser = null;
-                    pDepartamento = null;
 
                     btncrear.Enabled = true;
                     btnModificar.Enabled = false;

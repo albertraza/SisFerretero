@@ -36,8 +36,8 @@
             this.txtusuario = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.lblDepartamento = new System.Windows.Forms.Label();
-            this.cbDepartamento = new System.Windows.Forms.ComboBox();
+            this.lblEmpleado = new System.Windows.Forms.Label();
+            this.cbEmpleado = new System.Windows.Forms.ComboBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.pCerrar = new System.Windows.Forms.Panel();
@@ -124,27 +124,27 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btncancelar_Click_1);
             // 
-            // lblDepartamento
+            // lblEmpleado
             // 
-            this.lblDepartamento.AutoSize = true;
-            this.lblDepartamento.BackColor = System.Drawing.Color.Transparent;
-            this.lblDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDepartamento.Location = new System.Drawing.Point(97, 299);
-            this.lblDepartamento.Name = "lblDepartamento";
-            this.lblDepartamento.Size = new System.Drawing.Size(94, 16);
-            this.lblDepartamento.TabIndex = 50;
-            this.lblDepartamento.Text = "Departamento";
+            this.lblEmpleado.AutoSize = true;
+            this.lblEmpleado.BackColor = System.Drawing.Color.Transparent;
+            this.lblEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEmpleado.Location = new System.Drawing.Point(107, 299);
+            this.lblEmpleado.Name = "lblEmpleado";
+            this.lblEmpleado.Size = new System.Drawing.Size(71, 16);
+            this.lblEmpleado.TabIndex = 50;
+            this.lblEmpleado.Text = "Empleado";
             // 
-            // cbDepartamento
+            // cbEmpleado
             // 
-            this.cbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbDepartamento.FormattingEnabled = true;
-            this.cbDepartamento.Location = new System.Drawing.Point(89, 318);
-            this.cbDepartamento.Name = "cbDepartamento";
-            this.cbDepartamento.Size = new System.Drawing.Size(114, 24);
-            this.cbDepartamento.TabIndex = 51;
-            this.cbDepartamento.SelectedIndexChanged += new System.EventHandler(this.cbDepartamento_SelectedIndexChanged);
+            this.cbEmpleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEmpleado.FormattingEnabled = true;
+            this.cbEmpleado.Location = new System.Drawing.Point(89, 318);
+            this.cbEmpleado.Name = "cbEmpleado";
+            this.cbEmpleado.Size = new System.Drawing.Size(114, 24);
+            this.cbEmpleado.TabIndex = 51;
+            this.cbEmpleado.SelectedIndexChanged += new System.EventHandler(this.cbDepartamento_SelectedIndexChanged);
             // 
             // btnModificar
             // 
@@ -206,8 +206,8 @@
             this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.cbDepartamento);
-            this.Controls.Add(this.lblDepartamento);
+            this.Controls.Add(this.cbEmpleado);
+            this.Controls.Add(this.lblEmpleado);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btncrear);
@@ -241,8 +241,8 @@
         private System.Windows.Forms.TextBox txtusuario;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.Label lblDepartamento;
-        private System.Windows.Forms.ComboBox cbDepartamento;
+        private System.Windows.Forms.Label lblEmpleado;
+        private System.Windows.Forms.ComboBox cbEmpleado;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Panel pCerrar;
