@@ -79,3 +79,20 @@ C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Pr
 C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.Usuarios.resources
 C:\Users\user\Desktop\SisFerretero - Copy\SisFerretero\obj\Debug\SisFerretero.csproj.GenerateResource.Cache
 C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmConsultaSuplidores.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmReportes.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\Microsoft.ReportViewer.WinForms.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\Microsoft.SqlServer.Types.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmChooseDates.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\SisFerretero.frmReporteVentas.resources
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\RdlCompile.cache
+C:\FactoriadeProyectos\Sistema Ferretero\SisFerretero\SisFerretero\obj\Debug\RdlCompile.compiled
