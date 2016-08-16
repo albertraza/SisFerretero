@@ -34,6 +34,10 @@
             this.lblCerrar = new System.Windows.Forms.LinkLabel();
             this.pOcultar = new System.Windows.Forms.Panel();
             this.lblOcultar = new System.Windows.Forms.LinkLabel();
+            this.btnReporteVentas = new System.Windows.Forms.Button();
+            this.btnReporteCompras = new System.Windows.Forms.Button();
+            this.btnReporteUsuarios = new System.Windows.Forms.Button();
+            this.btnReorteProductos = new System.Windows.Forms.Button();
             this.pCerrar.SuspendLayout();
             this.pOcultar.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +79,7 @@
             this.lblCerrar.TabStop = true;
             this.lblCerrar.Text = "Cerrar";
             this.lblCerrar.VisitedLinkColor = System.Drawing.Color.WhiteSmoke;
+            this.lblCerrar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblCerrar_LinkClicked);
             // 
             // pOcultar
             // 
@@ -103,12 +108,57 @@
             this.lblOcultar.VisitedLinkColor = System.Drawing.Color.Black;
             this.lblOcultar.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblOcultar_LinkClicked);
             // 
+            // btnReporteVentas
+            // 
+            this.btnReporteVentas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteVentas.Location = new System.Drawing.Point(88, 102);
+            this.btnReporteVentas.Name = "btnReporteVentas";
+            this.btnReporteVentas.Size = new System.Drawing.Size(245, 58);
+            this.btnReporteVentas.TabIndex = 4;
+            this.btnReporteVentas.Text = "Reporte de Ventas";
+            this.btnReporteVentas.UseVisualStyleBackColor = true;
+            this.btnReporteVentas.Click += new System.EventHandler(this.btnReporteVentas_Click);
+            // 
+            // btnReporteCompras
+            // 
+            this.btnReporteCompras.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteCompras.Location = new System.Drawing.Point(88, 209);
+            this.btnReporteCompras.Name = "btnReporteCompras";
+            this.btnReporteCompras.Size = new System.Drawing.Size(245, 58);
+            this.btnReporteCompras.TabIndex = 5;
+            this.btnReporteCompras.Text = "Reporte Entrada Productos";
+            this.btnReporteCompras.UseVisualStyleBackColor = true;
+            // 
+            // btnReporteUsuarios
+            // 
+            this.btnReporteUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReporteUsuarios.Location = new System.Drawing.Point(421, 102);
+            this.btnReporteUsuarios.Name = "btnReporteUsuarios";
+            this.btnReporteUsuarios.Size = new System.Drawing.Size(245, 58);
+            this.btnReporteUsuarios.TabIndex = 6;
+            this.btnReporteUsuarios.Text = "Reporte Usuarios";
+            this.btnReporteUsuarios.UseVisualStyleBackColor = true;
+            // 
+            // btnReorteProductos
+            // 
+            this.btnReorteProductos.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReorteProductos.Location = new System.Drawing.Point(421, 209);
+            this.btnReorteProductos.Name = "btnReorteProductos";
+            this.btnReorteProductos.Size = new System.Drawing.Size(245, 58);
+            this.btnReorteProductos.TabIndex = 7;
+            this.btnReorteProductos.Text = "Reporte de Productos";
+            this.btnReorteProductos.UseVisualStyleBackColor = true;
+            // 
             // frmReportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(757, 343);
+            this.Controls.Add(this.btnReorteProductos);
+            this.Controls.Add(this.btnReporteUsuarios);
+            this.Controls.Add(this.btnReporteCompras);
+            this.Controls.Add(this.btnReporteVentas);
             this.Controls.Add(this.pCerrar);
             this.Controls.Add(this.pOcultar);
             this.Controls.Add(this.label1);
@@ -134,5 +184,9 @@
         private System.Windows.Forms.LinkLabel lblCerrar;
         private System.Windows.Forms.Panel pOcultar;
         private System.Windows.Forms.LinkLabel lblOcultar;
+        private System.Windows.Forms.Button btnReporteVentas;
+        private System.Windows.Forms.Button btnReporteCompras;
+        private System.Windows.Forms.Button btnReporteUsuarios;
+        private System.Windows.Forms.Button btnReorteProductos;
     }
 }

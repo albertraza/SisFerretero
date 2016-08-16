@@ -40,12 +40,37 @@ namespace SisFerretero
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
         private void pCerrar_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Esta seguro que desea cerrar la ventana?", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
+            }
+        }
+        private void lblCerrar_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (MessageBox.Show("Esta seguro que desea cerrar la ventana?", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        // reporte ventas
+        private void btnReporteVentas_Click(object sender, EventArgs e)
+        {
+            DateTime fechaReporte;
+            frmChooseDates pDates = new frmChooseDates();
+            pDates.ShowDialog();
+            if (pDates.selecion)
+            {
+                fechaReporte = pDates.fechaSeleccionada;
+                frmReporteVentas pReporte = new frmReporteVentas();
+                pReporte.fechaReporte = fechaReporte;
+                pReporte.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono una fecha de venta", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
