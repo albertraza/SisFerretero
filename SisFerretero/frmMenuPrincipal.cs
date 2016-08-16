@@ -244,5 +244,10 @@ namespace SisFerretero
                 MessageBox.Show(ex.Message, Application.ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void reportesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmReportes().Show();
+        }
     }
 }
