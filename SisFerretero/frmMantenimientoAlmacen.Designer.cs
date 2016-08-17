@@ -56,6 +56,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.lblAnadir = new System.Windows.Forms.LinkLabel();
             this.pOcultar.SuspendLayout();
             this.pCerrar.SuspendLayout();
             this.gnInformacionProducto.SuspendLayout();
@@ -124,6 +125,7 @@
             // gnInformacionProducto
             // 
             this.gnInformacionProducto.BackColor = System.Drawing.Color.SandyBrown;
+            this.gnInformacionProducto.Controls.Add(this.lblAnadir);
             this.gnInformacionProducto.Controls.Add(this.gbImpuesto);
             this.gnInformacionProducto.Controls.Add(this.txtCodigo);
             this.gnInformacionProducto.Controls.Add(this.lblCodigoProducto);
@@ -400,6 +402,22 @@
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
+            // lblAnadir
+            // 
+            this.lblAnadir.AutoSize = true;
+            this.lblAnadir.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAnadir.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
+            this.lblAnadir.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.lblAnadir.Location = new System.Drawing.Point(225, 112);
+            this.lblAnadir.Name = "lblAnadir";
+            this.lblAnadir.Size = new System.Drawing.Size(25, 25);
+            this.lblAnadir.TabIndex = 2;
+            this.lblAnadir.TabStop = true;
+            this.lblAnadir.Text = "+";
+            this.lblAnadir.Visible = false;
+            this.lblAnadir.VisitedLinkColor = System.Drawing.Color.Lime;
+            this.lblAnadir.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblAnadir_LinkClicked);
+            // 
             // frmMantenimientoAlmacen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -470,5 +488,6 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.LinkLabel lblAnadir;
     }
 }

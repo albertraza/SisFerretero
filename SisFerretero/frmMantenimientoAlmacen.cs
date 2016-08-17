@@ -54,6 +54,10 @@ namespace SisFerretero
             pProducto = null;
             btnRegistrar.Enabled = true;
             btnModificar.Enabled = false;
+            nCantExistente.Enabled = true;
+            lblAnadir.Visible = false;
+            cantPrevia = 0;
+            Entrada = false;
         }
 
         public frmMantenimientoAlmacen()
@@ -369,6 +373,8 @@ namespace SisFerretero
                     // se desactivan y se activan lod botones
                     btnRegistrar.Enabled = false;
                     btnModificar.Enabled = true;
+                    nCantExistente.Enabled = false;
+                    lblAnadir.Visible = true;
                 }
             }
             catch(Exception ex)
@@ -383,7 +389,7 @@ namespace SisFerretero
             if(pProducto != null)
             {
                 pProducto.nombre = txtNombre.Text;
-                pProducto.cantExistente = Convert.ToInt32(nCantExistente.Value);
+                pProducto.cantExistente = Convert.ToInt32(nCantExistente.Value) + cantPrevia;
 
                 // se toma el codigo de la categoria seleccionada
                 pProducto.codigoCategoria = codigoCategoria;
@@ -414,6 +420,18 @@ namespace SisFerretero
                 try
                 {
                     MessageBox.Show(baseProductos.update(pProducto), "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                    // se evalua si se entraron nuevos productos al inventario
+                    if (Entrada)
+                    {
+                        EntradaProductos pEntrada = new EntradaProductos();
+                        pEntrada.codigoProducto = pProducto.codigo;
+                        pEntrada.codigoSuplidor = pProducto.codigoSuplidor;
+                        pEntrada.CantidadComprada = Convert.ToInt32(nCantExistente.Value);
+                        pEntrada.fechaEntrada = Convert.ToDateTime(DateTime.Now.ToString("MM-dd-yyyy"));
+
+                        EntradaProductos.registerEntrada(pEntrada);
+                    }
                 }
                 catch(Exception ex)
                 {
@@ -424,6 +442,25 @@ namespace SisFerretero
             {
                 MessageBox.Show("No se ha cargado un producto", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 btnBuscar.Focus();
+            }
+        }
+
+        // propiedad para almacenar la cantidad previa de productos
+        private int cantPrevia;
+
+        // propiedad para detectar si se agrego mas productos al almacen
+        private bool Entrada;
+
+        private void lblAnadir_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            cantPrevia = 0;
+            if(MessageBox.Show("Desea añadir mas productos al almacen?", "Mensaje", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                cantPrevia = Convert.ToInt32(nCantExistente.Value);
+                nCantExistente.Value = 0;
+                nCantExistente.Enabled = true;
+                nCantExistente.Select();
+                Entrada = true;
             }
         }
     }
