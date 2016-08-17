@@ -79,7 +79,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.groupBox1.Controls.Add(this.dtpFecha);
             this.groupBox1.Location = new System.Drawing.Point(103, 70);
             this.groupBox1.Name = "groupBox1";
