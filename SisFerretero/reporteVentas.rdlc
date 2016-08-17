@@ -127,7 +127,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>CodigoProducto</rd:DefaultName>
@@ -187,7 +189,9 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>CantidadVentida</rd:DefaultName>
@@ -202,6 +206,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -229,7 +234,7 @@
         <Top>1.12375in</Top>
         <Left>0.66542in</Left>
         <Height>0.5in</Height>
-        <Width>4.44792in</Width>
+        <Width>4.44791in</Width>
         <Style>
           <Border>
             <Style>None</Style>

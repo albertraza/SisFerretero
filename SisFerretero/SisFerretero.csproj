@@ -64,6 +64,7 @@
     <Compile Include="ConsultaClientes.designer.cs">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="EntradaProductos.cs" />
     <Compile Include="frmChooseDates.cs">
       <SubType>Form</SubType>
     </Compile>
